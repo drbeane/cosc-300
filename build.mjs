@@ -1,0 +1,244 @@
+// Builds the course site from content/ into dist/.
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+const root = import.meta.dirname;
+const dist = path.join(root, 'dist');
+const course = JSON.parse(fs.readFileSync(path.join(root, 'content/course.json'), 'utf8'));
+
+const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
+const has = (p) => fs.existsSync(path.join(root, p));
+const write = (p, html) => {
+  const file = path.join(dist, p);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, html);
+};
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+const pad = (n) => String(n).padStart(2, '0');
+const slug = (s) => s.replace(/<[^>]+>/g, '').toLowerCase().replace(/&[a-z]+;/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const stageOf = (wk) => course.stages.find((s) => s.n === wk.stage);
+
+// Every session in order, with what has been posted for it.
+const sessions = course.weeks.flatMap((wk) =>
+  wk.sessions.map((title, i) => {
+    const id = `w${pad(wk.n)}-s${i + 1}`;
+    return { id, wk, n: i + 1, title, lesson: has(`content/lessons/${id}.md`), slides: has(`content/slides/${id}.md`) };
+  })
+);
+
+const FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">';
+const NAV = [['lessons', 'Lessons'], ['slides', 'Slides'], ['demos', 'Demos'], ['resources', 'Resources']];
+
+function page({ title, section, body }) {
+  const nav = NAV.map(([s, label]) => `<a href="/${s}/"${s === section ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title ? `${title} | ${course.title}` : course.title)}</title>
+${FONTS}
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/">${esc(course.title)}</a>
+  <nav aria-label="Sections">${nav}</nav>
+</header>
+<main>
+${body}
+</main>
+<footer class="foot">${esc(course.code)}, ${esc(course.school)}, ${esc(course.term)}</footer>
+</body>
+</html>
+`;
+}
+
+// Markdown to HTML, with ids on h2 headings and scrollable tables.
+function render(md) {
+  const toc = [];
+  let html = marked.parse(md);
+  html = html.replace(/<h2>(.*?)<\/h2>/g, (_, t) => {
+    const id = slug(t);
+    toc.push({ id, text: t.replace(/<[^>]+>/g, '') });
+    return `<h2 id="${id}">${t}</h2>`;
+  });
+  html = html.replace(/<table>/g, '<div class="scroll"><table>').replace(/<\/table>/g, '</table></div>');
+  html = html.replace(/<a href="http/g, '<a rel="noopener" href="http');
+  return { html, toc };
+}
+
+const tocNav = (toc) =>
+  `<nav class="toc" aria-label="On this page"><p>On this page</p><ol>${toc.map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>`;
+
+// ---------- Home ----------
+function home() {
+  const steps = course.stages.map((st) => {
+    const weeks = course.weeks.filter((w) => w.stage === st.n).map((w) =>
+      `<li><a href="/lessons/#w${pad(w.n)}"><span class="wk">Week ${w.n}</span><span class="tp">${esc(w.topic)}</span><span class="as">${esc(w.assignment)}</span></a></li>`
+    ).join('');
+    return `<section class="step s${st.n}" style="--n:${st.n === 7 ? 0 : st.n - 1}"><h2>${esc(st.name)}</h2><ol>${weeks}</ol></section>`;
+  }).join('\n');
+  return page({
+    body: `<div class="hero">
+  <h1>${esc(course.title)}</h1>
+  <p class="where">${esc(course.code)} at ${esc(course.school)}, ${esc(course.term)}. ${esc(course.meets)}.</p>
+  <p class="lede">The course is ordered by autonomy. Each stage hands the AI more to do on its own, and asks more supervision from you.</p>
+</div>
+<div class="stairs">
+  <div class="axis" aria-hidden="true"><span>You do the work</span><i></i><span>The AI does the work</span></div>
+${steps}
+</div>`,
+  });
+}
+
+// ---------- Lessons and Slides indexes ----------
+function index(kind) {
+  const isLessons = kind === 'lessons';
+  const blocks = course.weeks.map((wk) => {
+    const rows = sessions.filter((s) => s.wk === wk).map((s) => {
+      const posted = isLessons ? s.lesson : s.slides;
+      const name = posted ? `<a href="/${kind}/${s.id}/">${esc(s.title)}</a>` : `<span>${esc(s.title)}</span>`;
+      return `<li><span class="sn">Session ${s.n}</span>${name}${posted ? '' : '<span class="soon">Not posted yet</span>'}</li>`;
+    }).join('');
+    return `<section class="week s${wk.stage}" id="w${pad(wk.n)}">
+  <header><p class="wk">Week ${wk.n}</p><h2>${esc(wk.topic)}</h2></header>
+  <ul class="sess">${rows}</ul>
+  ${isLessons ? `<p class="about">Assignment: ${esc(wk.assignment)}. This week's focus: ${esc(wk.focus)}.</p>` : ''}
+</section>`;
+  }).join('\n');
+  return page({
+    title: isLessons ? 'Lessons' : 'Slides',
+    section: kind,
+    body: `<div class="head"><h1>${isLessons ? 'Lessons' : 'Slides'}</h1>
+<p>${isLessons
+      ? 'The full text for each class session, two per week. Read it before class or use it to review afterward.'
+      : 'The decks presented in class, one per session. Use the arrow keys to move through a deck and press F for full screen.'}</p></div>
+<div class="weeks">
+${blocks}
+</div>`,
+  });
+}
+
+// ---------- One lesson ----------
+function lesson(s) {
+  let md = read(`content/lessons/${s.id}.md`).replace(/^# .*\n+/, '');
+  let facts = [];
+  md = md.replace(/^\*\*COSC-300\/500 Applied AI Essentials\*\* · (.*)\n/, (_, m) => { facts = m.split(' · '); return ''; });
+  const { html, toc } = render(md);
+  const posted = sessions.filter((x) => x.lesson);
+  const at = posted.indexOf(s);
+  const prev = posted[at - 1], next = posted[at + 1];
+  const link = (x, label) => x ? `<a href="/lessons/${x.id}/"><span>${label}</span>${esc(x.title)}</a>` : '<span></span>';
+  return page({
+    title: s.title,
+    section: 'lessons',
+    body: `<article class="lesson s${s.wk.stage}">
+  <header class="lhead">
+    <p class="wk">Week ${s.wk.n}, Session ${s.n}</p>
+    <h1>${esc(s.title)}</h1>
+    <ul class="facts">${facts.map((f) => `<li>${marked.parseInline(f)}</li>`).join('')}</ul>
+    ${s.slides ? `<p><a class="btn" href="/slides/${s.id}/">Open the slides</a></p>` : ''}
+  </header>
+  <div class="cols">
+    ${tocNav(toc)}
+    <div class="prose">${html}</div>
+  </div>
+  <nav class="pager" aria-label="Other lessons">${link(prev, 'Previous')}${link(next, 'Next')}</nav>
+</article>`,
+  });
+}
+
+// ---------- One slide deck ----------
+function deck(s) {
+  const slides = read(`content/slides/${s.id}.md`).split(/\n---\n/).map((part) => {
+    const html = marked.parse(part.trim());
+    return `<section class="slide${/^\s*<h1/.test(html) ? ' lead' : ''}">${html}</section>`;
+  }).join('\n');
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(`Slides: ${s.title} | ${course.title}`)}</title>
+${FONTS}
+<link rel="stylesheet" href="/assets/deck.css">
+</head>
+<body class="s${s.wk.stage}">
+<div class="stage" id="stage">
+${slides}
+</div>
+<div class="bar">
+  <a href="/slides/#w${pad(s.wk.n)}">All slides</a>
+  ${s.lesson ? `<a href="/lessons/${s.id}/">Read the lesson</a>` : ''}
+  <span class="grow"></span>
+  <button id="prev" aria-label="Previous slide">Back</button>
+  <span id="count" aria-live="polite"></span>
+  <button id="next" aria-label="Next slide">Next</button>
+  <button id="full">Full screen</button>
+</div>
+<script src="/assets/deck.js"></script>
+</body>
+</html>
+`;
+}
+
+// ---------- Demos ----------
+function demos() {
+  const items = course.demos.map((d) => {
+    const posted = has(`content/demos/${d.slug}.html`);
+    const weeks = `Week${d.weeks.length > 1 ? 's' : ''} ${d.weeks.join(' and ')}`;
+    const wk = course.weeks.find((w) => w.n === d.weeks[0]);
+    return `<li class="demo s${wk.stage}">
+  <h2>${posted ? `<a href="/demos/${d.slug}/">${esc(d.name)}</a>` : esc(d.name)}</h2>
+  <p>${esc(d.about)}</p>
+  <p class="about">${weeks}${posted ? '' : '<span class="soon">Not posted yet</span>'}</p>
+</li>`;
+  }).join('\n');
+  return page({
+    title: 'Demos',
+    section: 'demos',
+    body: `<div class="head"><h1>Demos</h1>
+<p>Small interactive models of ideas from the course. They run in your browser and need no account. Each one simplifies the real thing so you can see how it works.</p></div>
+<ul class="demos">
+${items}
+</ul>`,
+  });
+}
+
+// ---------- Resources ----------
+function resources() {
+  const { html, toc } = render(read('content/resources.md'));
+  return page({
+    title: 'Resources',
+    section: 'resources',
+    body: `<div class="head"><h1>Resources</h1>
+<p>Videos, short courses, articles, and standards that go with each week. Everything is free unless it says otherwise.</p></div>
+<div class="cols wide">
+  ${tocNav(toc)}
+  <div class="prose res">${html}</div>
+</div>`,
+  });
+}
+
+// ---------- Build ----------
+fs.rmSync(dist, { recursive: true, force: true });
+fs.mkdirSync(path.join(dist, 'assets'), { recursive: true });
+for (const f of fs.readdirSync(path.join(root, 'src'))) fs.copyFileSync(path.join(root, 'src', f), path.join(dist, 'assets', f));
+
+write('index.html', home());
+write('lessons/index.html', index('lessons'));
+write('slides/index.html', index('slides'));
+write('demos/index.html', demos());
+if (has('content/resources.md')) write('resources/index.html', resources());
+for (const s of sessions) {
+  if (s.lesson) write(`lessons/${s.id}/index.html`, lesson(s));
+  if (s.slides) write(`slides/${s.id}/index.html`, deck(s));
+}
+for (const d of course.demos) {
+  const src = `content/demos/${d.slug}.html`;
+  if (has(src)) write(`demos/${d.slug}/index.html`, read(src));
+}
+write('404.html', page({ title: 'Page not found', body: '<div class="head"><h1>Page not found</h1><p>That page is not on this site. Start again from the <a href="/">course map</a>.</p></div>' }));
+console.log(`Built ${sessions.filter((s) => s.lesson).length} lessons and ${sessions.filter((s) => s.slides).length} decks.`);
