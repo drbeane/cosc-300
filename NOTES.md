@@ -14,6 +14,10 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - Claude picks the replacement. Keep a casual, approachable feel, but drop the quirky letterforms. Avoid anything too similar to Bricolage.
    - Do not use Bricolage or anything like it in the content. The slides in particular should not use the same font as the rest of the site.
 
+3. **Resources: reorder the course-long references.**
+   - The first entry should be the Claude documentation and Claude support center. It is already in the list, so it moves to the top.
+   - The second entry should be Claude Academy. It is not in the course-long list yet, so it needs adding.
+
 ## Done
 
 (none yet)
