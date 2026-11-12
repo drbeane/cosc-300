@@ -9,6 +9,11 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - Remove the staircase layout. Robbie finds it clever but not well designed. Drop the staggered indentation and the "You do the work" to "The AI does the work" axis.
    - Keep the stage groupings (Chat with an AI, Ground it in sources and files, Let it act on your computer, and so on), laid out plainly with no stagger.
 
+2. **Replace the main font, Bricolage Grotesque.**
+   - Robbie finds it goofy and cartoony. It is used for headings, navigation, tables, and everywhere in the slides.
+   - Claude picks the replacement. Keep a casual, approachable feel, but drop the quirky letterforms. Avoid anything too similar to Bricolage.
+   - Do not use Bricolage or anything like it in the content. The slides in particular should not use the same font as the rest of the site.
+
 ## Done
 
 (none yet)
