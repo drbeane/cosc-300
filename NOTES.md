@@ -1,0 +1,14 @@
+# Site edit notes
+
+Edits Robbie wants made to the site, in the order he gave them. Mark an item done when it ships.
+
+## Open
+
+1. **Home page: play down the autonomy theme.**
+   - The line "The course is ordered by autonomy. Each stage hands the AI more to do on its own, and asks more supervision from you." is too prominent as the first thing students see. Autonomy is fine as a theme and worth mentioning somewhere, but not front and center.
+   - Remove the staircase layout. Robbie finds it clever but not well designed. Drop the staggered indentation and the "You do the work" to "The AI does the work" axis.
+   - Keep the stage groupings (Chat with an AI, Ground it in sources and files, Let it act on your computer, and so on), laid out plainly with no stagger.
+
+## Done
+
+(none yet)
