@@ -1,0 +1,40 @@
+{
+  "title": "Applied AI Essentials",
+  "code": "COSC 300 and COSC 500",
+  "term": "Spring 2027",
+  "school": "Maryville University",
+  "meets": "Tuesdays and Thursdays, 8:00 to 9:15",
+  "stages": [
+    { "n": 1, "name": "Chat with an AI" },
+    { "n": 2, "name": "Ground it in sources and files" },
+    { "n": 3, "name": "Let it act on your computer" },
+    { "n": 4, "name": "Have it build software" },
+    { "n": 5, "name": "Build with it directly" },
+    { "n": 6, "name": "Agents that work while you're away" },
+    { "n": 7, "name": "Put it all together" }
+  ],
+  "weeks": [
+    { "n": 1, "stage": 1, "topic": "How AI systems work", "focus": "Delegation", "assignment": "Three-vendor comparison", "sessions": ["How LLMs Work and How AI Is Delivered", "Vendors, Models, and the Three-Vendor Lab"] },
+    { "n": 2, "stage": 1, "topic": "Prompting and context", "focus": "Description", "assignment": "Prompt revision log", "sessions": ["Writing Strong Prompts and Understanding Context", "Memory, Voice, and the Prompt Revision Lab"] },
+    { "n": 3, "stage": 1, "topic": "Evaluating AI output", "focus": "Discernment", "assignment": "Fact-check and failure report", "sessions": ["Why AI Output Is Wrong and How to Check It", "Effort, Models, and the Failure Gallery"] },
+    { "n": 4, "stage": 2, "topic": "Research and grounded knowledge work", "focus": "Discernment", "assignment": "Research brief with citation audit", "sessions": ["Writing with AI and Working in Projects", "Research Agents, Grounded Notebooks, and Citations"] },
+    { "n": 5, "stage": 2, "topic": "Documents, data, and media", "focus": "Description", "assignment": "Data-to-deliverable package", "sessions": ["Structured Files and Data Analysis", "Creating Files, Multimodal Input, and Generative Media"] },
+    { "n": 6, "stage": 3, "topic": "Local agents", "focus": "Delegation", "assignment": "Folder-scale delegation task", "sessions": ["From Chat to Agent", "Autonomy Controls and the Folder-Scale Lab"] },
+    { "n": 7, "stage": 3, "topic": "Instruction files and skills", "focus": "Description", "assignment": "Write and test a skill", "sessions": ["Standing Instructions and Writing Skills", "Plugins and the Skill Lab"] },
+    { "n": 8, "stage": 3, "topic": "Connectors, browser agents, and agent security", "focus": "Diligence", "assignment": "Midterm project: agent workflow", "sessions": ["Connectors, Browser Agents, and Scheduled Tasks", "Agent Security and the Midterm Lab"] },
+    { "n": 9, "stage": 4, "topic": "Coding with AI I", "focus": "Delegation", "assignment": "First app from a spec", "sessions": ["The Development Environment and Claude Code", "Comparing Assistants and Building from a Spec"] },
+    { "n": 10, "stage": 4, "topic": "Coding with AI II", "focus": "Discernment", "assignment": "Spec-driven build with tests", "sessions": ["Specification-Driven Work and Code Review", "Debugging and the Capstone Briefing"] },
+    { "n": 11, "stage": 5, "topic": "AI engineering I", "focus": "Description", "assignment": "First API program with tool use", "sessions": ["From Chat to API", "Tool Use, Workflows, and Agents"] },
+    { "n": 12, "stage": 5, "topic": "AI engineering II", "focus": "Discernment", "assignment": "Mini RAG app or MCP server with an eval", "sessions": ["Retrieval and Evaluation", "MCP from the Inside and Capstone Checkpoint"] },
+    { "n": 13, "stage": 6, "topic": "Always-on assistants", "focus": "Diligence", "assignment": "Always-on agent field test", "sessions": ["Always-On Assistants and Safe Setup", "Always-On Risks and the Field Test"] },
+    { "n": 14, "stage": 7, "topic": "AI in organizations", "focus": "Diligence", "assignment": "Capstone draft and peer review", "sessions": ["Choosing Tools, Data Governance, and Accountability", "AI Policy and Capstone Peer Review"] },
+    { "n": 15, "stage": 7, "topic": "Capstone and synthesis", "focus": "All four", "assignment": "Capstone final", "sessions": ["Capstone Presentations I", "Presentations II and Course Synthesis"] }
+  ],
+  "demos": [
+    { "slug": "next-token-sampler", "name": "Next-token sampler", "weeks": [1], "about": "Watch a model pick one token at a time, and see why the same prompt gives different answers on different runs." },
+    { "slug": "context-window", "name": "Context window budget", "weeks": [2, 9], "about": "Fill a context window with instructions, files, and conversation, and see what gets crowded out." },
+    { "slug": "prompt-injection", "name": "Prompt injection sandbox", "weeks": [8], "about": "Hide instructions in a document and see when an agent follows them and which safeguards stop it." },
+    { "slug": "tool-use-tracer", "name": "Tool-use tracer", "weeks": [11], "about": "Step through one tool call, from the model's request to the program's reply and back." },
+    { "slug": "rag-explorer", "name": "Retrieval and evaluation explorer", "weeks": [12], "about": "Change how documents are chunked and retrieved, then score the answers against a test set." }
+  ]
+}
