@@ -1,0 +1,15 @@
+{
+  "name": "cosc-300",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "sync": "node tools/sync.mjs"
+  },
+  "dependencies": {
+    "marked": "^14.1.0"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}
