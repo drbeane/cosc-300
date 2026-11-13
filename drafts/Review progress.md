@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 13 are done and pushed. **Resume at W14-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
+Last updated 2026-11-13. Weeks 2 to 14 are done and pushed. **Resume at W15-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -73,11 +73,11 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W13-T2 Setting up an always-on agent safely | expanded | Was 254 words. Added the reason for each rule, a permission record, a multi-day brief, shutting down |
 | W13-T3 Always-on risks and when it is worth it | expanded | Added the attention risk, a monitoring table, five questions and worked verdicts |
 | W13-Lab Always-on agent field test | fine |  |
-| W14-T1 Choosing tools for an organization | to do | |
-| W14-T2 Data governance and local models | to do | |
-| W14-T3 Bias, reliability, and accountability | to do | |
-| W14-T4 Workforce effects and AI-use policy | to do | |
-| W14-Lab Capstone draft and peer review | to do | |
+| W14-T1 Choosing tools for an organization | expanded | Added a factor table, setting priorities, running a pilot, questions for a new job |
+| W14-T2 Data governance and local models | expanded | Added what governance is, data levels, shadow AI, cloud vs local table |
+| W14-T3 Bias, reliability, and accountability | expanded | Was 253 words. Added sections on bias, reliability at scale, accountability, oversight arrangements, automation bias |
+| W14-T4 Workforce effects and AI-use policy | expanded | Added tasks vs jobs table, advice for early career, sample policy wording, testing a draft |
+| W14-Lab Capstone draft and peer review | fine |  |
 | W15-T1 Capstone presentations | to do | |
 | W15-T2 Course synthesis | to do | |
 | W15-Lab Capstone final | to do | |

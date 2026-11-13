@@ -126,3 +126,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 25. **Lesson review: Week 13 expanded.** (2026-11-13)
    - The three Week 13 topics and their decks gained general guidance: triggers and check-ins, the reason for each setup rule, a permission record, a brief for a multi-day task, how to shut an agent down, a monitoring table, and five questions for deciding whether an always-on agent is worth it.
    - No product facts about Muse, dots or OpenClaw were added or changed. The existing instructor note still applies: verify them on the vendors' own pages before class.
+
+26. **Lesson review: Week 14 expanded.** (2026-11-13)
+   - All four Week 14 topics and their decks were expanded: a factor table and pilot plan for choosing tools, data sensitivity levels and shadow AI, full sections on bias, reliability and accountability, and sample wording for each section of an AI-use policy. The lab page was left as it was.
+   - The workforce section says plainly that the size and speed of the effects are uncertain. It cites no statistics.
