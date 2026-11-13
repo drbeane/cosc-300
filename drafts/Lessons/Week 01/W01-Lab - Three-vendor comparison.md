@@ -56,7 +56,3 @@ Run one realistic task from your own coursework or job on three chat tools and o
 - Claude Academy: **AI Fluency: Framework and foundations**, lessons 8–9.
 - Optional: **AI Fluency for students**.
 - Write your first AI use journal entry.
-
-## Key terms
-
-**Model card / system card**: a vendor's published description of a model's capabilities, testing, and limits.
