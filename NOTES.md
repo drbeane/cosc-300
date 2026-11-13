@@ -122,3 +122,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 24. **Lesson review: Week 12 expanded.** (2026-11-13)
    - "Evaluation" went from 210 words to a full lesson with a sample test set, a grader rubric and guidance on reading failures. "Retrieval-augmented generation" and "MCP from the inside" gained worked examples and sections on telling which part of a system failed. The lab page was left as it was.
    - The example MCP server code is illustrative, as the instructor note already says. Check it against the current SDK before class.
+
+25. **Lesson review: Week 13 expanded.** (2026-11-13)
+   - The three Week 13 topics and their decks gained general guidance: triggers and check-ins, the reason for each setup rule, a permission record, a brief for a multi-day task, how to shut an agent down, a monitoring table, and five questions for deciding whether an always-on agent is worth it.
+   - No product facts about Muse, dots or OpenClaw were added or changed. The existing instructor note still applies: verify them on the vendors' own pages before class.

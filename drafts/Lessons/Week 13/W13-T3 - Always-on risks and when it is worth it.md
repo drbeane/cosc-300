@@ -7,6 +7,7 @@
 ## What you will be able to do
 
 - Weigh the privacy and security trade-offs of an always-on agent.
+- Monitor an always-on agent and recognize a run that is going wrong.
 - Decide when an always-on agent is worth it compared with a scheduled task.
 
 ## Three risks
@@ -25,6 +26,24 @@ There's no plan review before each action. An error early in a multi-day task ca
 
 Recall the **dangerous combination** from week 8: private data, untrusted content, and the ability to send data out. An always-on agent connected to your email has all three, running around the clock. That's why this week's setup uses a throwaway account.
 
+### A fourth: you stop paying attention
+
+The first three risks concern the agent and the vendor. The fourth is yours. Check-ins arrive in a messaging app, among everything else. After a week of harmless ones you approve them without reading, and after a month you stop opening the daily message. This is the approval fatigue of Week 6 over a longer period, and an agent that works well makes it worse, because a reliable agent gives you less reason to look.
+
+## Monitoring
+
+Since nothing puts the agent's work in front of you, set up the looking yourself:
+
+| Check | How often | What you're looking for |
+|---|---|---|
+| The activity history | Daily during a new task | Actions you didn't expect. Sites or accounts outside the brief. |
+| The output | Each time it arrives | Is it right? Spot-check one item against its source. |
+| Approval requests | Each one, before answering | Does this request follow from the task I gave? |
+| The connections list | Weekly | Anything connected that the task no longer needs |
+| Whether it's still needed | Monthly | Am I still reading what it produces? |
+
+Decide in advance what would make you shut it off, and write it down. In the lab you'll record this as part of your monitoring plan. Reasonable conditions: an action outside the brief, an approval request the task doesn't explain, output that contains unexplained instructions or links, or three days in which you didn't read what it sent.
+
 ## When is an always-on agent worth it?
 
 For many jobs, a scheduled task does the same work with less risk.
@@ -38,4 +57,29 @@ For many jobs, a scheduled task does the same work with less risk.
 
 An always-on agent earns its risk when the job really requires reacting to things as they happen: a reply that arrives, a price that drops, a message that needs routing. If the job is "every morning, summarize these sources," a scheduled task is simpler and safer.
 
+### Weighing a specific case
+
+For any task you're thinking of handing to an always-on agent, work through five questions:
+
+1. **Does the timing depend on events?** If a fixed schedule would do, use a scheduled task.
+2. **What access does it need?** List each account, and whether read access is enough.
+3. **What is the worst thing it could do with that access?** Consider a mistake, and consider an injected instruction.
+4. **Would I notice?** How, and how soon?
+5. **What does it save me?** Minutes a day, or a task I'd otherwise forget?
+
+| Task | Verdict | Reasoning |
+|---|---|---|
+| "Tell me when this textbook drops below $40." | Reasonable | Event-driven. Needs no private data and no ability to buy. The worst case is a missed or false alert. |
+| "Reply to routine emails for me." | Not yet | Needs read and send access to real mail. That is the dangerous combination, and a wrong reply goes out under your name before you see it. |
+| "Summarize three news sites every morning." | Use a scheduled task | The routine is fixed. An always-on agent adds exposure and no benefit. |
+| "Draft replies to routine emails and ask me before sending." | Possible, with care | Approval breaks the chain at the send step. It still reads private mail, so the vendor's data terms matter. |
+
+The second and fourth rows are the same job with one change, and that change is the difference between an agent that can act for you and one that can prepare work for you to approve. For most personal uses today, the second kind gives most of the benefit at a fraction of the risk.
+
+These judgments will shift. Defenses against prompt injection are improving, and what is unwise this year may be routine in a few years. The five questions will still be the right ones to ask.
+
 > **Instructor note: demo.** Show the scheduled Cowork task alongside the Muse task. Compare the results, how easy each is to audit, and what access each needed.
+
+## Key terms
+
+**Compounding error**: a mistake that later steps build on, so that it grows over time. **Audit**: reviewing a record of what an agent did. **Monitoring plan**: what you'll check, how often, and what would make you shut the agent off.

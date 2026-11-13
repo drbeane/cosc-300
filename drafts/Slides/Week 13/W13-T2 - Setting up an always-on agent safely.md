@@ -17,6 +17,46 @@ COSC-300/500 Applied AI Essentials
 - **Approvals on**
 - A task that runs over several days
 
+<!-- Show the demo account: one connection, the permission screen, approvals on, and one check-in asking for approval. -->
+
+---
+
+## Why each rule
+
+| Rule | Protects against |
+|---|---|
+| Throwaway account | Your real data entering its reach |
+| One connection | Extra untrusted content, extra places to err |
+| Approvals on | Actions that can't be taken back |
+| Low-stakes task | Costly mistakes while you learn |
+
+Week 8's defenses, applied before the agent starts.
+
+---
+
+## Keep a permission record
+
+| Requested | Granted? | Why |
+|---|---|---|
+| Read the throwaway inbox | Yes | The task needs it |
+| Send email | No | A check-in message will do |
+| Contacts | No | Not needed |
+| Purchases | No | It tracks a price, nothing more |
+
+Record the refusals too.
+
+---
+
+## A brief for a multi-day task
+
+- **Goal**: what, and how often
+- **Scope**: which sites, and nothing else
+- **Check-ins**: when, and what to say when there's nothing new
+- **Limits**: never send, post, or buy
+- **End**: stop after five days
+
+Give it an end date.
+
 ---
 
 ## Settings walk-through
@@ -25,6 +65,18 @@ COSC-300/500 Applied AI Essentials
 - **Permissions**: read vs send
 - **Purchase approvals**
 - What Meta can access to operate the service
+
+---
+
+## Shutting it down
+
+1. Stop the task
+2. Disconnect each connection
+3. **Revoke access in the connected service's own settings**
+4. Delete stored data
+5. Close the throwaway account
+
+Know how to stop it before you start it.
 
 ---
 

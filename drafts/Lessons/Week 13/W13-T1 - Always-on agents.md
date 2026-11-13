@@ -7,6 +7,9 @@
 ## What you will be able to do
 
 - Describe how an always-on agent differs from a scheduled task and a local agent.
+- Explain what a trigger and a check-in are.
+- Name the kinds of task an always-on agent suits.
+- Explain how your supervision changes when an agent runs continuously.
 
 ## The top of the autonomy ladder
 
@@ -31,6 +34,43 @@ An **always-on agent** has a few defining features:
 
 That last row is the important one. An always-on agent watches for things and decides when to act, which is what makes it useful and what makes it risky.
 
+### Triggers and check-ins
+
+Two ideas describe how an always-on agent works day to day.
+
+A **trigger** is what makes the agent act. A local agent's trigger is you, starting a task. A scheduled task's trigger is the clock. An always-on agent responds to **events**: a message arrives, a price changes, a page it watches is updated, a date comes near. It decides whether the event calls for action and what the action should be.
+
+A **check-in** is the agent contacting you. It might report what it did, ask a question, or request approval for something it isn't allowed to do alone. Check-ins usually arrive where you already are, such as a messaging app, which makes them easy to answer and just as easy to approve without reading.
+
+| Event | What a well-set-up agent does |
+|---|---|
+| A watched item drops below your target price | Tells you, with the link. Doesn't buy it. |
+| An email arrives that looks like a meeting request | Drafts a reply and asks you to approve it before sending |
+| Nothing relevant happens for two days | Stays quiet, or sends the short "nothing new" note you asked for |
+| A message contains instructions addressed to the agent | Treats it as content to report, not as an instruction to follow |
+
+### What these agents are good for
+
+- **Watching**: prices, job postings, news on a topic, changes to a page.
+- **Triage**: sorting what comes in and telling you what needs your attention.
+- **Routines that depend on events**: preparing a briefing when a meeting is added to your calendar.
+- **Long-running errands**: a task with waiting built in, such as following up when a reply arrives.
+
+What they have in common is that the timing is set by the world and not by you. Where a task has no such dependence, a scheduled task or an ordinary agent session does the job with less exposure, as the last topic this week argues.
+
+### How supervision changes
+
+Each step up the course's ladder has moved you further from the work:
+
+| Stage | When you check the work |
+|---|---|
+| Chat (Weeks 1 to 5) | Every reply, as it arrives |
+| Local agent (Week 6) | The plan before, approvals during, the result after |
+| Scheduled task (Week 8) | The output after each run |
+| Always-on agent | Whenever it checks in, and whenever you choose to look |
+
+With an always-on agent there is no natural moment at which the work is put in front of you. You have to create those moments: a daily look at its activity history, and a log of what you saw. Diligence, this week's 4D focus, becomes something you do on a schedule.
+
 ## The landscape
 
 - **Meta Muse**: Meta's personal agent, launched in September 2026. Reached through the Muse app, WhatsApp, and the web. Has a free tier.
@@ -42,6 +82,6 @@ This week we use **Muse**, because its free tier makes hands-on use possible wit
 
 ## Key terms
 
-**Always-on agent**: an agent that runs continuously in the cloud, acts across your accounts, and checks in when needed.
+**Always-on agent**: an agent that runs continuously in the cloud, acts across your accounts, and checks in when needed. **Trigger**: the event that causes an agent to act. **Check-in**: a message from an agent reporting, asking a question, or requesting approval.
 
 > **Instructor note.** Book links: none specific; draw on Prompt Injection and Untrusted Input and Guardrails and Tool Permissions. This week does not use the Claude subscription for its main task, which fits the course's vendor-plural design.

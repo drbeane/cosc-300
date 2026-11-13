@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 12 are done and pushed. **Resume at W13-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
+Last updated 2026-11-13. Weeks 2 to 13 are done and pushed. **Resume at W14-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -69,10 +69,10 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W12-T2 Evaluation | expanded | Was 210 words. Added a sample test set, three grading methods, a grader rubric, reading failures, cautions |
 | W12-T3 MCP from the inside | expanded | Added host, client and server, a fuller example server, design guidance, which half failed |
 | W12-Lab Mini RAG app or MCP server with an eval | fine |  |
-| W13-T1 Always-on agents | to do | |
-| W13-T2 Setting up an always-on agent safely | to do | |
-| W13-T3 Always-on risks and when it is worth it | to do | |
-| W13-Lab Always-on agent field test | to do | |
+| W13-T1 Always-on agents | expanded | Added triggers and check-ins, what these agents suit, how supervision changes. No new product facts |
+| W13-T2 Setting up an always-on agent safely | expanded | Was 254 words. Added the reason for each rule, a permission record, a multi-day brief, shutting down |
+| W13-T3 Always-on risks and when it is worth it | expanded | Added the attention risk, a monitoring table, five questions and worked verdicts |
+| W13-Lab Always-on agent field test | fine |  |
 | W14-T1 Choosing tools for an organization | to do | |
 | W14-T2 Data governance and local models | to do | |
 | W14-T3 Bias, reliability, and accountability | to do | |
