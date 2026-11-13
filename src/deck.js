@@ -29,12 +29,14 @@
     history.replaceState(null, '', '#' + (at + 1));
   }
 
-  // Leaving full screen with F or the button stays in the deck. Leaving it with Esc exits the deck.
-  var staying = false;
   function full() {
-    if (document.fullscreenElement) { staying = true; document.exitFullscreen(); }
+    if (document.fullscreenElement) document.exitFullscreen();
     else document.documentElement.requestFullscreen();
   }
+
+  // Esc leaves the deck, but only outside full screen. In full screen the browser uses Esc to
+  // leave full screen, and that press must not also leave the deck.
+  var escDown = false, leftFull = 0;
   function exit() { location.href = document.querySelector('.bar a').href; }
 
   document.getElementById('prev').onclick = function () { show(at - 1); };
@@ -48,13 +50,22 @@
     else if (k === 'Home') show(0);
     else if (k === 'End') show(slides.length - 1);
     else if (k === 'f' || k === 'F') full();
-    else if (k === 'Escape') exit();
+    else if (k === 'Escape' && !document.fullscreenElement && Date.now() - leftFull > 500) {
+      // Firefox treats Esc as "stop loading" and cancels a page change started on key down.
+      // Block that, and change page when the key is released.
+      e.preventDefault();
+      escDown = true;
+    }
+  });
+  document.addEventListener('keyup', function (e) {
+    if (e.key !== 'Escape' || !escDown) return;
+    escDown = false;
+    exit();
   });
   window.addEventListener('resize', fit);
-  // In full screen the browser handles Esc itself and sends no key press, so watch for full screen ending.
   document.addEventListener('fullscreenchange', function () {
-    if (document.fullscreenElement) return fit();
-    if (staying) { staying = false; fit(); } else exit();
+    if (!document.fullscreenElement) { leftFull = Date.now(); escDown = false; }
+    fit();
   });
 
   fit();

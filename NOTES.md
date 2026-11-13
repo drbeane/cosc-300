@@ -43,7 +43,8 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 7. **Esc exits a slide deck.** (2026-11-13)
    - Pressing Esc while viewing a deck returns to the Slides page, at that deck's week.
-   - In full screen, one press of Esc leaves both full screen and the deck. F or the Full screen button leaves full screen and stays in the deck. (At first full screen took two presses; fixed the same day.)
+   - In full screen, Esc only leaves full screen, which is the browser's own behavior. A second press then leaves the deck.
+   - Firefox cancelled the page change at first, because it treats Esc as "stop loading". The script now blocks that and changes page when the key is released.
    - The intro text on the Slides page mentions the key.
 
 8. **Lessons and slides are organized by topic, not by session.** (2026-11-13)
