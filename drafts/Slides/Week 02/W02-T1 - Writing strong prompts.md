@@ -19,6 +19,20 @@ It only sees what's in its context.
 
 ---
 
+## The new-coworker test
+
+Hand your prompt to a capable coworker who:
+
+- has never met you
+- hasn't seen your course or your job
+- can't ask a follow-up question
+
+Would they have to guess? Then so will the model.
+
+<!-- The guesses are usually sensible, which is why vague prompts give generic output more often than wrong output. -->
+
+---
+
 ## Anatomy of a strong prompt
 
 - **Goal**: what you want and why
@@ -26,6 +40,18 @@ It only sees what's in its context.
 - **Constraints**: length, scope, what to avoid
 - **Audience**: who will read it
 - **Output format**: bullets, table, JSON, email…
+
+Not every prompt needs all five.
+
+---
+
+## Say why
+
+> Shorten this email.
+
+> Shorten this email, because my manager reads on her phone between meetings.
+
+The reason tells the model what kind of shortening you need.
 
 ---
 
@@ -37,15 +63,37 @@ It only sees what's in its context.
 **Strong**
 > Summarize this article for a busy department chair deciding whether to fund a pilot. 5 bullets, under 120 words. Lead with the cost and the evidence. Flag anything the article claims without support.
 
+<!-- Walk through it sentence by sentence: which guess does each one remove? -->
+
 ---
 
 ## Techniques that help
 
 - **Be clear and direct**: say exactly what you want
-- **Structure**: headings or XML tags to separate parts
+- **Structure**: headings or tags to separate parts
 - **Examples**: show one or two good outputs
 - **Role and audience**: "You are reviewing this as…"
 - **Ask for uncertainty**: "Say what you're unsure about"
+- **Ask for questions first**: let the model interview you
+
+---
+
+## Structure: separate request from material
+
+```
+Draft three bullets for my cover letter.
+Use only experience from the resume.
+
+<job_posting>
+...
+</job_posting>
+
+<resume>
+...
+</resume>
+```
+
+The tag names aren't special. Any clear label works.
 
 ---
 
@@ -55,4 +103,28 @@ It only sees what's in its context.
 - One or two examples show format, tone, and level better than a description
 - This is called **in-context learning**: learning from the prompt, with no retraining
 
-Caution: it copies your examples' flaws too.
+---
+
+## Describe it or show it
+
+**Describe**
+> Keep the flashcards short. Make the back an example, not a definition.
+
+**Show**
+> Front: Osmosis
+> Back: A raisin swells when you soak it in water.
+
+Cautions: it copies your examples' flaws, and one example can be copied too closely. Give two or three that differ.
+
+---
+
+## Advice that no longer helps
+
+- Magic phrases ("take a deep breath", offering a tip)
+- SHOUTING or repeating an instruction
+- Keyword strings in place of sentences
+- Trying to write the perfect first prompt
+
+Clear content beats clever wording.
+
+<!-- Ask which of these students have seen online. Most came from tests on older models. -->

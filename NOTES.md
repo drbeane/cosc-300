@@ -87,3 +87,8 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 14. **All 15 weeks are posted.** (2026-11-13)
    - Ran `node tools/sync.mjs drafts` with no week numbers, so every lesson and deck for Weeks 2 to 15 is now in `content/`. The site builds 68 lessons and 68 decks.
    - A review of each topic is under way to expand the thin ones. Its status is tracked in `drafts/Review progress.md`.
+
+15. **Lesson review: Week 2 expanded.** (2026-11-13)
+   - All four Week 2 topics and their decks were rewritten longer, with worked examples, tables and more key terms. "Testing and revising prompts" went from 174 words to a full lesson. The lab page got small additions.
+   - Product details in "Memory, custom instructions, and voice" are written generally (no menu paths), with an instructor note to check them the week it is taught.
+   - `tools/publish.sh` runs sync, build and the Dropbox step, and commits and pushes when given a message.

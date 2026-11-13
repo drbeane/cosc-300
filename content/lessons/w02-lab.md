@@ -4,18 +4,27 @@
 
 ## Practice: rewrite three weak prompts
 
-Work in pairs.
+Work in pairs. Here are three weak prompts:
 
-1. Rewrite each of the three weak prompts using the anatomy above. Invent any context you need.
+> Write a cover letter.
+
+> Explain photosynthesis.
+
+> Make this better. (followed by a paragraph of your own writing)
+
+1. Rewrite each one using the five parts from "Writing strong prompts": goal, context, constraints, audience, and output format. Invent any context you need.
 2. Run the original and your version on the same tool.
 3. Swap with another pair and critique each other's rewrites. Which added detail made the biggest difference? Is anything unnecessary?
 
 ## Lab: prompt revision
 
 1. Pick a recurring task. Examples: turning meeting notes into a summary, drafting a cover letter for different jobs, explaining a concept from your major at two reading levels.
-2. Write 5 test inputs.
-3. Write your first prompt and run it on all 5.
-4. Revise the prompt at least three times. For each version, record what you changed and why, and the results on all five inputs.
+2. Write 5 test inputs. Include two or three typical ones, one that is long or messy, and one that is short or tricky.
+3. Write down three to five checks that a good output must pass.
+4. Write your first prompt and run it on all 5.
+5. Revise the prompt at least three times. Make one change per version, aimed at a failure you saw. For each version, record what you changed and why, and the results on all five inputs.
+
+Choose a task where the input changes each time and the prompt stays the same. "Write my history essay" is a single job. "Turn my reading notes into five study questions" is a recurring one.
 
 Keep a table like this:
 
@@ -37,7 +46,7 @@ Choose a recurring task, create 5 test inputs, and take a prompt through at leas
 **Submit:**
 - Your 5 test inputs.
 - Four prompt versions, each with its outputs, what you changed, and why.
-- Your final prompt and a 300-word reflection.
+- Your final prompt and a 300-word reflection. In the reflection, say which change helped most, whether any change made things worse, which input was hardest and why, and what you would do differently on your next prompt.
 
 **500 extension:** define a simple scoring rubric and score each version on it. Report the scores.
 

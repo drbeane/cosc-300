@@ -17,11 +17,11 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 
 | Session | Status | Notes |
 |---|---|---|
-| W02-T1 Writing strong prompts | to do | |
-| W02-T2 Tokens and the context window | to do | |
-| W02-T3 Memory, custom instructions, and voice | to do | |
-| W02-T4 Testing and revising prompts | to do | |
-| W02-Lab Prompt revision log | to do | |
+| W02-T1 Writing strong prompts | expanded | Added the coworker test, a technique per problem, a worked example of few-shot, outdated advice |
+| W02-T2 Tokens and the context window | expanded | Added token estimates, how history is resent each turn, signs of a degraded chat, handoff summary |
+| W02-T3 Memory, custom instructions, and voice | expanded | Added an example of instructions, two kinds of memory, costs of memory, voice table |
+| W02-T4 Testing and revising prompts | expanded | Was 174 words. Added test set design, checks, the revision loop, a worked log, when to stop |
+| W02-Lab Prompt revision log | expanded | Small additions: the three weak prompts, test set guidance, reflection questions. Deck unchanged |
 | W03-T1 Why AI output is wrong | to do | |
 | W03-T2 Verification habits | to do | |
 | W03-T3 Effort, models, and the Description–Discernment loop | to do | |
