@@ -1,0 +1,315 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Next-Token Sampler</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;750&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-bench tool. Prompt + response on the left, live probability readout on the right, repeated runs below. */
+:root{
+  --bg:#f3f5f8; --panel:#ffffff; --ink:#14202e; --muted:#5a6878; --line:#d8dee6;
+  --accent:#2747d6; --accent-soft:#e3e8fc; --bar-raw:#c9d1dc;
+  --ok:#17804a; --ok-soft:#e1f3e8; --est:#a86400; --est-soft:#fbefd9; --bad:#c22f2f; --bad-soft:#fbe2e2;
+  --f-display:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544;
+  --accent:#7d97ff; --accent-soft:#232f57; --bar-raw:#344052;
+  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544;
+  --accent:#7d97ff; --accent-soft:#232f57; --bar-raw:#344052;
+  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
+header{display:grid;gap:6px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:750;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0;text-wrap:balance}
+.lede{margin:0;max-width:68ch;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.prompt{font-family:var(--f-mono);font-size:14px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.prompt b{font-family:var(--f-body);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.controls{grid-template-columns:1fr}}
+.ctl{display:grid;gap:4px}
+.ctl label{display:flex;justify-content:space-between;font-weight:600;font-size:14px}
+.ctl output{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--accent)}
+.ctl small{color:var(--muted);font-size:12.5px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;font-size:14px;font-weight:500;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+button.chip{font-size:13px;padding:4px 10px;border-radius:999px}
+button.chip[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+.response{min-height:96px;border:1px dashed var(--line);border-radius:8px;padding:12px;line-height:2.1}
+.tok{font-family:var(--f-mono);font-size:13.5px;background:var(--accent-soft);border-radius:4px;padding:2px 5px;margin-right:3px;white-space:pre-wrap}
+.tok .sp{color:var(--muted);opacity:.7}
+.tok.ok{background:var(--ok-soft);box-shadow:inset 0 -2px 0 var(--ok)}
+.tok.est{background:var(--est-soft);box-shadow:inset 0 -2px 0 var(--est)}
+.tok.wrong{background:var(--bad-soft);box-shadow:inset 0 -2px 0 var(--bad)}
+.cursor{display:inline-block;width:8px;height:16px;background:var(--accent);vertical-align:middle;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+.done{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+
+.dist{display:grid;gap:7px}
+.bar{display:grid;grid-template-columns:minmax(0,12.5rem) 1fr 3.4rem;gap:10px;align-items:center;text-align:left;border:1px solid transparent;background:none;padding:4px 6px;border-radius:6px;width:100%}
+.bar:hover{border-color:var(--line);background:var(--bg)}
+.bar .name{font-family:var(--f-mono);font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .track{position:relative;height:16px;border-radius:3px;background:var(--bg)}
+.bar .raw{position:absolute;inset:0 auto 0 0;background:var(--bar-raw);border-radius:3px}
+.bar .adj{position:absolute;inset:4px auto 4px 0;background:var(--accent);border-radius:2px;transition:width .25s}
+.bar .pct{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums;text-align:right}
+.bar.cut .name,.bar.cut .pct{color:var(--muted);text-decoration:line-through}
+.bar.cut .adj{width:0!important}
+.bar.flag-wrong .name{color:var(--bad)}
+@media (max-width:520px){.bar{grid-template-columns:minmax(0,8.5rem) 1fr 3rem}}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--muted)}
+.sw{display:inline-block;width:12px;height:10px;border-radius:2px;vertical-align:middle;margin-right:5px}
+
+.runs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.runs{grid-template-columns:1fr}}
+.run{border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:6px;align-content:start}
+.run h3{margin:0;font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.run p{margin:0;line-height:2}
+.empty{color:var(--muted);font-size:14px}
+
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tablewrap{overflow-x:auto}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.stats{display:flex;flex-wrap:wrap;gap:24px}
+.stat b{display:block;font-family:var(--f-display);font-size:28px;font-weight:750;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:13px}
+.stat.bad b{color:var(--bad)}
+.pill{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:1px 8px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}.pill.est{background:var(--est-soft);color:var(--est)}.pill.wrong{background:var(--bad-soft);color:var(--bad)}
+
+.notice{display:grid;gap:8px}
+.notice ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:75ch}
+.foot{font-size:12.5px;color:var(--muted);max-width:80ch;margin:0}
+.foot a{color:var(--accent)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">COSC-300/500 · Week 1 · How LLMs work</div>
+    <h1>Next-Token Sampler</h1>
+    <p class="lede">A language model writes one token at a time. At each step it scores every possible next token, turns the scores into probabilities, and draws one at random. Change the settings and watch how the draw changes, and why the same prompt can give a different fact on a different run.</p>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="h-gen">
+      <h2 id="h-gen">Generate a response</h2>
+      <div class="prompt"><b>Prompt</b>Why did the 1918 flu spread so quickly? Answer in one sentence.</div>
+
+      <div class="controls">
+        <div class="ctl">
+          <label for="temp">Temperature <output id="tempOut">1.00</output></label>
+          <input type="range" id="temp" min="0" max="2" step="0.05" value="1">
+          <small id="tempHint">1.0 uses the model's own probabilities.</small>
+        </div>
+        <div class="ctl">
+          <label for="topp">Top-p <output id="toppOut">1.00</output></label>
+          <input type="range" id="topp" min="0.05" max="1" step="0.05" value="1">
+          <small id="toppHint">1.0 keeps every candidate.</small>
+        </div>
+      </div>
+      <div class="presets" role="group" aria-label="Presets">
+        <button class="chip" data-t="0" data-p="1">Greedy (T = 0)</button>
+        <button class="chip" data-t="0.7" data-p="0.9">Focused (T 0.7, p 0.9)</button>
+        <button class="chip" data-t="1" data-p="1">Default (T 1)</button>
+        <button class="chip" data-t="1.6" data-p="1">Hot (T 1.6)</button>
+      </div>
+
+      <div class="response" id="response" aria-live="polite"></div>
+      <div class="row">
+        <button class="primary" id="btnStep">Sample next token</button>
+        <button id="btnFinish">Finish response</button>
+        <button id="btnReset">Start over</button>
+      </div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--ok)"></i>Factual detail, matches common estimates</span>
+        <span><i class="sw" style="background:var(--est)"></i>Within published range, disputed</span>
+        <span><i class="sw" style="background:var(--bad)"></i>Wrong</span>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-dist">
+      <h2 id="h-dist">Candidates for the next token</h2>
+      <div class="dist" id="dist"></div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--bar-raw)"></i>Model's probability (T = 1)</span>
+        <span><i class="sw" style="background:var(--accent)"></i>After your settings</span>
+        <span><s>struck out</s> = removed by top-p</span>
+      </div>
+      <p class="foot">Click any candidate to choose it yourself. Grey token chips show a leading space with a dot (·): real tokens usually carry the space in front of the word.</p>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="h-runs">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="h-runs">Same prompt, three runs</h2>
+      <button class="primary" id="btnThree">Run 3 times</button>
+    </div>
+    <div class="runs" id="runs"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-many">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="h-many">Run it 500 times</h2>
+      <button class="primary" id="btnMany">Run 500 times</button>
+    </div>
+    <div id="many"><p class="empty">Runs the prompt 500 times at the current settings and counts how often the answer contains a wrong fact.</p></div>
+  </section>
+
+  <section class="panel notice" aria-labelledby="h-notice">
+    <h2 id="h-notice">What to notice</h2>
+    <ol>
+      <li>At temperature 0 the model always takes the top token, so every run is identical. Identical is not the same as correct: it is just the most likely answer, repeated.</li>
+      <li>At the default setting, most runs share a structure but differ in wording, and some differ on the death toll. If a fact changes between runs, at least one run is unreliable.</li>
+      <li>Raise the temperature and low-probability tokens, including wrong ones like "mosquitoes," start to appear. Lower top-p and the long tail is cut off before the draw.</li>
+      <li>The model never "looks up" the death toll here. It picks whichever number is likely to come next. That is why you check facts against a source.</li>
+    </ol>
+    <p class="foot">This is a teaching model with hand-set scores and multi-word tokens, not a real LLM. Real models choose from about 100,000 tokens at every step. Fact labels use the CDC's figures: about 500 million infected (roughly a third of the world's population) and at least 50 million deaths. Some studies estimate as few as 17 million deaths and others up to 100 million. Source: <a href="https://archive.cdc.gov/www_cdc_gov/flu/pandemic-resources/1918-pandemic-h1n1.html" target="_blank" rel="noopener">CDC, 1918 Pandemic (H1N1 virus)</a>.</p>
+  </section>
+</div>
+
+<script>
+// Each node lists candidate next tokens: [text, logit, nextNode, factFlag]
+const END = null;
+const TREE = {
+  start:[["The",3.0,"subj"],["It",2.0,"verb"],["Crowded",0.8,"crowd1"]],
+  subj:[[" virus",2.6,"verb"],[" flu",2.1,"verb"],[" pandemic",1.5,"verb"]],
+  verb:[[" spread",3.0,"speed"],[" traveled",1.2,"speed"],[" moved",1.0,"speed"]],
+  speed:[[" quickly",2.6,"conj"],[" rapidly",2.2,"conj"],[" fast",1.8,"conj"],[" worldwide",1.0,"conj"]],
+  conj:[[" because",3.0,"cause"],[" as",1.0,"cause"]],
+  cause:[[" World War I",2.6,"war1"],[" crowded",2.0,"crowd1"],[" there was no vaccine",1.3,"punct","ok"],[" people ignored it",0.4,"punct"],[" mosquitoes carried it",-1.2,"punct","wrong"]],
+  war1:[[" moved troops",2.4,"war2"],[" packed soldiers",1.6,"war2"]],
+  war2:[[" through crowded camps and ships",2.5,"punct"],[" across continents",1.8,"punct"]],
+  crowd1:[[" military camps",2.2,"crowd2"],[" troop ships",2.0,"crowd2"],[" cities",1.5,"crowd2"]],
+  crowd2:[[" let it pass easily between people",2.6,"punct"],[" helped it jump from person to person",1.8,"punct"]],
+  punct:[[",",2.2,"tail"],[".",1.4,END]],
+  tail:[[" infecting about",2.4,"inf"],[" killing about",2.2,"kill"],[" killing nearly",1.0,"kill"]],
+  inf:[[" a third of the world's people",2.6,"stop","ok"],[" 500 million people",2.2,"stop","ok"],[" half the world's people",0.8,"stop","wrong"],[" 5 billion people",-1.0,"stop","wrong"]],
+  kill:[[" 50 million people",2.6,"stop","ok"],[" 20 million people",1.5,"stop","est"],[" 100 million people",1.2,"stop","est"],[" 5 million people",0.0,"stop","wrong"],[" 500 million people",-0.5,"stop","wrong"]],
+  stop:[[".",4.0,END]]
+};
+
+const $ = id => document.getElementById(id);
+let T = 1, P = 1, state = {node:"start", toks:[]};
+
+function softmax(logits, t){
+  const m = Math.max(...logits), ex = logits.map(l => Math.exp((l - m) / t));
+  const s = ex.reduce((a,b)=>a+b,0); return ex.map(e => e/s);
+}
+// Returns candidates with raw probability (T=1), adjusted probability, and whether top-p cut them.
+function distribution(node, t, p){
+  const c = TREE[node], logits = c.map(x=>x[1]);
+  const raw = softmax(logits, 1);
+  let adj;
+  if (t === 0){ const mx = Math.max(...logits); const i = logits.indexOf(mx); adj = logits.map((_,j)=> j===i?1:0); }
+  else adj = softmax(logits, t);
+  const order = adj.map((v,i)=>i).sort((a,b)=>adj[b]-adj[a]);
+  const keep = new Set(); let cum = 0;
+  for (const i of order){ keep.add(i); cum += adj[i]; if (cum >= p - 1e-9) break; }
+  const kept = [...keep].reduce((a,i)=>a+adj[i],0);
+  return c.map((x,i)=>({text:x[0], next:x[2], flag:x[3], raw:raw[i], adj: keep.has(i)? adj[i]/kept : 0, cut: !keep.has(i)}));
+}
+function draw(d){
+  let r = Math.random(), acc = 0;
+  for (const x of d){ if (x.cut) continue; acc += x.adj; if (r <= acc) return x; }
+  return d.filter(x=>!x.cut).pop();
+}
+function generate(t, p){
+  let node = "start"; const toks = [];
+  while (node !== END){ const x = draw(distribution(node,t,p)); toks.push(x); node = x.next; }
+  return toks;
+}
+
+function tokHTML(x){
+  const lead = x.text.startsWith(" ");
+  const body = (lead ? x.text.slice(1) : x.text).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  return `<span class="tok ${x.flag||""}">${lead?'<span class="sp">·</span>':''}${body}</span>`;
+}
+function renderResponse(){
+  const done = state.node === END;
+  $("response").innerHTML = state.toks.map(tokHTML).join("") +
+    (done ? ` <span class="done">[end of response]</span>` : `<span class="cursor" aria-hidden="true"></span>`);
+  $("btnStep").disabled = done; $("btnFinish").disabled = done;
+  renderDist();
+}
+function pct(v){ return v === 0 ? "0%" : v < 0.001 ? "<0.1%" : (v*100).toFixed(v<0.1?1:0)+"%"; }
+function renderDist(){
+  const el = $("dist");
+  if (state.node === END){ el.innerHTML = `<p class="empty">The response is finished. Start over to sample again.</p>`; return; }
+  const d = distribution(state.node, T, P).sort((a,b)=>b.raw-a.raw);
+  el.innerHTML = d.map((x,i)=>`<button class="bar ${x.cut?"cut":""} ${x.flag==="wrong"?"flag-wrong":""}" data-i="${i}" title="Choose this token">
+      <span class="name">${x.text.startsWith(" ")?"·"+x.text.slice(1):x.text}</span>
+      <span class="track"><span class="raw" style="width:${(x.raw*100).toFixed(1)}%"></span><span class="adj" style="width:${(x.adj*100).toFixed(1)}%"></span></span>
+      <span class="pct">${pct(x.adj)}</span></button>`).join("");
+  el.querySelectorAll(".bar").forEach(b => b.onclick = () => { push(d[+b.dataset.i]); });
+}
+function push(x){ state.toks.push(x); state.node = x.next; renderResponse(); }
+
+function setParams(t,p){
+  T = t; P = p; $("temp").value = t; $("topp").value = p;
+  $("tempOut").textContent = t.toFixed(2); $("toppOut").textContent = p.toFixed(2);
+  $("tempHint").textContent = t === 0 ? "0 always takes the top token (greedy)." :
+    t < 1 ? "Below 1 sharpens the odds toward the top token." : t === 1 ? "1.0 uses the model's own probabilities." : "Above 1 flattens the odds, so unlikely tokens win more often.";
+  $("toppHint").textContent = p >= 1 ? "1.0 keeps every candidate." : `Keeps the most likely tokens until they add up to ${Math.round(p*100)}%, then draws from those.`;
+  document.querySelectorAll(".presets .chip").forEach(c => c.setAttribute("aria-pressed", (+c.dataset.t===t && +c.dataset.p===p) ? "true":"false"));
+  renderDist();
+}
+$("temp").oninput = e => setParams(+e.target.value, P);
+$("topp").oninput = e => setParams(T, +e.target.value);
+document.querySelectorAll(".presets .chip").forEach(c => c.onclick = () => setParams(+c.dataset.t, +c.dataset.p));
+$("btnStep").onclick = () => push(draw(distribution(state.node,T,P)));
+$("btnFinish").onclick = () => { while (state.node !== END) { const x = draw(distribution(state.node,T,P)); state.toks.push(x); state.node = x.next; } renderResponse(); };
+$("btnReset").onclick = () => { state = {node:"start", toks:[]}; renderResponse(); };
+
+const asText = toks => toks.map(x=>x.text).join("");
+const worst = toks => toks.some(x=>x.flag==="wrong") ? "wrong" : toks.some(x=>x.flag==="est") ? "est" : toks.some(x=>x.flag==="ok") ? "ok" : "";
+const LABEL = {ok:"Facts check out", est:"Disputed figure", wrong:"Contains an error", "":"No factual claim"};
+function renderThree(){
+  const runs = [0,1,2].map(()=>generate(T,P));
+  $("runs").innerHTML = runs.map((r,i)=>{ const w = worst(r);
+    return `<div class="run"><h3>Run ${i+1} · T ${T.toFixed(2)} · p ${P.toFixed(2)}</h3><p>${r.map(tokHTML).join("")}</p>
+      ${w?`<span><span class="pill ${w}">${LABEL[w]}</span></span>`:""}</div>`; }).join("");
+}
+$("btnThree").onclick = renderThree;
+
+$("btnMany").onclick = () => {
+  const N = 500, counts = new Map(); let wrong = 0, est = 0;
+  for (let i=0;i<N;i++){ const r = generate(T,P), k = asText(r), w = worst(r);
+    if (w==="wrong") wrong++; if (w==="est") est++;
+    const e = counts.get(k) || {n:0, toks:r, w}; e.n++; counts.set(k,e); }
+  const top = [...counts.values()].sort((a,b)=>b.n-a.n).slice(0,8);
+  $("many").innerHTML = `<div class="stats">
+      <div class="stat"><b>${counts.size}</b><span>different responses</span></div>
+      <div class="stat bad"><b>${(wrong/N*100).toFixed(1)}%</b><span>contain a wrong fact</span></div>
+      <div class="stat"><b>${(est/N*100).toFixed(1)}%</b><span>give a disputed figure</span></div>
+      <div class="stat"><b>T ${T.toFixed(2)} · p ${P.toFixed(2)}</b><span>settings used</span></div>
+    </div>
+    <div class="tablewrap"><table><thead><tr><th>Most common responses</th><th>Check</th><th style="text-align:right">Share</th></tr></thead><tbody>
+    ${top.map(e=>`<tr><td>${e.toks.map(tokHTML).join("")}</td><td>${e.w?`<span class="pill ${e.w}">${LABEL[e.w]}</span>`:"—"}</td><td class="num">${(e.n/N*100).toFixed(1)}%</td></tr>`).join("")}
+    </tbody></table></div>`;
+};
+
+setParams(1,1); renderResponse(); renderThree();
+</script>
+
+</body></html>

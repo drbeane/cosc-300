@@ -1,0 +1,317 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Context Window Budget</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;750&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: controls on the left, a /context-style 100-cell map of the window on the right, conversation log and detail tracker below. */
+:root{
+  --bg:#f3f5f8; --panel:#ffffff; --ink:#14202e; --muted:#5a6878; --line:#d8dee6;
+  --accent:#2747d6; --accent-soft:#e3e8fc;
+  --c-sys:#7b8794; --c-tools:#8b5cf6; --c-conn:#d946ef; --c-instr:#0e9f9a; --c-files:#e08a00; --c-conv:#2747d6; --c-sum:#86a1ff; --c-reply:#c3ccd8; --c-free:#e9edf2;
+  --ok:#17804a; --ok-soft:#e1f3e8; --est:#a86400; --est-soft:#fbefd9; --bad:#c22f2f; --bad-soft:#fbe2e2;
+  --f-display:"Figtree","Segoe UI",system-ui,sans-serif; --f-body:"Figtree","Segoe UI",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544; --accent:#7d97ff; --accent-soft:#232f57;
+  --c-sys:#8d99a8; --c-tools:#a78bfa; --c-conn:#e879f9; --c-instr:#2dd4bf; --c-files:#f5a524; --c-conv:#7d97ff; --c-sum:#3f57b5; --c-reply:#46536a; --c-free:#222b38;
+  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544; --accent:#7d97ff; --accent-soft:#232f57;
+  --c-sys:#8d99a8; --c-tools:#a78bfa; --c-conn:#e879f9; --c-instr:#2dd4bf; --c-files:#f5a524; --c-conv:#7d97ff; --c-sum:#3f57b5; --c-reply:#46536a; --c-free:#222b38;
+  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
+header{display:grid;gap:6px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:750;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0;text-wrap:balance}
+h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
+.lede{margin:0;max-width:70ch;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0;align-content:start}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.group{display:grid;gap:8px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:inherit;font-size:14px;font-weight:500;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;border-radius:0;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed=true]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+label.chk{display:flex;gap:8px;align-items:center;font-size:14px}
+label.chk span.n{margin-left:auto;font-family:var(--f-mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+@media (max-width:520px){.checks{grid-template-columns:1fr}}
+.cells{display:grid;grid-template-columns:repeat(20,1fr);gap:3px}
+.cell{aspect-ratio:1;border-radius:2px;background:var(--c-free);max-width:100%}
+.meter{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.meter b{font-family:var(--f-display);font-size:30px;font-weight:750;font-variant-numeric:tabular-nums}
+.meter span{color:var(--muted);font-family:var(--f-mono);font-size:13px}
+.status{border-radius:8px;padding:10px 12px;font-size:14px}
+.status.ok{background:var(--ok-soft);color:var(--ok)}.status.warn{background:var(--est-soft);color:var(--est)}.status.bad{background:var(--bad-soft);color:var(--bad)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:6px 6px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.log{display:grid;gap:6px;max-height:420px;overflow:auto;padding-right:4px}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;border:1px solid var(--line);border-radius:7px;padding:7px 10px;font-size:14px}
+.item .who{font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:2px;white-space:nowrap}
+.item .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.item.sum{background:var(--accent-soft);border-color:var(--c-sum)}
+.item.tool{border-style:dashed}
+.empty{color:var(--muted);font-size:14px;margin:0}
+.details{display:grid;gap:6px}
+.det{display:flex;gap:10px;align-items:center;font-size:14px}
+.pill{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:1px 9px;white-space:nowrap;min-width:6.5rem;text-align:center}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}.pill.est{background:var(--est-soft);color:var(--est)}.pill.wrong{background:var(--bad-soft);color:var(--bad)}
+.notice ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:78ch}
+.foot{font-size:12.5px;color:var(--muted);max-width:80ch;margin:0}
+code{font-family:var(--f-mono);font-size:.92em;background:var(--bg);padding:1px 4px;border-radius:4px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">COSC-300/500 · Weeks 2 and 9 · Prompting and context</div>
+    <h1>Context Window Budget</h1>
+    <p class="lede">Everything the model can see at once has to fit in its context window: the vendor's instructions, tool definitions, your files, and the whole conversation. Load things in, keep chatting, and watch what happens to early details when the window fills.</p>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="h-setup">
+      <h2 id="h-setup">Set up the session</h2>
+      <div class="group">
+        <h3>Window size (illustrative)</h3>
+        <div class="seg" id="segWin">
+          <button data-v="32000">32K tokens</button><button data-v="128000">128K</button><button data-v="200000">200K</button>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Where you're working</h3>
+        <div class="seg" id="segMode">
+          <button data-v="chat">Chat</button><button data-v="agent">Agent (Cowork, Claude Code)</button>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Standing context</h3>
+        <div class="checks" id="standing"></div>
+      </div>
+      <div class="group">
+        <h3>Instruction file or memory</h3>
+        <div class="seg" id="segInstr">
+          <button data-v="0">None</button><button data-v="800">Short (800)</button><button data-v="9000">Long (9,000)</button>
+        </div>
+      </div>
+      <div class="group">
+        <h3>When the window fills</h3>
+        <div class="seg" id="segPolicy">
+          <button data-v="compact">Summarize older turns</button><button data-v="drop">Drop oldest turns</button>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Keep working</h3>
+        <div class="row">
+          <button class="primary" id="btnMsg">Send a message</button>
+          <button id="btn5">Send 5 messages</button>
+          <button id="btnRead">Agent reads a file</button>
+          <button id="btnPaste">Paste an article</button>
+        </div>
+        <div class="row">
+          <button id="btnFresh">Start fresh with a summary</button>
+          <button id="btnReset">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-map">
+      <h2 id="h-map">What's in the window</h2>
+      <div class="meter"><b id="pct">0%</b><span id="used">0 of 0 tokens</span></div>
+      <div class="cells" id="cells" aria-hidden="true"></div>
+      <div id="status" class="status ok" aria-live="polite"></div>
+      <table><thead><tr><th>Category</th><th style="text-align:right">Tokens</th><th style="text-align:right">Share</th></tr></thead><tbody id="breakdown"></tbody></table>
+      <p class="foot">Each square is 0.5% of the window. Claude Code's <code>/context</code> command shows a real version of this map.</p>
+    </section>
+  </div>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="h-log">
+      <h2 id="h-log">Conversation in the window</h2>
+      <div class="log" id="log"></div>
+    </section>
+    <section class="panel" aria-labelledby="h-det">
+      <h2 id="h-det">Details you gave the model</h2>
+      <p class="foot">Each message you send includes one detail about your essay. Track which ones the model can still see word for word.</p>
+      <div class="details" id="details"></div>
+      <div class="row" style="gap:16px;font-size:13px;color:var(--muted)">
+        <span><span class="pill ok">Verbatim</span> still in the window</span>
+        <span><span class="pill est">Summarized</span> wording may have shifted</span>
+        <span><span class="pill wrong">Lost</span> gone from the window</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel notice" aria-labelledby="h-notice">
+    <h2 id="h-notice">What to notice</h2>
+    <ol>
+      <li>Switch to Agent mode before typing anything. Tool definitions and connectors take room before the conversation starts.</li>
+      <li>Load the dataset in the smallest window. Some files are too large to load whole, which is why tools search them instead (week 12).</li>
+      <li>Send messages until the window fills. With summarizing, low-priority details get lost first. With dropping, the oldest details go regardless of how important they were.</li>
+      <li>"Start fresh with a summary" frees the most room, but only the details that made it into the summary come with you.</li>
+    </ol>
+    <p class="foot">Token counts here are round, made-up numbers chosen to show proportions. Real counts depend on the tool, model, and files. Which details survive a real summary depends on the model, not on a fixed rule.</p>
+  </section>
+</div>
+
+<script>
+const CATS = {
+  sys:{label:"System prompt (vendor)",color:"var(--c-sys)"},
+  tools:{label:"Tool definitions",color:"var(--c-tools)"},
+  conn:{label:"Connectors",color:"var(--c-conn)"},
+  instr:{label:"Instructions / memory",color:"var(--c-instr)"},
+  files:{label:"Project files",color:"var(--c-files)"},
+  sum:{label:"Summary of earlier turns",color:"var(--c-sum)"},
+  conv:{label:"Conversation",color:"var(--c-conv)"},
+  reply:{label:"Reserved for the reply",color:"var(--c-reply)"},
+  free:{label:"Free",color:"var(--c-free)"}
+};
+const STANDING = [
+  {id:"syl",label:"Syllabus PDF",n:5000,cat:"files"},
+  {id:"ra",label:"Reading A",n:14000,cat:"files"},
+  {id:"rb",label:"Reading B",n:22000,cat:"files"},
+  {id:"csv",label:"Dataset (CSV)",n:45000,cat:"files"},
+  {id:"cal",label:"Calendar connector",n:2500,cat:"conn"},
+  {id:"drv",label:"Drive connector",n:2500,cat:"conn"},
+  {id:"mail",label:"Email connector",n:2500,cat:"conn"}
+];
+const DETAILS = [
+  ["The essay is for HIST 210",2],["It's due Friday at 5 pm",3],["Use APA 7 citations",2],["Limit it to 1,200 words",3],
+  ["Audience: first-year students",1],["Don't use Wikipedia as a source",2],["Include a counterargument section",2],["The professor is Dr. Alvarez",1],
+  ["Cover 1918 to 1920 only",2],["Formal tone, no first person",1],["Thesis: censorship slowed the response",3],["Keep the intro to one paragraph",1]
+];
+const S = {win:32000, mode:"chat", instr:0, policy:"compact", on:new Set(), conv:[], sent:0, det:[]};
+const REPLY = 4000, SYS = 3000;
+const fmt = n => n.toLocaleString("en-US");
+const $ = id => document.getElementById(id);
+
+function standingTotal(){
+  let t = {sys:SYS, tools: S.mode==="agent"?14000:1500, conn:0, instr:S.instr, files:0};
+  STANDING.forEach(s => { if (S.on.has(s.id)) t[s.cat] += s.n; });
+  return t;
+}
+function totals(){
+  const t = standingTotal(); t.sum = 0; t.conv = 0;
+  S.conv.forEach(c => { t[c.kind==="sum"?"sum":"conv"] += c.n; });
+  t.reply = REPLY;
+  return t;
+}
+const usedOf = t => Object.values(t).reduce((a,b)=>a+b,0);
+
+function seg(id, key, num){
+  const el = $(id);
+  el.querySelectorAll("button").forEach(b => b.onclick = () => { S[key] = num ? +b.dataset.v : b.dataset.v; fit(); render(); });
+}
+function syncSegs(){
+  [["segWin","win"],["segMode","mode"],["segInstr","instr"],["segPolicy","policy"]].forEach(([id,key]) =>
+    $(id).querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v) === String(S[key]))));
+}
+
+function addMsg(){
+  const d = DETAILS[S.sent % DETAILS.length]; S.sent++;
+  const det = {text:d[0] + (S.sent > DETAILS.length ? ` (update ${Math.ceil(S.sent/DETAILS.length)})` : ""), sal:d[1], state:"ok"};
+  S.det.push(det);
+  S.conv.push({kind:"user", n:250, text:det.text, det});
+  S.conv.push({kind:"assistant", n:900, text:"Draft revision reflecting that."});
+}
+function add(kind, n, text){ S.conv.push({kind, n, text}); }
+
+let lastEvent = "";
+function fit(){
+  lastEvent = "";
+  const cap = S.win;
+  if (usedOf({...standingTotal(), reply:REPLY}) > cap) return; // can't fit standing context; render shows error
+  let guard = 0;
+  while (usedOf(totals()) > cap * 0.92 && guard++ < 50){
+    const movable = S.conv.filter(c => c.kind !== "sum");
+    if (movable.length < 2) break;
+    if (S.policy === "drop"){
+      const c = movable[0]; S.conv.splice(S.conv.indexOf(c),1);
+      if (c.det) c.det.state = "wrong";
+      lastEvent = "Dropped the oldest turns to make room.";
+    } else {
+      const k = Math.max(2, Math.ceil(movable.length * 0.6));
+      const old = movable.slice(0,k);
+      const prev = S.conv.find(c => c.kind === "sum");
+      const dets = old.filter(c=>c.det).map(c=>c.det);
+      // A summary keeps the higher-priority half of the details it absorbs.
+      const ranked = [...dets].sort((a,b)=>b.sal-a.sal);
+      const keep = new Set(ranked.slice(0, Math.ceil(dets.length/2)));
+      dets.forEach(d => d.state = keep.has(d) ? "est" : "wrong");
+      const absorbed = old.reduce((a,c)=>a+c.n,0);
+      const n = Math.max(400, Math.round(absorbed*0.12)) + (prev?prev.n:0);
+      S.conv = S.conv.filter(c => !old.includes(c) && c !== prev);
+      S.conv.unshift({kind:"sum", n, text:`Summary of ${old.length + (prev?1:0)} earlier items`});
+      lastEvent = `Summarized ${old.length} older items to make room.`;
+    }
+  }
+}
+
+function render(){
+  syncSegs();
+  const t = totals(), cap = S.win, used = usedOf(t);
+  const standingOnly = usedOf({...standingTotal(), reply:REPLY});
+  $("pct").textContent = Math.min(999, Math.round(used/cap*100)) + "%";
+  $("used").textContent = `${fmt(used)} of ${fmt(cap)} tokens`;
+  // cells
+  const cells = []; const order = ["sys","tools","conn","instr","files","sum","conv","reply"];
+  order.forEach(k => { const c = Math.round(t[k]/cap*200); for (let i=0;i<c;i++) cells.push(k); });
+  const shown = cells.slice(0,200); while (shown.length < 200) shown.push("free");
+  $("cells").innerHTML = shown.map(k => `<div class="cell" style="background:${CATS[k].color}"></div>`).join("");
+  // breakdown
+  const rows = order.concat(["free"]).map(k => {
+    const n = k==="free" ? Math.max(0, cap-used) : t[k];
+    if (!n) return ""; return `<tr><td><span class="sw" style="background:${CATS[k].color}"></span>${CATS[k].label}</td><td class="num">${fmt(n)}</td><td class="num">${(n/cap*100).toFixed(1)}%</td></tr>`;
+  }).join("");
+  $("breakdown").innerHTML = rows;
+  // status
+  const st = $("status");
+  if (standingOnly > cap){ st.className = "status bad"; st.textContent = "This won't fit. The standing context alone is bigger than the window, before any conversation. A real tool would refuse, or search the files instead of loading them whole."; }
+  else if (lastEvent){ st.className = "status warn"; st.textContent = lastEvent + " Check the details list to see what was kept."; }
+  else if (used > cap*0.75){ st.className = "status warn"; st.textContent = "Getting full. The next few messages will trigger summarizing or dropping."; }
+  else { st.className = "status ok"; st.textContent = `Room for about ${Math.max(0,Math.floor((cap*0.92-used)/1150))} more message exchanges before anything is removed.`; }
+  // log
+  $("log").innerHTML = S.conv.length ? S.conv.map(c => {
+    const who = {user:"You",assistant:"Claude",tool:"Tool result",paste:"You",sum:"Summary"}[c.kind];
+    return `<div class="item ${c.kind==="sum"?"sum":""} ${c.kind==="tool"?"tool":""}"><span class="who">${who}</span><span>${c.text}</span><span class="n">${fmt(c.n)}</span></div>`;
+  }).join("") : `<p class="empty">No conversation yet. Only the standing context is loaded.</p>`;
+  // details
+  const L = {ok:"Verbatim",est:"Summarized",wrong:"Lost"};
+  $("details").innerHTML = S.det.length ? S.det.map(d => `<div class="det"><span class="pill ${d.state}">${L[d.state]}</span><span>${d.text}</span></div>`).join("")
+    : `<p class="empty">Send a message to start giving details.</p>`;
+}
+
+$("standing").innerHTML = STANDING.map(s => `<label class="chk"><input type="checkbox" id="st-${s.id}"> ${s.label}<span class="n">${fmt(s.n)}</span></label>`).join("");
+STANDING.forEach(s => $("st-"+s.id).onchange = e => { e.target.checked ? S.on.add(s.id) : S.on.delete(s.id); fit(); render(); });
+seg("segWin","win",true); seg("segMode","mode",false); seg("segInstr","instr",true); seg("segPolicy","policy",false);
+$("btnMsg").onclick = () => { addMsg(); fit(); render(); };
+$("btn5").onclick = () => { let ev=""; for (let i=0;i<5;i++){ addMsg(); fit(); if (lastEvent) ev = lastEvent; } lastEvent = ev; render(); };
+$("btnRead").onclick = () => { add("tool",6000,"Contents of notes/sources.md"); fit(); render(); };
+$("btnPaste").onclick = () => { add("paste",12000,"A pasted 9,000-word article"); fit(); render(); };
+$("btnFresh").onclick = () => {
+  const kept = S.det.filter(d => d.state !== "wrong");
+  kept.forEach(d => d.state = "est");
+  S.conv = kept.length ? [{kind:"sum", n:300 + kept.length*40, text:`New chat, opened with your summary of ${kept.length} details`}] : [];
+  lastEvent = ""; render();
+};
+$("btnReset").onclick = () => { S.conv = []; S.det = []; S.sent = 0; lastEvent = ""; render(); };
+
+// Realistic starting state: syllabus loaded and a few messages in.
+S.on.add("syl"); $("st-syl").checked = true;
+for (let i=0;i<4;i++) addMsg();
+render();
+</script>
+
+</body></html>

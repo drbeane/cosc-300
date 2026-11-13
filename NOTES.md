@@ -69,3 +69,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - A lesson can fold supporting material into a callout that stays closed until the reader selects it. In the draft, wrap the material in `:::steps` and `:::`.
    - The first type is `steps`, titled "Step-by-step instructions". It is used for the Claude and ChatGPT steps in Week 1, Privacy settings.
    - Callouts open automatically when a page is printed. Types and their titles are listed in `build.mjs`. How to write one is in `drafts/Lessons/README.md`.
+
+11. **Five demos are posted.** (2026-11-13)
+   - Added `content/demos/` with Next-token sampler, Context window budget, Prompt injection sandbox, Tool-use tracer, and Retrieval and evaluation explorer. They were already listed in `content/course.json`, so the Demos page now links to each one.
+   - Each demo is one self-contained HTML file, copied from the Claude artifacts of the same names. The page font was changed from Bricolage Grotesque and IBM Plex Sans to Figtree to match the site. Code text still uses IBM Plex Mono.

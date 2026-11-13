@@ -1,0 +1,251 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tool-Use Round Trip</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;750&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: question and tool setup on top, then a two-lane sequence (your program vs. the model) revealed one message at a time. */
+:root{
+  --bg:#f3f5f8; --panel:#ffffff; --ink:#14202e; --muted:#5a6878; --line:#d8dee6; --code:#f6f8fb;
+  --accent:#2747d6; --accent-soft:#e3e8fc; --model:#8b5cf6; --model-soft:#efe9fe; --prog:#0e8a83; --prog-soft:#ddf3f1;
+  --ok:#17804a; --ok-soft:#e1f3e8; --est:#a86400; --est-soft:#fbefd9; --bad:#c22f2f; --bad-soft:#fbe2e2;
+  --k-key:#2747d6; --k-str:#17804a; --k-num:#a86400;
+  --f-display:"Figtree","Segoe UI",system-ui,sans-serif; --f-body:"Figtree","Segoe UI",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544; --code:#121820;
+  --accent:#7d97ff; --accent-soft:#232f57; --model:#a78bfa; --model-soft:#2a2244; --prog:#2dd4bf; --prog-soft:#143533;
+  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f;
+  --k-key:#9db0ff; --k-str:#7ee2a8; --k-num:#f0b45a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544; --code:#121820;
+  --accent:#7d97ff; --accent-soft:#232f57; --model:#a78bfa; --model-soft:#2a2244; --prog:#2dd4bf; --prog-soft:#143533;
+  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f;
+  --k-key:#9db0ff; --k-str:#7ee2a8; --k-num:#f0b45a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
+header{display:grid;gap:6px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:750;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0;text-wrap:balance}
+h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
+.lede{margin:0;max-width:70ch;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0;align-content:start}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.group{display:grid;gap:8px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,select,input{font:inherit;font-size:14px}
+button{font-weight:500;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+select,input[type=number]{border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);padding:6px 8px}
+input[type=number]{width:6.5rem}
+.qs{display:grid;gap:6px}
+.q{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;font-size:14px}
+.q small{grid-column:2;color:var(--muted);font-size:12.5px}
+.q:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;border-radius:0;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed=true]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+pre{margin:0;font-family:var(--f-mono);font-size:12.5px;line-height:1.55;background:var(--code);border:1px solid var(--line);border-radius:7px;padding:10px 12px;overflow-x:auto}
+.jk{color:var(--k-key)}.js{color:var(--k-str)}.jn{color:var(--k-num)}
+.hl{background:var(--est-soft);border-radius:3px;outline:1px solid var(--est)}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.lanehead{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+.lanehead.p{background:var(--prog-soft);color:var(--prog)}.lanehead.m{background:var(--model-soft);color:var(--model)}
+.msg{grid-column:1 / -1;display:grid;gap:6px;border-radius:9px;border:1px solid var(--line);padding:12px;min-width:0;background:var(--panel)}
+.msg.p{border-left:4px solid var(--prog);margin-right:12%}
+.msg.m{border-left:4px solid var(--model);margin-left:12%}
+.msg.run{border-left:4px solid var(--prog);margin-right:12%;background:var(--prog-soft)}
+.msg .lbl{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:600;font-size:14px}
+.msg .lbl span{font-family:var(--f-mono);font-size:12px;font-weight:400;color:var(--muted)}
+.msg p{margin:0;font-size:14px;max-width:80ch}
+@media (max-width:640px){.msg.p,.msg.m,.msg.run{margin:0}.lanes{grid-template-columns:1fr}.lanehead{display:none}}
+.final{border-radius:10px;padding:14px 16px;background:var(--accent-soft);display:grid;gap:4px}
+.final b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.final span{font-size:17px}
+.counter{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.notice ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:78ch}
+.foot{font-size:12.5px;color:var(--muted);max-width:80ch;margin:0}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">COSC-300/500 · Week 11 · Tool use, workflows, and agents</div>
+    <h1>Tool-Use Round Trip</h1>
+    <p class="lede">A model can only write text. To convert units exactly, it asks your program to run a tool, waits for the result, and then answers. Step through every message your program and the model exchange.</p>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="h-q">
+      <h2 id="h-q">Pick a question</h2>
+      <div class="qs" id="qs"></div>
+      <div class="row" id="custom">
+        <span>Convert</span>
+        <input type="number" id="cVal" value="26.2" step="any" aria-label="Value">
+        <select id="cFrom" aria-label="From unit"></select>
+        <span>to</span>
+        <select id="cTo" aria-label="To unit"></select>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="h-tool">
+      <div class="row" style="justify-content:space-between">
+        <h2 id="h-tool">The tool definition</h2>
+        <div class="seg" id="segDesc"><button data-v="clear">Clear description</button><button data-v="vague">Vague description</button></div>
+      </div>
+      <pre id="toolDef"></pre>
+      <p class="foot">The model reads the description to decide when to use the tool, the same way it reads a skill's description in week 7.</p>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="h-trace">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="h-trace">The exchange</h2>
+      <div class="row">
+        <span class="counter" id="counter"></span>
+        <button id="btnBack">Back</button>
+        <button class="primary" id="btnNext">Next message</button>
+        <button id="btnAll">Show all</button>
+      </div>
+    </div>
+    <div class="lanes"><div class="lanehead p">Your program</div><div class="lanehead m">The model (via the API)</div><div id="msgs" style="display:contents"></div></div>
+  </section>
+
+  <section class="panel notice" aria-labelledby="h-notice">
+    <h2 id="h-notice">What to notice</h2>
+    <ol>
+      <li>The model never runs anything. It replies with a request, <code>stop_reason: "tool_use"</code>, and your program decides whether to act.</li>
+      <li>The model keeps no memory between calls. Every request resends the whole conversation so far, including the tool request and its result.</li>
+      <li>The general question gets a direct answer with no tool call. A good description tells the model when to use the tool and when not to.</li>
+      <li>In the furlong question the tool returns an error, so the model changes its approach and calls the tool again. An agent is this loop repeated until the job is done.</li>
+      <li>Set the description to vague and ask the 5-mile question again. The model skips the tool and answers from memory, which may be close but isn't exact.</li>
+    </ol>
+    <p class="foot">The message format follows Anthropic's Messages API (tool_use and tool_result content blocks). Other vendors use similar but not identical formats. The model's replies are scripted for teaching; a real model's wording and choices will vary.</p>
+  </section>
+</div>
+
+<script>
+const UNITS = {meters:1, kilometers:1000, miles:1609.344, feet:0.3048, inches:0.0254, yards:0.9144};
+function convert_units(value, from, to){
+  if (!(from in UNITS)) throw new Error(`Unsupported unit: ${from}. Supported units: ${Object.keys(UNITS).join(", ")}.`);
+  if (!(to in UNITS)) throw new Error(`Unsupported unit: ${to}. Supported units: ${Object.keys(UNITS).join(", ")}.`);
+  return +(value * UNITS[from] / UNITS[to]).toPrecision(10);
+}
+const nice = n => n.toLocaleString("en-US",{maximumFractionDigits:2});
+const DESCS = {
+  clear:"Convert a length between units. Use for any question that needs an exact unit conversion.",
+  vague:"Utility function."
+};
+const QUESTIONS = [
+  {id:"run", q:"How many kilometers is a 5-mile run?", sub:"Needs the tool"},
+  {id:"def", q:"What's the difference between a mile and a kilometer?", sub:"Shouldn't need the tool"},
+  {id:"fur", q:"How many meters is a 10-furlong horse race?", sub:"The tool doesn't know furlongs"},
+  {id:"custom", q:"Your own conversion", sub:"Set the numbers below"}
+];
+const S = {q:"run", desc:"clear", step:1};
+const $ = id => document.getElementById(id);
+
+function hj(obj){ // pretty JSON with light syntax colouring
+  return JSON.stringify(obj,null,2).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/("(?:\\.|[^"\\])*")(\s*:)?|\b(-?\d+(?:\.\d+)?(?:e[+-]?\d+)?)\b/g,(m,s,colon,num)=>{
+      if (s) return colon ? `<span class="jk">${s}</span>${colon}` : `<span class="js">${s}</span>`;
+      return `<span class="jn">${num}</span>`;
+    });
+}
+const toolDef = () => ({name:"convert_units", description:DESCS[S.desc], input_schema:{type:"object", properties:{value:{type:"number"},from:{type:"string"},to:{type:"string"}}, required:["value","from","to"]}});
+
+// Build the full sequence of messages for the chosen question.
+function build(){
+  const seq = [], history = [];
+  let question, plan;
+  if (S.q === "custom"){
+    const v = +$("cVal").value || 0, f = $("cFrom").value, t = $("cTo").value;
+    question = `Convert ${v} ${f} to ${t}.`; plan = [{value:v, from:f, to:t}];
+  } else question = QUESTIONS.find(x=>x.id===S.q).q;
+  history.push({role:"user", content:question});
+  const request = () => ({model:"MODEL_NAME", max_tokens:1024, tools:[toolDef()], messages:JSON.parse(JSON.stringify(history))});
+  const send = (note) => seq.push({side:"p", title:"Request to the API", tag:"POST /v1/messages", note, json:request()});
+  const reply = (content, stop, note) => { const r = {role:"assistant", stop_reason:stop, content}; seq.push({side:"m", title:"Model's reply", tag:`stop_reason: "${stop}"`, note, json:r}); history.push({role:"assistant", content}); };
+  let n = 0;
+  const toolCall = (input, lead) => {
+    const id = `toolu_0${++n}`;
+    reply([{type:"text", text:lead},{type:"tool_use", id, name:"convert_units", input}], "tool_use",
+      "The model doesn't answer yet. It asks your program to call a tool and stops.");
+    let content, isErr = false, ran;
+    try { const r = convert_units(input.value, input.from, input.to); content = String(r); ran = `convert_units(${input.value}, "${input.from}", "${input.to}") → ${r}`; }
+    catch(e){ content = e.message; isErr = true; ran = `convert_units(${input.value}, "${input.from}", "${input.to}") → error`; }
+    seq.push({side:"run", title:"Your program runs the function", tag:"local code", note: isErr ? "The function fails. Your program sends the error back instead of crashing, so the model can recover." : "This is ordinary code on your machine. The model is not involved in this step.", code:ran + (isErr?`\n${content}`:"")});
+    const block = {type:"tool_result", tool_use_id:id, content}; if (isErr) block.is_error = true;
+    history.push({role:"user", content:[block]});
+    return {content, isErr};
+  };
+  const finalAns = (text, note) => { reply([{type:"text", text}], "end_turn", note); seq.final = text; };
+
+  send("Your program sends the question plus the list of tools the model may ask for.");
+
+  if (S.q === "def"){
+    finalAns("A mile is an imperial unit of 5,280 feet; a kilometer is a metric unit of 1,000 meters. A mile is about 1.6 times as long as a kilometer.",
+      "No exact conversion is needed, so the model answers directly. No tool call, one round trip.");
+    return seq;
+  }
+  if (S.desc === "vague"){
+    let t;
+    if (S.q === "run") t = "A 5-mile run is roughly 8 kilometers.";
+    else if (S.q === "fur") t = "A furlong is an eighth of a mile, so 10 furlongs is 1.25 miles, or roughly 2,000 meters.";
+    else { const p = plan[0]; let est; try { est = (+convert_units(p.value,p.from,p.to).toPrecision(2)).toLocaleString("en-US"); } catch(e){ est = null; }
+      t = est ? `${p.value} ${p.from} is roughly ${est} ${p.to}.` : `I'm not certain of that conversion.`; }
+    finalAns(t, "The description \"Utility function.\" doesn't say what the tool is for, so the model answers from memory. Close, but not computed.");
+    return seq;
+  }
+  if (S.q === "run") plan = [{value:5, from:"miles", to:"kilometers"}];
+  if (S.q === "fur"){
+    const r1 = toolCall({value:10, from:"furlongs", to:"meters"}, "I'll convert that with the unit tool.");
+    send("Your program resends the whole conversation, now including the tool request and the error.");
+    const r2 = toolCall({value:1.25, from:"miles", to:"meters"}, "The tool doesn't support furlongs. A furlong is 1/8 of a mile, so 10 furlongs is 1.25 miles. I'll convert that instead.");
+    send("Second round trip. The history keeps growing.");
+    finalAns(`A 10-furlong race is 1.25 miles, which is about ${nice(+r2.content)} meters.`, "With a usable result, the model writes the final answer.");
+    return seq;
+  }
+  const r = toolCall(plan[0], "I'll use the conversion tool for an exact answer.");
+  send("Your program resends the conversation with the tool result added. The model has no memory of the first request otherwise.");
+  if (r.isErr) finalAns(`I couldn't convert that: ${r.content}`, "The model reports the tool's error.");
+  else finalAns(S.q==="run" ? `A 5-mile run is ${nice(+r.content)} kilometers.` : `${plan[0].value} ${plan[0].from} is ${nice(+r.content)} ${plan[0].to}.`, "The model turns the raw number into an answer.");
+  return seq;
+}
+
+function render(){
+  document.querySelectorAll('input[name=q]').forEach(r => r.checked = r.value === S.q);
+  $("custom").style.opacity = S.q === "custom" ? 1 : .5;
+  $("segDesc").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === S.desc));
+  $("toolDef").innerHTML = hj(toolDef()).replace(/(<span class="js">"(Utility function\.|Convert a length[^<]*)"<\/span>)/, '<span class="hl">$1</span>');
+  const seq = build();
+  S.step = Math.min(Math.max(1,S.step), seq.length);
+  const html = seq.slice(0,S.step).map(m => {
+    const body = m.json ? `<pre>${hj(m.json)}</pre>` : `<pre>${m.code.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</pre>`;
+    return `<div class="msg ${m.side}"><div class="lbl">${m.title}<span>${m.tag}</span></div><p>${m.note}</p>${body}</div>`;
+  }).join("");
+  const done = S.step >= seq.length;
+  $("msgs").innerHTML = html + (done ? `<div class="msg" style="border:0;padding:0"><div class="final"><b>What the user sees</b><span>${seq.final}</span></div></div>` : "");
+  const trips = seq.filter(m=>m.side==="p").length;
+  $("counter").textContent = `Message ${S.step} of ${seq.length} · ${trips} round trip${trips>1?"s":""}`;
+  $("btnNext").disabled = done; $("btnBack").disabled = S.step <= 1; $("btnAll").disabled = done;
+}
+
+$("qs").innerHTML = QUESTIONS.map(x => `<label class="q"><input type="radio" name="q" value="${x.id}"> ${x.q}<small>${x.sub}</small></label>`).join("");
+document.querySelectorAll('input[name=q]').forEach(r => r.onchange = () => { S.q = r.value; S.step = 1; render(); });
+const opts = Object.keys(UNITS).concat(["furlongs"]).map(u => `<option>${u}</option>`).join("");
+$("cFrom").innerHTML = opts; $("cTo").innerHTML = opts; $("cFrom").value = "miles"; $("cTo").value = "kilometers";
+["cVal","cFrom","cTo"].forEach(id => $(id).oninput = () => { S.q = "custom"; S.step = 1; render(); });
+$("segDesc").querySelectorAll("button").forEach(b => b.onclick = () => { S.desc = b.dataset.v; S.step = 1; render(); });
+$("btnNext").onclick = () => { S.step++; render(); };
+$("btnBack").onclick = () => { S.step--; render(); };
+$("btnAll").onclick = () => { S.step = 99; render(); };
+S.step = 2; render();
+</script>
+
+</body></html>
