@@ -33,3 +33,10 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - The surface tables lost their code column. Asides such as "(surface **S4**)" and "(capability **C6**)" were deleted.
    - Session labels such as `W01-S1` (week 1, session 1) are unchanged.
    - The Evidence master list in `Claude Access/`, outside this repo, still uses the codes.
+
+6. **Added a Glossary tab.** (2026-11-13)
+   - The new page at `/glossary/` is the fifth item in the top navigation, after Resources.
+   - `build.mjs` collects the terms from the "Key terms" section at the end of every posted lesson in `content/lessons/`. There is no separate glossary file to edit or sync. To add or change a term, edit the lesson draft's Key terms paragraph, which uses the form `**Term**: definition.`
+   - Terms are listed alphabetically, and each links to the lesson that introduces it. A term that appears in more than one lesson keeps its first definition and links to each lesson.
+   - The glossary grows as lessons are posted. With Week 1 posted it has 10 terms.
+   - The top navigation now wraps on narrow screens so five items fit.

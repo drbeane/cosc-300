@@ -26,7 +26,7 @@ main { max-width: 76rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
 /* Top bar */
 .top { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 2rem; padding: 0.9rem 1.5rem; background: var(--paper); border-bottom: 1px solid var(--rule); }
 .brand { font-weight: 700; font-size: 1.05rem; text-decoration: none; margin-right: auto; }
-.top nav { display: flex; gap: 1.5rem; }
+.top nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
 .top nav a { text-decoration: none; padding: 0.15rem 0; border-bottom: 2px solid transparent; }
 .top nav a:hover { border-bottom-color: var(--rule); }
 .top nav a[aria-current] { font-weight: 700; border-bottom-color: var(--ink); }
@@ -109,6 +109,14 @@ main { max-width: 76rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
 .res td:first-child { min-width: 16rem; font-weight: 600; }
 .res td:first-child a { color: var(--ink); }
 
+/* Glossary */
+.gloss { margin: 0; max-width: 56rem; border-top: 1px solid var(--rule); }
+.term { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 0.25rem 2rem; padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+.term dt { font-weight: 700; font-size: 1.1rem; }
+.term dd { margin: 0; font: 400 1.1rem/1.55 var(--text); }
+.term .from { display: block; margin-top: 0.2rem; font: 400 0.9rem/1.4 var(--display); color: var(--muted); }
+.term:target { background: var(--wash); }
+
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 4rem 0 0 18rem; max-width: 42rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
 .pager a { text-decoration: none; font-weight: 600; }
 .pager a:last-child { text-align: right; }
@@ -123,7 +131,7 @@ main { max-width: 76rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
 @media (max-width: 44rem) {
   .step li a { grid-template-columns: 4.5rem minmax(0, 1fr); }
   .step .as { grid-column: 2; margin-top: -0.9rem; font-size: 0.9rem; }
-  .week { grid-template-columns: minmax(0, 1fr); }
+  .week, .term { grid-template-columns: minmax(0, 1fr); }
   .about { grid-column: 1; }
   .sess li { grid-template-columns: 5.5rem minmax(0, 1fr); }
   .sess .soon { grid-column: 2; }

@@ -30,7 +30,7 @@ const sessions = course.weeks.flatMap((wk) =>
 const fontLink = (families) => `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?${families}&display=swap" rel="stylesheet">`;
 const FONTS = fontLink('family=Figtree:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700');
 const DECK_FONTS = fontLink('family=Source+Sans+3:ital,wght@0,400..800;1,400..800');
-const NAV = [['lessons', 'Lessons'], ['slides', 'Slides'], ['demos', 'Demos'], ['resources', 'Resources']];
+const NAV = [['lessons', 'Lessons'], ['slides', 'Slides'], ['demos', 'Demos'], ['resources', 'Resources'], ['glossary', 'Glossary']];
 
 function page({ title, section, body }) {
   const nav = NAV.map(([s, label]) => `<a href="/${s}/"${s === section ? ' aria-current="page"' : ''}>${label}</a>`).join('');
@@ -224,6 +224,39 @@ function resources() {
   });
 }
 
+// ---------- Glossary ----------
+// Collected from the "Key terms" section of every posted lesson, so it grows as lessons are posted.
+// A term defined in more than one lesson keeps its first definition and links to each lesson.
+function glossaryTerms() {
+  const terms = new Map();
+  for (const s of sessions.filter((x) => x.lesson)) {
+    const block = read(`content/lessons/${s.id}.md`).replace(/\r\n/g, '\n').match(/^## Key terms\n([\s\S]*?)(?=^## |$(?![\s\S]))/m);
+    if (!block) continue;
+    for (const [, term, def] of block[1].matchAll(/\*\*(.+?)\*\*:\s*([\s\S]*?)(?=\s*\*\*[^*]+\*\*:|\s*$(?![\s\S]))/g)) {
+      const key = term.toLowerCase();
+      if (!terms.has(key)) terms.set(key, { term, def: def.trim(), from: [] });
+      terms.get(key).from.push(s);
+    }
+  }
+  return [...terms.values()].sort((a, b) => a.term.localeCompare(b.term, 'en', { sensitivity: 'base', numeric: true }));
+}
+
+function glossary() {
+  const terms = glossaryTerms();
+  const items = terms.map((t) => {
+    const from = t.from.map((s) => `<a href="/lessons/${s.id}/">Week ${s.wk.n}, Session ${s.n}</a>`).join(', ');
+    const def = marked.parseInline(t.def.replace(/^[a-z]/, (c) => c.toUpperCase()));
+    return `<div class="term" id="${slug(t.term)}"><dt>${marked.parseInline(t.term)}</dt><dd>${def} <span class="from">${from}</span></dd></div>`;
+  }).join('\n');
+  return page({
+    title: 'Glossary',
+    section: 'glossary',
+    body: `<div class="head"><h1>Glossary</h1>
+<p>The key terms from each posted lesson, in alphabetical order. Each term links to the lesson that introduces it.</p></div>
+${terms.length ? `<dl class="gloss">\n${items}\n</dl>` : '<p>No terms yet. They appear here as lessons are posted.</p>'}`,
+  });
+}
+
 // ---------- Build ----------
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(path.join(dist, 'assets'), { recursive: true });
@@ -234,6 +267,7 @@ write('lessons/index.html', index('lessons'));
 write('slides/index.html', index('slides'));
 write('demos/index.html', demos());
 if (has('content/resources.md')) write('resources/index.html', resources());
+write('glossary/index.html', glossary());
 for (const s of sessions) {
   if (s.lesson) write(`lessons/${s.id}/index.html`, lesson(s));
   if (s.slides) write(`slides/${s.id}/index.html`, deck(s));
