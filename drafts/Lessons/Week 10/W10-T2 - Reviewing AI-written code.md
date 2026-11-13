@@ -4,25 +4,109 @@
 
 ## What you will be able to do
 
-- Read a diff and spot common failure patterns in AI-written code.
+- Review a change without being able to write it.
+- Spot five common failure patterns in AI-written code.
+- Ask questions that bring those failures to the surface.
+- Explain why passing tests is not the same as working software.
+- Keep a review log.
 
-You don't need to be able to write code to review it usefully. You need to:
+## Reviewing without writing
 
-- read the **diff** to see what changed;
+Discernment, this week's focus, is the same skill as in Week 3: judging whether what came back is right. With code, you have better evidence than with prose, because code can be run and diffs can be read. You don't need to be able to write code to review it usefully. You need to:
+
+- read the **diff** to see what changed and where;
 - ask, "Explain this change in plain English";
 - ask, "What could this break?";
-- **run it**.
+- **run it**, both the tests and the program.
+
+An editor reviewing an article in a field they don't work in can still see that a paragraph was cut, that a claim has no source, or that the conclusion doesn't follow. Your position with code is similar. You're checking the shape of the change against what you asked for.
+
+### A review routine
+
+For each change the assistant proposes:
+
+1. **Compare the change with the request.** You asked for one feature. Does the diff touch only what that feature needs?
+2. **Look at which files changed** before you look at the lines. An unexpected file name is the fastest warning sign.
+3. **Read what was removed.** Deleted lines, especially in tests and checks, deserve a question.
+4. **Ask for an explanation** of anything you don't follow, and judge whether the explanation makes sense.
+5. **Run the whole test suite yourself.** Don't rely on the assistant's report that it passed.
+6. **Run the program** and try the feature, including a case that should be refused.
+7. **Decide**: accept, ask for a change, or go back to the last commit.
 
 ## Failure patterns to watch for
 
-- **Silent test edits.** The assistant changes the test so it passes, instead of fixing the code.
-- **Hard-coded values.** A special case written to satisfy one test, not a real solution.
-- **Over-broad changes.** Files touched that had nothing to do with the task.
-- **Security problems.** Secrets in code, or user input used without checking.
-- **"Done" claims without evidence.** The assistant says it's finished but didn't run the tests.
+These five come up again and again. Each has a sign in the diff and a question that exposes it.
+
+| Pattern | What it looks like in the diff | A question to ask |
+|---|---|---|
+| **Silent test edits** | A file in the tests folder changed, though you asked only for a fix | "Did you modify any test files? Why?" |
+| **Hard-coded values** | A special case naming a value from the test, such as `if title == "Book 5"` | "Would this work for inputs other than the ones in the tests?" |
+| **Over-broad changes** | Files changed that have nothing to do with the task | "Why did you change this file? Was it necessary for this step?" |
+| **Security problems** | A password or key written in the code. User input used without checking. | "Does this change handle any input from users? What happens with unexpected input?" |
+| **"Done" without evidence** | A confident summary with no test output | "Show me the output of the full test run." |
+
+### Silent test edits
+
+The assistant is asked to make a failing test pass. The honest route is to fix the code. The shortcut is to change the test: loosen what it checks, or mark it to be skipped. Either way the suite turns green and the promise the test stood for is no longer being checked.
+
+```diff
+ def test_loan_limit():
+     ...
+-    assert result.rejected
++    assert result is not None
+```
+
+The removed line checked that the sixth loan was rejected. The new one checks only that something came back. The test now passes whether or not the limit works.
+
+This is why the last topic told you to keep provided tests unchanged, and why you look at which files changed before anything else. Put the rule in the project's instruction file: "Never modify files in `tests/`. If a test seems wrong, stop and tell me."
+
+### Hard-coded values
+
+A test checks that a member with five books is refused a sixth. Code that makes this pass by enforcing the limit is a real solution. Code that makes it pass by refusing any book titled "One too many" satisfies the test and solves nothing. Hard-coding is most likely when the assistant has failed a few times and is trying to get past a stubborn test.
+
+### Over-broad changes
+
+You ask for a new button and the assistant also reformats three files, renames some things, and "tidies up" a function. Each extra change is something you now have to review, and any of them can introduce a regression. Small diffs are reviewable diffs. A rule in the instruction file helps: "Change only what the current step requires."
+
+### Security problems
+
+Two are common enough for everyone to know:
+
+- **Secrets in code.** An API key or password typed directly into a source file. Once committed, it's in the project's history, and if the repository is public, anyone can read it. You'll handle a real API key next week, so this matters soon.
+- **Unchecked input.** Whatever a user types into a form is untrusted, in the same sense as in Week 8. Code that takes it and uses it directly, in a file name or a database lookup, can be turned against the program.
+
+You don't have to find these by reading code. Ask the assistant to review its own change for security problems, or better, have a fresh reviewer do it, as the next topic describes.
+
+### "Done" without evidence
+
+An assistant's summary of its own work is a claim. "All tests pass" sometimes means it ran them, and sometimes means it expects they would. Ask to see the output, or run the suite yourself. Running it takes a few seconds and settles the question.
 
 > **Instructor note: live review.** Put the flawed change set on screen and ask the class to find the three planted problems. Give hints only after a few minutes. Then show how asking the assistant "Did you modify any test files? Why?" surfaces the first one.
 
 ## Passing tests is not the same as working software
 
-While building the coding test for this course, we saw one assistant's application pass 112 of 114 acceptance tests and then fail on the first real request when it was actually run as a web server. The tests had never sent requests the way a real server does, so they couldn't catch the problem. Tests are strong evidence, not proof. Run the software for real too.
+While building the coding test for this course, we saw one assistant's application pass 112 of 114 acceptance tests and then fail on the first real request when it was run as a web server. The tests had never sent requests the way a real server receives them, so they couldn't catch the problem.
+
+Tests check what their authors thought to check. Between the tests and real use there are always gaps:
+
+- situations no test covers;
+- parts that each work alone and fail when connected;
+- the difference between the test setup and the real one.
+
+Tests are strong evidence, and they aren't proof. Run the software for real too. Start it the way a user would, try the main task from beginning to end, and try something a user shouldn't be allowed to do.
+
+## The review log
+
+A review log records what you inspected and what you decided. You'll keep one for this week's assignment.
+
+| Change | What the assistant did | What I checked | Decision | Why |
+|---|---|---|---|---|
+| Step 3, check out | Added a checkout function and 3 tests | Diff touched 2 files as expected. Ran the suite: 9 passed. | Accepted | Matches R4 and R5 |
+| Step 4, loan limit | Edited `test_loans.py` as well as the code | Asked why. It had loosened an assertion to get the test to pass. | Rejected | Reverted, and told it to fix the code |
+| Step 4, second try | Added the limit check in one place | Suite: 11 passed. Tried a sixth loan by hand and it was refused. | Accepted | Limit now enforced |
+
+The second row is the kind of entry that shows you were reviewing and not just approving.
+
+## Key terms
+
+**Code review**: examining a change before accepting it. **Hard-coded value**: a specific value written into code where a general rule was needed. **Secret**: a password, key, or token that grants access. **Review log**: a record of the changes you inspected and what you decided.

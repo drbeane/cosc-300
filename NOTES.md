@@ -111,3 +111,6 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 21. **Lesson review: Week 9 expanded.** (2026-11-13)
    - The three Week 9 topics and their decks were expanded for students with no coding background: plain definitions of project terms, how to read a diff, an example instruction file for a project, and how to compare two coding assistants fairly. The lab page was left as it was.
+
+22. **Lesson review: Week 10 expanded.** (2026-11-13)
+   - All four Week 10 topics and their decks were expanded: a readable example test and its output, a diff showing a silent test edit, symptom versus cause in debugging, and guidance on choosing and sizing a capstone task. The lab page was left as it was.

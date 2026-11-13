@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 9 are done and pushed. **Resume at W10-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
+Last updated 2026-11-13. Weeks 2 to 10 are done and pushed. **Resume at W11-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -55,11 +55,11 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W09-T2 The development environment and Claude Code | expanded | Added reading a diff, small commits table, a project instruction file, a working rhythm |
 | W09-T3 Comparing coding assistants | expanded | Added forms of coding assistant, quality vs cost, how to compare fairly, why comparisons date |
 | W09-Lab First app from a spec | fine |  |
-| W10-T1 Specifications and tests | to do | |
-| W10-T2 Reviewing AI-written code | to do | |
-| W10-T3 Debugging, changing code, and sub-agents | to do | |
-| W10-T4 The capstone project | to do | |
-| W10-Lab Spec-driven build with tests | to do | |
+| W10-T1 Specifications and tests | expanded | Added what a spec contains, testable requirements, a readable test and its output, regressions |
+| W10-T2 Reviewing AI-written code | expanded | Added a review routine, a diff of a silent test edit, questions per pattern, a sample review log |
+| W10-T3 Debugging, changing code, and sub-agents | expanded | Added symptom vs cause, a good bug report, changing requirements, sub-agent trade-offs |
+| W10-T4 The capstone project | expanded | Added choosing and sizing a task, measurable success, a short example proposal |
+| W10-Lab Spec-driven build with tests | fine |  |
 | W11-T1 From chat to API | to do | |
 | W11-T2 A first API program and what it costs | to do | |
 | W11-T3 Tool use | to do | |
