@@ -134,3 +134,8 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 27. **Lesson review: Week 15 and the 4D framework expanded.** (2026-11-13)
    - Week 15: "Capstone presentations" gained a plan for the eight minutes and advice on demos and questions. "Course synthesis" gained the seven stages, the ideas shared by every surface, a table of how each 4D skill developed, and questions to ask of a new tool.
    - Week 1: "The 4D framework" went from 172 words to a full lesson with worked delegation decisions.
+
+28. **Lesson review finished.** (2026-11-13)
+   - Week 1: "What a large language model is" gained a prediction example and sections on what an LLM is not and where to expect reliability. The other Week 1 pages were checked and left as they were.
+   - Every session now has a status in `drafts/Review progress.md`. Of 68 sessions, 49 topics were expanded with their decks, and the rest (mostly lab pages) were left as written.
+   - Things to check before teaching: product details in the memory and notebook lessons (written without menu paths); the sample API program and example token rates in Week 11; the example MCP server code in Week 12; and the Muse facts in Week 13, which this review did not change.

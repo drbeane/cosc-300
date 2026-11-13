@@ -21,6 +21,32 @@ COSC-300/500 Applied AI Essentials
 
 ---
 
+## Two predictions
+
+| "The capital of France is" | | "My favorite thing about autumn is" | |
+|---|---|---|---|
+| Paris | 97% | the | 31% |
+| a | 1% | how | 14% |
+| located | 1% | watching | 9% |
+
+One answer dominates on the left. Many are reasonable on the right.
+
+The model has no separate mode for facts.
+
+<!-- Illustrative numbers. Open the Next-token sampler demo here. -->
+
+---
+
+## Where the knowledge lives
+
+- The model doesn't store its training text
+- Training adjusts billions of numbers: **parameters**
+- Knowledge is spread across them as patterns
+
+It keeps the gist, not the wording. It can't say where it learned something.
+
+---
+
 ## Trained in two stages
 
 **1. Pretraining**
@@ -57,6 +83,31 @@ Examples and feedback teach it to follow instructions, answer helpfully, and ref
 3. What stayed the same? What changed?
 
 <!-- Use a prompt with a factual element and an open-ended element, e.g. "Explain why the 1918 flu spread so quickly, in 5 bullets." -->
+
+---
+
+## What an LLM is not
+
+| Tool | How it answers |
+|---|---|
+| Search engine | Finds pages that exist |
+| Database | Looks up a stored record |
+| Calculator | Computes by fixed rules |
+| **LLM** | Generates likely text from patterns |
+
+Products often combine them. Notice when a tool was used.
+
+---
+
+## Where to expect reliability
+
+| More reliable | Less reliable |
+|---|---|
+| Widely written-about topics | Niche, local, recent |
+| Working with text you supply | Exact quotes and figures from memory |
+| Common tasks | Unusual tasks |
+
+Best with material in front of it. Weakest on precise details from memory.
 
 ---
 
