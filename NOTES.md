@@ -64,3 +64,8 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - The change covers `content/course.json`, the draft file names, each lesson's first heading, each deck's title slide, and the weekly outline titles and file names.
    - Proper names keep their capitals: AI, API, MCP, 4D, Claude Code, Meta Muse, and the 4D skill names such as Description and Discernment.
    - Page addresses on the site are unchanged.
+
+10. **Collapsible callouts in lessons.** (2026-11-13)
+   - A lesson can fold supporting material into a callout that stays closed until the reader selects it. In the draft, wrap the material in `:::steps` and `:::`.
+   - The first type is `steps`, titled "Step-by-step instructions". It is used for the Claude and ChatGPT steps in Week 1, Privacy settings.
+   - Callouts open automatically when a page is printed. Types and their titles are listed in `build.mjs`. How to write one is in `drafts/Lessons/README.md`.

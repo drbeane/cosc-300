@@ -29,10 +29,12 @@ Before you use these tools for real work, check four settings in each:
 
 This applies to personal accounts: Claude Free, Pro, and Max, including Claude Code when you use it with one of those accounts.
 
+:::steps
 1. Select your name to open the menu.
 2. Select **Settings**.
 3. Select **Privacy**.
 4. Turn off **Help Improve our AI models**.
+:::
 
 The steps are the same in the browser, the desktop app, and the mobile app. The setting belongs to your account, so you only change it once.
 
@@ -42,6 +44,7 @@ With the setting off, Anthropic says it won't use your past or new chats and cod
 
 This applies to personal accounts: ChatGPT Free, Plus, and Pro, where sharing is on by default.
 
+:::steps
 In a browser:
 
 1. Open your account menu.
@@ -55,6 +58,7 @@ On a phone:
 2. Select your profile icon to open Settings.
 3. Select **Data controls**.
 4. Turn off **Improve the model for everyone**.
+:::
 
 When you're signed in, the setting applies to your account on every device. If you use ChatGPT without signing in, the choice is saved only in that browser, so you have to set it again in each browser you use.
 

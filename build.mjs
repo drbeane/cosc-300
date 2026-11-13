@@ -54,15 +54,39 @@ ${FONTS}
 ${body}
 </main>
 <footer class="foot">${esc(course.code)}, ${esc(course.school)}, ${esc(course.term)}</footer>
+<script>addEventListener('beforeprint', () => document.querySelectorAll('details.callout').forEach((d) => { d.open = true; }));</script>
 </body>
 </html>
 `;
 }
 
-// Markdown to HTML, with ids on h2 headings and scrollable tables.
+// Collapsible callouts. In a lesson, write:
+//   :::steps
+//   1. First step.
+//   :::
+// The block is folded until the reader opens it. Text after the type replaces the default title,
+// as in ":::steps On a phone". To add a type, add it here with its default title.
+const CALLOUTS = { steps: 'Step-by-step instructions' };
+function callouts(md) {
+  let fence = false, open = false;
+  return md.replace(/\r\n/g, '\n').split('\n').map((line) => {
+    if (/^```/.test(line)) fence = !fence;
+    if (fence) return line;
+    const start = line.match(/^:::([a-z]+)[ \t]*(.*)$/);
+    if (start && !open) {
+      open = true;
+      const title = start[2].trim() || CALLOUTS[start[1]] || start[1][0].toUpperCase() + start[1].slice(1);
+      return `<details class="callout ${start[1]}">\n<summary>${marked.parseInline(title)}<span class="hint">Show</span></summary>\n`;
+    }
+    if (line.trim() === ':::' && open) { open = false; return '\n</details>\n'; }
+    return line;
+  }).join('\n');
+}
+
+// Markdown to HTML, with ids on h2 headings, scrollable tables, and collapsible callouts.
 function render(md) {
   const toc = [];
-  let html = marked.parse(md);
+  let html = marked.parse(callouts(md));
   html = html.replace(/<h2>(.*?)<\/h2>/g, (_, t) => {
     const id = slug(t);
     toc.push({ id, text: t.replace(/<[^>]+>/g, '') });

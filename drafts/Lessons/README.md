@@ -12,6 +12,21 @@ The order and titles of a week's topics are set in `content/course.json`. If you
 
 The lab and assignment file holds the week's guided practice, lab, share-out, and responsible-use note, then the assignment in full, followed by "Before next week."
 
+## Collapsible callouts
+Some material is useful to have but breaks up the reading, such as click-by-click steps. Put it in a callout, which the site shows folded until the reader opens it:
+
+```
+:::steps
+1. Open your account menu.
+2. Select **Settings**.
+:::
+```
+
+- `:::steps` is titled "Step-by-step instructions". To give one callout its own title, write it after the type, as in `:::steps On a phone`.
+- A callout can hold paragraphs, lists, and tables. It cannot hold another callout.
+- New types are added in `build.mjs`, in the `CALLOUTS` list, each with its default title.
+- On GitHub and in a plain Markdown preview, the `:::` lines show as text and the content is not folded.
+
 ## Instructor notes
 Every instructor note is a blockquote that begins with **"Instructor note"**:
 
