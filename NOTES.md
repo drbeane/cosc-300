@@ -26,4 +26,4 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - `Draft Outline/`, `Lessons/` and `Slides/` now live in `drafts/`. Before this, they sat in the Dropbox course folder outside the repo. The repo is now the only copy, and the Dropbox folder holds the clone.
    - The build reads only `content/`, so `drafts/` is not published on the site. It is readable on GitHub, instructor and speaker notes included.
    - To sync, run `node tools/sync.mjs drafts`.
-   - When the drafts were moved, the Week 1 lessons matched `content/` exactly and the Week 1 slides differed only in blank lines. `drafts/Draft Outline/03 - Supplementary Resources.md` still has the old resource order from before item 3.
+   - When the drafts were moved, the Week 1 lessons matched `content/` exactly and the Week 1 slides differed only in blank lines. `drafts/Draft Outline/03 - Supplementary Resources.md` has since been updated to the item 3 order, so syncing no longer undoes it.

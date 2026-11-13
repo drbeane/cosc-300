@@ -7,10 +7,11 @@ _Compiled 2026-10-21. These are resources outside Claude Academy (see 02 for Aca
 ## Course-long references
 | Resource | Type | Outcomes | Notes |
 |---|---|---|---|
+| ◦ [Claude documentation](https://docs.claude.com/) and ◦ [Claude support center](https://support.claude.com/) | Vendor docs | all | Reference for Cowork, Claude Code, skills, and connectors |
+| ◦ [Claude Academy](https://academy.claude.com/courses) | Courses | all | Anthropic's free courses, including the AI Fluency lessons assigned in this course |
 | ◦ [One Useful Thing](https://www.oneusefulthing.org/) (Ethan Mollick) | Newsletter | O2, O5, O9 | The most readable running commentary on practical AI use; periodic "which AI to use" guides help with tool choice |
 | ◦ *Co-Intelligence* (Mollick, 2024) and ✓ [*Co-Existence*](https://www.penguinrandomhouse.com/books/813026/co-existence-by-ethan-mollick/) (Mollick, 2026) | Books (paid) | O1, O5, O9 | Candidate optional text; *Co-Existence* is the newer follow-up |
 | ◦ [Simon Willison's Weblog](https://simonwillison.net/) | Blog | O3–O8 | Hands-on notes on new tools, prompt injection, and building with LLMs |
-| ◦ [Claude documentation](https://docs.claude.com/) and ◦ [Claude support center](https://support.claude.com/) | Vendor docs | all | Reference for Cowork, Claude Code, skills, and connectors |
 | ◦ [OpenAI Academy](https://academy.openai.com/) | Videos and courses | O2, O3, O5 | ChatGPT-focused; good for the vendor-plural comparisons |
 | ✓ [Explore Microsoft 365 Copilot Chat](https://learn.microsoft.com/en-us/training/paths/explore-microsoft-365-copilot-business-chat) (Microsoft Learn) | Learning path | O2, O3 | Matches what students have through Maryville |
 | ✓ [Google Prompting Essentials](https://www.coursera.org/specializations/prompting-essentials-google) (Coursera) | Short course (free to audit; certificate paid) | O3, O4 | Google's equivalent of a prompting course |
