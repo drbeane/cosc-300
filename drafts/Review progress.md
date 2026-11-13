@@ -26,11 +26,11 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W03-T2 Verification habits | expanded | Was 172 words. Added how much to check, a section per habit, check-to-error table, what to do when you can't verify |
 | W03-T3 Effort, models, and the Description–Discernment loop | expanded | Added fix-to-error table, a worked pass through the loop, feedback examples, when to stop |
 | W03-Lab Fact-check and failure report | fine | |
-| W04-T1 AI as a writing partner | to do | |
-| W04-T2 Projects | to do | |
-| W04-T3 Research agents | to do | |
-| W04-T4 Grounded notebooks and how tools find sources | to do | |
-| W04-Lab Research brief with citation audit | to do | |
+| W04-T1 AI as a writing partner | expanded | Added a table of stages, feedback techniques, keeping your voice, a disclosure example |
+| W04-T2 Projects | expanded | Added the parts table, how to write project instructions, choosing files, testing the project |
+| W04-T3 Research agents | expanded | Added search vs research, writing a request, failure table, audit steps |
+| W04-T4 Grounded notebooks and how tools find sources | expanded | Added grounding, what a notebook gives you, embeddings, retrieval failures and fixes |
+| W04-Lab Research brief with citation audit | fine |  |
 | W05-T1 Structured files | to do | |
 | W05-T2 Data analysis with code execution | to do | |
 | W05-T3 Creating files, multimodal input, and generative media | to do | |

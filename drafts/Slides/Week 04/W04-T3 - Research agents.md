@@ -17,9 +17,54 @@ A research agent:
 1. Breaks your question into sub-questions
 2. Runs many searches
 3. Reads the sources
-4. Writes a report **with citations**
+4. Follows up on what it learned
+5. Writes a report **with citations**
 
 Minutes of work instead of seconds; much broader coverage.
+
+---
+
+## Your first agent
+
+An **agent** chooses its own next actions.
+
+You see the question and the finished report.
+You don't see most of the decisions in between.
+
+<!-- Agents are the second half of the course. Plant the idea here. -->
+
+---
+
+## Search vs research
+
+| | Chat with web search | Research agent |
+|---|---|---|
+| Searches | A few | Dozens |
+| Time | Seconds | Minutes |
+| Output | Short answer | Long cited report |
+| Usage | Small | Large |
+
+---
+
+## Writing a research request
+
+State:
+
+- The **question**
+- The **purpose** and reader
+- The **scope**: dates, places, what to leave out
+- The **sources** you want
+- The **output**, and how to handle disagreement
+
+You can't steer a run once it starts.
+
+---
+
+## Weak and strong
+
+> Research remote work.
+
+> Research what studies since 2020 have found about remote and hybrid work and the productivity and retention of employees in their first three years. Prefer peer-reviewed studies and large surveys. Where studies disagree, say so. End with what the research doesn't yet answer.
 
 ---
 
@@ -32,3 +77,34 @@ Minutes of work instead of seconds; much broader coverage.
 - Gaps presented as consensus
 
 A cited report still needs auditing.
+
+<!-- Show your prepared example of a citation that doesn't support its claim. -->
+
+---
+
+## Two limits on coverage
+
+- **Paywalls**: the agent may read an abstract or a news story, not the study
+- **Popularity**: it reads what its searches turn up
+
+---
+
+## How to audit
+
+1. Mark the claims your work depends on
+2. Open the citation
+3. Find the supporting passage (Ctrl+F)
+4. Does the source say it, **at the same strength**?
+5. Who published it, and when?
+6. Record a verdict
+
+---
+
+## Verdicts
+
+| Verdict | Meaning |
+|---|---|
+| **Supports** | The source states the claim |
+| **Partly supports** | Related, but weaker or narrower |
+| **Does not support** | Real source, no such claim |
+| **Fabricated or inaccessible** | Can't be found or opened |

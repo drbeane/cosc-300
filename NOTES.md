@@ -95,3 +95,6 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 16. **Lesson review: Week 3 expanded.** (2026-11-13)
    - The three Week 3 topics and their decks were rewritten longer. "Verification habits" went from 172 words to a full lesson with a section for each habit. The lab page was left as it was.
+
+17. **Lesson review: Week 4 expanded.** (2026-11-13)
+   - The four Week 4 topics and their decks were rewritten longer. The lab page was left as it was.
