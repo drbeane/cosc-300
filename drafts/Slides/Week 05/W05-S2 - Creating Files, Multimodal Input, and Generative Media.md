@@ -21,7 +21,7 @@ paginate: true
 
 ---
 
-## File and document creation (C12)
+## File and document creation
 
 From chat, you can produce:
 
@@ -35,7 +35,7 @@ Still your job: check content, numbers, and claims.
 
 ---
 
-## Multimodal input (C13)
+## Multimodal input
 
 The model can read:
 
@@ -48,7 +48,7 @@ Check its reading of numbers and small text.
 
 ---
 
-## Embedded copilot (S2)
+## Embedded copilot
 
 AI **inside the app you're already using**.
 
@@ -70,7 +70,7 @@ AI **inside the app you're already using**.
 
 ---
 
-## Generative media (C10)
+## Generative media
 
 - Image generation, and video in brief
 - **Claude does not generate raster images natively**: today we use another tool

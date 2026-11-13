@@ -1,6 +1,6 @@
 # Week 12, Session 1: Retrieval and Evaluation
 
-**COSC-300/500 Applied AI Essentials** · Surface: S8 API and agent platforms · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: API and agent platforms · 4D focus: Discernment
 
 > **Instructor note: preparation.** Have one worked example of each track ready to show briefly: a tiny RAG program over a few documents, a minimal MCP server, and a 20-item evaluation sheet for an existing tool. Track C exists so that students who prefer not to build can still learn evaluation; present it as a full alternative, not a lesser option. Timing: 20 min RAG, 15 min evaluation, 40 min lab.
 

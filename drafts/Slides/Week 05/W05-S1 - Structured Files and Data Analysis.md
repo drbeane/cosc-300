@@ -65,7 +65,7 @@ Ask: *"Draw this process as a Mermaid flowchart."*
 
 ---
 
-## Data analysis with code (C11)
+## Data analysis with code
 
 - The AI **writes and runs code** on your uploaded data
 - It can clean, summarize, chart, and model

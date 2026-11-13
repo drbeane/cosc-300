@@ -1,6 +1,6 @@
 # Week 1, Session 1: How LLMs Work and How AI Is Delivered
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S1 Chat assistant, map of S1–S8 · Capability: C5 Model selection and effort levels · 4D focus: Delegation
+**COSC-300/500 Applied AI Essentials** · Surfaces: Chat assistant, map of all eight surfaces · Capability: Model selection and effort levels · 4D focus: Delegation
 
 > **Instructor note: preparation.** Have Claude, Copilot Chat, and one free tool open in separate browser tabs, plus the Claude desktop app. Prepare the "same prompt, three runs" demo prompt in advance (one with a factual element and an open-ended element works best, for example "Explain why the 1918 flu spread so quickly, in five bullets"). For the surfaces tour, line up a two-minute demo of each surface you can show today; skip any that aren't set up and say so. Timing: 10 min course overview, 35 min how LLMs work, 20 min surfaces map, 10 min the 4D framework.
 
@@ -84,20 +84,20 @@ The same model can behave very differently depending on how you reach it. A **su
 
 This course uses eight surfaces:
 
-| ID | Surface | What it is | Example |
-|---|---|---|---|
-| S1 | Chat assistant | A conversation in a browser or app | Claude, ChatGPT, Copilot Chat |
-| S2 | Embedded copilot | AI inside an application you already use | Copilot in Outlook |
-| S3 | Coding assistant | AI inside a development environment, with access to code, terminal, and tests | Claude Code in VS Code |
-| S4 | Local agent | AI that works directly on the files and folders on your computer | Claude Cowork |
-| S5 | Cloud or background agent | Work you hand off or schedule; it runs while you're away | Scheduled tasks |
-| S6 | Browser or computer-use agent | AI that operates a browser: clicks, types, reads pages | Claude in Chrome |
-| S7 | Always-on agent | An agent with its own cloud computer that keeps working and checks in | Meta Muse |
-| S8 | API and agent platforms | Building your own programs on top of a model | The Claude API |
+| Surface | What it is | Example |
+|---|---|---|
+| Chat assistant | A conversation in a browser or app | Claude, ChatGPT, Copilot Chat |
+| Embedded copilot | AI inside an application you already use | Copilot in Outlook |
+| Coding assistant | AI inside a development environment, with access to code, terminal, and tests | Claude Code in VS Code |
+| Local agent | AI that works directly on the files and folders on your computer | Claude Cowork |
+| Cloud or background agent | Work you hand off or schedule; it runs while you're away | Scheduled tasks |
+| Browser or computer-use agent | AI that operates a browser: clicks, types, reads pages | Claude in Chrome |
+| Always-on agent | An agent with its own cloud computer that keeps working and checks in | Meta Muse |
+| API and agent platforms | Building your own programs on top of a model | The Claude API |
 
 The course walks this map in order. Weeks 1–5 are mostly chat. Weeks 6–8 cover local agents and the surfaces that build on them. Weeks 9–10 are coding assistants. Weeks 11–12 build small programs on an API. Week 13 is always-on agents. Weeks 14–15 look at organizations and bring everything together in your capstone.
 
-> **Instructor note.** Keep the tour to about two minutes per surface: the goal is a mental map, not instruction. If a surface isn't available to demo, describe it and say which week it arrives. Students often haven't seen S4 at all; a 30-second glimpse of an agent saving files into a folder makes the rest of the term concrete.
+> **Instructor note.** Keep the tour to about two minutes per surface: the goal is a mental map, not instruction. If a surface isn't available to demo, describe it and say which week it arrives. Students often haven't seen a local agent at all; a 30-second glimpse of an agent saving files into a folder makes the rest of the term concrete.
 
 ## 4. The 4D framework: Delegation first
 

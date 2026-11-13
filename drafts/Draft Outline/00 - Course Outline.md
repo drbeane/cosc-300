@@ -1,6 +1,6 @@
 # COSC-300 / COSC-500 Applied AI Essentials: 15-Week Course Outline (draft)
 
-_Drafted 2026-10-21 by Claude for review; sessions corrected to 75 minutes and resources added the same day. Built from the draft course outlines and module detail in Claude Access/Drafts, the Evidence master list (S and C IDs), the course promo, the provost talking points, and the Claude Academy catalog (academy.claude.com/courses). 🔴 marks anything that needs a decision._
+_Drafted 2026-10-21 by Claude for review; sessions corrected to 75 minutes and resources added the same day. Built from the draft course outlines and module detail in Claude Access/Drafts, the Evidence master list, the course promo, the provost talking points, and the Claude Academy catalog (academy.claude.com/courses). 🔴 marks anything that needs a decision._
 
 ## Course description
 This course introduces students to the practical use of modern AI tools in professional settings. The course emphasizes AI literacy, responsible use, prompt design, workflow integration, output evaluation, and human-AI collaboration. Students learn to use modern tools and platforms to support research, writing, analysis, coding, communication, and task automation. They also examine limitations, risks, ethics, privacy, bias, and organizational considerations involved in deploying AI in real-world environments.
@@ -35,20 +35,20 @@ Two ideas give the course its shape.
 
 | Week | Topic | Surfaces | Capabilities | 4D emphasis | Assignment |
 |---|---|---|---|---|---|
-| 1 | How AI systems work and how they are delivered | S1, map of S1–S8 | C5 | Delegation | Three-vendor comparison |
-| 2 | Prompting and context | S1 | C14, C9 | Description | Prompt revision log |
-| 3 | Evaluating AI output | S1 | C5 | Discernment | Fact-check and failure report |
-| 4 | Research and grounded knowledge work | S1 | C3, C4, C7 | Discernment | Research brief with citation audit |
-| 5 | Documents, data, and media | S1, S2 | C10, C11, C12, C13 | Description | Data-to-deliverable package |
-| 6 | Local agents: delegating real work | S4 | C1, C8 | Delegation | Folder-scale delegation task |
-| 7 | Instruction files and skills | S4 | C2, C3 | Description | Write and test a skill |
-| 8 | Connectors, browser agents, background tasks, and agent security | S4, S5, S6 | C6, C1 | Diligence | Midterm project: agent workflow |
-| 9 | Coding with AI I: the development environment | S3, S4 | C1, C2, C8 | Delegation | First app from a spec |
-| 10 | Coding with AI II: building and reviewing | S3 | C1, C2 | Discernment | Spec-driven build with tests |
-| 11 | AI engineering I: models as components | S8 | C5 | Description | First API program with tool use |
-| 12 | AI engineering II: retrieval, evaluation, and MCP | S8 | C6 | Discernment | Mini RAG app or MCP server with an eval |
-| 13 | Always-on assistants (Meta Muse) | S7, S5 | C1, C6 | Diligence | Always-on agent field test |
-| 14 | AI in organizations | S2, all | review | Diligence | Capstone draft and peer review |
+| 1 | How AI systems work and how they are delivered | Chat assistant, map of all eight surfaces | Model selection and effort levels | Delegation | Three-vendor comparison |
+| 2 | Prompting and context | Chat assistant | Memory and custom instructions, Voice | Description | Prompt revision log |
+| 3 | Evaluating AI output | Chat assistant | Model selection and effort levels | Discernment | Fact-check and failure report |
+| 4 | Research and grounded knowledge work | Chat assistant | Projects and project memory, Research agent, Grounded notebook | Discernment | Research brief with citation audit |
+| 5 | Documents, data, and media | Chat assistant, Embedded copilot | Generative media, Data analysis with code execution, File and document creation, Multimodal input | Description | Data-to-deliverable package |
+| 6 | Local agents: delegating real work | Local agent | Plan mode and autonomy controls, Usage and context commands | Delegation | Folder-scale delegation task |
+| 7 | Instruction files and skills | Local agent | Instruction files and skills, Projects and project memory | Description | Write and test a skill |
+| 8 | Connectors, browser agents, background tasks, and agent security | Local agent, Cloud and background agents, Browser and computer-use agents | MCP connectors, Plan mode and autonomy controls | Diligence | Midterm project: agent workflow |
+| 9 | Coding with AI I: the development environment | Coding assistant, Local agent | Plan mode and autonomy controls, Instruction files and skills, Usage and context commands | Delegation | First app from a spec |
+| 10 | Coding with AI II: building and reviewing | Coding assistant | Plan mode and autonomy controls, Instruction files and skills | Discernment | Spec-driven build with tests |
+| 11 | AI engineering I: models as components | API and agent platforms | Model selection and effort levels | Description | First API program with tool use |
+| 12 | AI engineering II: retrieval, evaluation, and MCP | API and agent platforms | MCP connectors | Discernment | Mini RAG app or MCP server with an eval |
+| 13 | Always-on assistants (Meta Muse) | Always-on agent, Cloud and background agents | Plan mode and autonomy controls, MCP connectors | Diligence | Always-on agent field test |
+| 14 | AI in organizations | Embedded copilot, all | review | Diligence | Capstone draft and peer review |
 | 15 | Capstone presentations and synthesis | all | all | all | Capstone final |
 
 ## Assessment (suggested)
@@ -68,8 +68,8 @@ Students design, prototype, and evaluate an AI-supported workflow for a real or 
 
 ## Coverage check
 Every item on the Evidence master list is placed.
-- Surfaces: S1 (weeks 1–5), S2 (5, 14), S3 (9–10), S4 (6–9), S5 (8, 13), S6 (8), S7 (13), S8 (11–12).
-- Capabilities: C1 (6, 8, 9, 10, 13), C2 (7, 9, 10), C3 (4, 7), C4 (4), C5 (1, 3, 11), C6 (8, 12, 13), C7 (4), C8 (6, 9), C9 (2), C10 (5), C11 (5), C12 (5), C13 (5), C14 (2).
+- Surfaces: Chat assistant (weeks 1–5), Embedded copilot (5, 14), Coding assistant (9–10), Local agent (6–9), Cloud and background agents (8, 13), Browser and computer-use agents (8), Always-on agent (13), API and agent platforms (11–12).
+- Capabilities: Plan mode and autonomy controls (6, 8, 9, 10, 13), Instruction files and skills (7, 9, 10), Projects and project memory (4, 7), Research agent (4), Model selection and effort levels (1, 3, 11), MCP connectors (8, 12, 13), Grounded notebook (4), Usage and context commands (6, 9), Voice (2), Generative media (5), Data analysis with code execution (5), File and document creation (5), Multimodal input (5), Memory and custom instructions (2).
 
 ## Changes from the 8-module draft
 - Spread over 15 weeks: agent work now gets three weeks (6–8), coding gets two (9–10).

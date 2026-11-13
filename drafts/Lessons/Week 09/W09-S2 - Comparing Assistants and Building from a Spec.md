@@ -1,6 +1,6 @@
 # Week 9, Session 2: Comparing Assistants and Building from a Spec
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S3 Coding assistant, S4 Local agent · Capabilities: C1, C2, C8 · 4D focus: Delegation
+**COSC-300/500 Applied AI Essentials** · Surfaces: Coding assistant, Local agent · Capabilities: Plan mode and autonomy controls, Instruction files and skills, Usage and context commands · 4D focus: Delegation
 
 > **Instructor note: preparation.** Write three one-page specs (budget tracker, flashcard app, course-planner page), each small enough to finish in about two hours of directed work. Recheck GitHub Copilot Student's current terms the week of class (credits, model selection, whether sign-ups are open); they changed twice in 2026. Timing: 10 min comparison, 55 min lab, 10 min share-out.
 

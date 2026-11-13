@@ -1,6 +1,6 @@
 # Week 7, Session 1: Standing Instructions and Writing Skills
 
-**COSC-300/500 Applied AI Essentials** · Surface: S4 Local agent · Capabilities: C2 Instruction files and skills, C3 Projects · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: Local agent · Capabilities: Instruction files and skills, Projects · 4D focus: Description
 
 > **Instructor note: preparation.** Pick a real task you do every week (for example, a weekly status update from a notes folder) and plan to write a skill for it live. Have a finished version ready in case the live one goes sideways. Check how Cowork currently loads standing context (global instructions, project instructions, skills) and whether it picks up a `CLAUDE.md` in the working folder; as of the last check this was unverified, so don't promise it. Timing: 20 min standing context, 20 min skills, 35 min guided practice.
 
@@ -16,7 +16,7 @@ By now you've probably noticed that you keep typing the same context: who you ar
 
 ## 2. Levels of standing instructions
 
-Standing instructions (part of capability **C2**) come at three levels:
+Standing instructions come at three levels:
 
 | Level | Applies to | Example |
 |---|---|---|

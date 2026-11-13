@@ -1,6 +1,6 @@
 # Week 4, Session 2: Research Agents, Grounded Notebooks, and Citations
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · Capabilities: C4 Research agent, C7 Grounded notebook · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · Capabilities: Research agent, Grounded notebook · 4D focus: Discernment
 
 > **Instructor note: preparation.** Run a research request yourself the day before on a topic you know, and find at least one citation that doesn't support its claim; it makes a strong example. Set up a NotebookLM notebook with three or four sources. Check NotebookLM's current name: Google's documentation has begun calling it Gemini Notebook. This lab uses Claude Pro's Research feature; Copilot Chat (Basic) and Claude Free have no research agent. Timing: 15 min research agents, 10 min notebooks, 10 min retrieval concept, 40 min lab.
 
@@ -12,7 +12,7 @@
 
 ## 1. Research agents
 
-A **research agent** (capability **C4**) goes well beyond a single web search. Given a question, it:
+A **research agent** goes well beyond a single web search. Given a question, it:
 
 1. breaks the question into sub-questions;
 2. runs many searches;
@@ -33,7 +33,7 @@ A cited report still needs checking. The citations make checking possible; they 
 
 ## 2. Grounded notebooks
 
-A **grounded notebook** (capability **C7**) answers only from the sources you add to it. It doesn't use the open web, and it's designed to stay faithful to your documents. Examples are **NotebookLM**, which is free, and **Copilot Notebooks**, which on Maryville accounts allow up to 50 sources.
+A **grounded notebook** answers only from the sources you add to it. It doesn't use the open web, and it's designed to stay faithful to your documents. Examples are **NotebookLM**, which is free, and **Copilot Notebooks**, which on Maryville accounts allow up to 50 sources.
 
 ### Projects and notebooks compared
 

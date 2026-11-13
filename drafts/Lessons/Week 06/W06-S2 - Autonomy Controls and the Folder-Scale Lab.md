@@ -1,6 +1,6 @@
 # Week 6, Session 2: Autonomy Controls and the Folder-Scale Lab
 
-**COSC-300/500 Applied AI Essentials** · Surface: S4 Local agent · Capabilities: C1 Plan mode and autonomy controls, C8 Usage and context · 4D focus: Delegation
+**COSC-300/500 Applied AI Essentials** · Surface: Local agent · Capabilities: Plan mode and autonomy controls, Usage and context · 4D focus: Delegation
 
 > **Instructor note: preparation.** Before class, check which permission and approval options the current Cowork interface exposes, and how to see a task's usage (Settings > Usage, or the "Explain usage" skill if available). Have the standard practice folders for each assignment option ready to distribute. Timing: 15 min autonomy controls and usage, 50 min lab, 10 min share-out.
 
@@ -13,7 +13,7 @@
 
 ## 1. Autonomy controls
 
-Supervising an agent comes down to one question: **how much may it do without asking you?** Agent tools offer a range of answers (capability **C1**):
+Supervising an agent comes down to one question: **how much may it do without asking you?** Agent tools offer a range of answers:
 
 - **Plan first.** The agent researches and proposes a plan. Nothing changes until you approve it.
 - **Ask each time.** You approve every action as it comes up.
@@ -45,7 +45,7 @@ You can stop an agent mid-task. When it heads the wrong way, stop it, say what's
 
 Every task uses part of your plan's **usage allowance**. On Claude Pro, usage is measured over a rolling five-hour session and over a week. Large folders and long tasks also fill the agent's **context window**, the same working memory you learned about in week 2.
 
-After a task runs, check what it cost (capability **C8**). Over time you'll develop a sense of which tasks are cheap and which are expensive, and how the way you write a brief affects the cost.
+After a task runs, check what it cost. Over time you'll develop a sense of which tasks are cheap and which are expensive, and how the way you write a brief affects the cost.
 
 > **Instructor note: demo.** Show where usage appears in Cowork, and run "Explain usage" or the equivalent on the demo task from Tuesday. In week 9, students will see the `/context` and `/usage` commands in Claude Code, which show more detail.
 

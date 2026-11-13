@@ -1,6 +1,6 @@
 # Week 3, Session 1: Why AI Output Is Wrong and How to Check It
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · 4D focus: Discernment
 
 > **Instructor note: preparation.** Prepare a handout of five AI answers on general topics: one with a fabricated citation, one with an arithmetic error, one with an outdated fact, one that answers a slightly different question than was asked, and one that is correct. Have one live example of sycophancy ready (ask a question, then push back on a correct answer and see whether it caves). Timing: 25 min why outputs are wrong, 25 min verification habits, 25 min practice.
 

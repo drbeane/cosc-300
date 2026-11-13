@@ -21,7 +21,7 @@ paginate: true
 
 ---
 
-## Connectors (C6)
+## Connectors
 
 A **connector** lets an agent reach an outside service:
 
@@ -54,7 +54,7 @@ We'll build one in week 12.
 
 ---
 
-## Browser and computer-use agents (S6)
+## Browser and computer-use agents
 
 - The agent **operates a browser**: clicks, types, reads pages
 - Useful for sites with no connector
@@ -75,7 +75,7 @@ Watch it the first few times.
 
 ---
 
-## Background and scheduled tasks (S5)
+## Background and scheduled tasks
 
 - **Hand off** a task and close your laptop
 - **Schedule** a task to run every morning or week

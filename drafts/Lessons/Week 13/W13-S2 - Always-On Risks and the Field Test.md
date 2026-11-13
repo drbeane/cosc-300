@@ -1,6 +1,6 @@
 # Week 13, Session 2: Always-On Risks and the Field Test
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S7 Always-on agent, S5 · Capabilities: C1, C6 · 4D focus: Diligence
+**COSC-300/500 Applied AI Essentials** · Surfaces: Always-on agent, Cloud and background agents · Capabilities: Plan mode and autonomy controls, MCP connectors · 4D focus: Diligence
 
 > **Instructor note: preparation.** Set up a scheduled Cowork task that does the same job as your Muse demo task, so you can compare them live. Timing: 20 min risks, 10 min when it's worth it, 35 min lab, 10 min monitoring plan.
 

@@ -1,6 +1,6 @@
 # Week 6: Local Agents: Delegating Real Work
 
-**Surfaces:** S4 Local agent [E] · **Capabilities:** C1 Plan mode and autonomy controls [E], C8 Usage and context commands [D] · **4D:** Delegation
+**Surfaces:** Local agent [E] · **Capabilities:** Plan mode and autonomy controls [E], Usage and context commands [D] · **4D:** Delegation
 
 The centerpiece of the course begins. Students direct an agent (Claude Cowork) that works on a folder on their own computer and returns finished deliverables.
 
@@ -24,7 +24,7 @@ Students will be able to:
 - 30 min: Guided practice: each student delegates a small folder task (organize and index a set of files by rules they write).
 
 ## Session 2 (75 min)
-- 15 min: Autonomy controls (C1). Plan review, approvals, what the agent may do unasked, irreversible actions. Usage and context (C8): what a task cost.
+- 15 min: Autonomy controls. Plan review, approvals, what the agent may do unasked, irreversible actions. Usage and context: what a task cost.
 - 50 min: Lab: the folder-scale assignment.
 - 10 min: Share-out. Where did the agent go wrong, and how did you notice?
 

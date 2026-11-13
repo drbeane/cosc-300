@@ -1,6 +1,6 @@
 # Week 3, Session 2: Effort, Models, and the Failure Gallery
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · Capability: C5 Model selection and effort levels · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · Capability: Model selection and effort levels · 4D focus: Discernment
 
 > **Instructor note: preparation.** Choose two or three problems where a fast model reliably fails but a reasoning model or larger model does better: a multi-step word problem, a logic puzzle with a trap, a question needing careful counting. Test them the day before; model behavior shifts. Set up a shared board (Canvas discussion, a shared doc, or a whiteboard) for the failure gallery. Timing: 15 min effort demo, 50 min lab, 10 min share-out.
 

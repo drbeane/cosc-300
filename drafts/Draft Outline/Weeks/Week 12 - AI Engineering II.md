@@ -1,6 +1,6 @@
 # Week 12: AI Engineering II: Retrieval, Evaluation, and MCP
 
-**Surfaces:** S8 [D, hands-on here] · **Capabilities:** C6 MCP connectors [S] · **4D:** Discernment
+**Surfaces:** API and agent platforms [D, hands-on here] · **Capabilities:** MCP connectors [S] · **4D:** Discernment
 
 ## Goals
 Students will be able to:

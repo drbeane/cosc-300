@@ -1,6 +1,6 @@
 # Week 2: Prompting and Context
 
-**Surfaces:** S1 [E] · **Capabilities:** C14 Memory and custom instructions [D], C9 Voice [D] · **4D:** Description
+**Surfaces:** Chat assistant [E] · **Capabilities:** Memory and custom instructions [D], Voice [D] · **4D:** Description
 
 ## Goals
 Students will be able to:
@@ -19,8 +19,8 @@ Students will be able to:
 - 25 min: Guided practice. Pairs rewrite three weak prompts, then swap and critique.
 
 ## Session 2 (75 min)
-- 15 min: Standing context at the account level: memory and custom instructions (C14). What to put there and what not to.
-- 10 min: Voice mode demo (C9): when talking is better than typing.
+- 15 min: Standing context at the account level: memory and custom instructions. What to put there and what not to.
+- 10 min: Voice mode demo: when talking is better than typing.
 - 40 min: Lab. Build a small test set (5 inputs) for a recurring task and run a prompt through three documented revisions.
 - 10 min: Share-out. Which change made the biggest difference?
 

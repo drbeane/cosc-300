@@ -1,6 +1,6 @@
 # Week 2, Session 1: Writing Strong Prompts and Understanding Context
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · 4D focus: Description
 
 > **Instructor note: preparation.** Print or post three weak prompts for the paired practice. Suggested: "Write a cover letter." / "Explain photosynthesis." / "Make this better." followed by a mediocre paragraph. Prepare one before-and-after pair to run live. Timing: 25 min anatomy of a prompt, 25 min context, 25 min practice.
 

@@ -1,6 +1,6 @@
 # Week 5, Session 1: Structured Files and Data Analysis
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · Capability: C11 Data analysis with code execution · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · Capability: Data analysis with code execution · 4D focus: Description
 
 > **Instructor note: preparation.** Prepare a messy demo dataset (a few hundred rows) with a planted problem that produces a wrong aggregate if not caught: duplicate IDs, mixed units (some values in thousands), or a category spelled two ways. Have the provided assignment dataset posted for students who didn't find one. Timing: 15 min structured files, 25 min data analysis demo, 35 min guided practice.
 
@@ -45,7 +45,7 @@ Ask a model to "draw this process as a Mermaid flowchart" and you get a diagram 
 
 ## 2. Data analysis with code execution
 
-Many chat tools can now **write and run code** on data you upload (capability **C11**). You upload a spreadsheet or CSV and ask a question; the model writes a short program, runs it, and reports the result, often with a chart. This is far more reliable than asking a model to do arithmetic in its head, because the computer does the calculation.
+Many chat tools can now **write and run code** on data you upload. You upload a spreadsheet or CSV and ask a question; the model writes a short program, runs it, and reports the result, often with a chart. This is far more reliable than asking a model to do arithmetic in its head, because the computer does the calculation.
 
 But "the code ran" doesn't mean "the analysis is right." The model chose how to clean the data, which rows to drop, how to group categories, and which calculation to run. Any of those choices can be wrong, and the chart will look just as convincing.
 

@@ -1,6 +1,6 @@
 # Week 10: Coding with AI II: Building and Reviewing
 
-**Surfaces:** S3 [E] · **Capabilities:** C1 [E], C2 [E] · **4D:** Discernment
+**Surfaces:** Coding assistant [E] · **Capabilities:** Plan mode and autonomy controls [E], Instruction files and skills [E] · **4D:** Discernment
 
 ## Goals
 Students will be able to:

@@ -20,16 +20,16 @@ The second half of the presentations runs as on Tuesday: 8 minutes plus 3 for qu
 
 In week 1 you saw a map of eight surfaces. You've now used every one.
 
-| ID | Surface | Where we used it |
-|---|---|---|
-| S1 | Chat assistant | Weeks 1–5 |
-| S2 | Embedded copilot | Weeks 5 and 14 |
-| S3 | Coding assistant | Weeks 9–10 |
-| S4 | Local agent | Weeks 6–9 |
-| S5 | Cloud and scheduled agents | Weeks 8 and 13 |
-| S6 | Browser agent | Week 8 |
-| S7 | Always-on agent | Week 13 |
-| S8 | API and agent platforms | Weeks 11–12 |
+| Surface | Where we used it |
+|---|---|
+| Chat assistant | Weeks 1–5 |
+| Embedded copilot | Weeks 5 and 14 |
+| Coding assistant | Weeks 9–10 |
+| Local agent | Weeks 6–9 |
+| Cloud and scheduled agents | Weeks 8 and 13 |
+| Browser agent | Week 8 |
+| Always-on agent | Week 13 |
+| API and agent platforms | Weeks 11–12 |
 
 ### The 4D framework, revisited
 

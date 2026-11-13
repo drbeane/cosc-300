@@ -20,7 +20,7 @@ paginate: true
 
 ---
 
-## Autonomy controls (C1)
+## Autonomy controls
 
 How much the agent may do **without asking**:
 
@@ -61,7 +61,7 @@ Pause and think before approving:
 
 ---
 
-## Usage and context (C8)
+## Usage and context
 
 - Every task consumes **usage** from your plan
 - Big folders and long tasks fill the **context window**

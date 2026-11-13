@@ -1,6 +1,6 @@
 # Week 13: Always-on Assistants (Meta Muse)
 
-**Surfaces:** S7 Always-on personal agent [D, hands-on here], S5 [S] · **Capabilities:** C1 [E], C6 [S] · **4D:** Diligence
+**Surfaces:** Always-on personal agent [D, hands-on here], Cloud and background agents [S] · **Capabilities:** Plan mode and autonomy controls [E], MCP connectors [S] · **4D:** Diligence
 
 The last step on the autonomy ladder: an agent that keeps working while you are away, acts across your accounts, and checks in when it needs you. Placed late so students bring connectors, permissions, prompt injection, and evaluation to it.
 

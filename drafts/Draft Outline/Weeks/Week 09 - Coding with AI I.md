@@ -1,6 +1,6 @@
 # Week 9: Coding with AI I: The Development Environment
 
-**Surfaces:** S3 Coding assistant in the development environment [E], S4 [E] · **Capabilities:** C1 [E], C2 [E], C8 [D] · **4D:** Delegation
+**Surfaces:** Coding assistant in the development environment [E], Local agent [E] · **Capabilities:** Plan mode and autonomy controls [E], Instruction files and skills [E], Usage and context commands [D] · **4D:** Delegation
 
 No prior coding experience is assumed. Students direct the assistant; the skill being taught is specifying, supervising, and checking software work.
 
@@ -18,7 +18,7 @@ Students will be able to:
 ## Session 1 (75 min)
 - 10 min: Coding in a chat window and its limits.
 - 20 min: Tour of the environment. VS Code, the terminal, Git basics (commit, diff, revert), GitHub.
-- 15 min: Claude Code in VS Code. Plan mode, permissions, the instruction file, `/context` and `/usage` (C8).
+- 15 min: Claude Code in VS Code. Plan mode, permissions, the instruction file, `/context` and `/usage`.
 - 30 min: Guided setup clinic and a first small change in a sample repository.
 
 ## Session 2 (75 min)

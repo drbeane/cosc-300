@@ -1,6 +1,6 @@
 # Week 10, Session 2: Debugging and the Capstone Briefing
 
-**COSC-300/500 Applied AI Essentials** · Surface: S3 Coding assistant · Capabilities: C1, C2 · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: Coding assistant · Capabilities: Plan mode and autonomy controls, Instruction files and skills · 4D focus: Discernment
 
 > **Instructor note: preparation.** Prepare two example capstone proposals, one strong and one too vague, to show. Prepare the mid-project requirement change for the 500 extension. Timing: 10 min debugging, 10 min capstone briefing, 45 min lab, 10 min share-out.
 

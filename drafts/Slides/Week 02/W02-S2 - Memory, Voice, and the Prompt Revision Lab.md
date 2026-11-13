@@ -21,7 +21,7 @@ paginate: true
 
 ---
 
-## Standing context (C14)
+## Standing context
 
 Two ways to give the model context **every time**:
 
@@ -56,7 +56,7 @@ Both quietly enter the context of every chat.
 
 ---
 
-## Voice mode (C9)
+## Voice mode
 
 - Talk instead of type
 - Good for: thinking out loud, practicing explanations, hands-busy tasks

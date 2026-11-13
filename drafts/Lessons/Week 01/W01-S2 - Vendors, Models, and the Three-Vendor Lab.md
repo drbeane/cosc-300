@@ -1,6 +1,6 @@
 # Week 1, Session 2: Vendors, Models, and the Three-Vendor Lab
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · Capability: C5 Model selection and effort levels · 4D focus: Delegation
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · Capability: Model selection and effort levels · 4D focus: Delegation
 
 > **Instructor note: preparation.** Recheck the model pickers in Claude, Copilot Chat, and one free tool this week; they change often. On 2026-10-03 the Maryville Copilot account showed only GPT 5.6 Sol with Quick response, Think deeper, and Auto; a student account may differ. Have the privacy settings pages for Claude and Copilot ready to show. Timing: 15 min vendors and models, 40 min lab, 10 min privacy, 10 min share-out.
 
@@ -42,7 +42,7 @@ Many current models can **reason** before answering: they work through the probl
 
 More thinking helps most on problems with several steps where an early mistake ruins the result: math, logic, planning, careful analysis. It costs you time and usage. On simple tasks it's usually wasted.
 
-In this course, model selection and effort levels are capability **C5**. You'll use the skill all term.
+Choosing a model and an effort level is a skill you'll use all term.
 
 ### What you can choose depends on the tool
 

@@ -1,6 +1,6 @@
 # Week 11, Session 2: Tool Use, Workflows, and Agents
 
-**COSC-300/500 Applied AI Essentials** · Surface: S8 API and agent platforms · Capability: C5 · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: API and agent platforms · Capability: Model selection and effort levels · 4D focus: Description
 
 > **Instructor note: preparation.** Prepare a demo program with one tool (a calculator or a fake weather lookup) that prints every message exchanged so the class can trace the round trip. Check the current tool-definition format for your API route. Timing: 20 min tool use, 10 min workflows vs agents, 35 min lab, 10 min share-out.
 

@@ -21,7 +21,7 @@ paginate: true
 
 ---
 
-## Research agents (C4)
+## Research agents
 
 A research agent:
 
@@ -46,7 +46,7 @@ A cited report still needs auditing.
 
 ---
 
-## Grounded notebooks (C7)
+## Grounded notebooks
 
 - Answer **only** from sources you add
 - Closed-book: no outside web

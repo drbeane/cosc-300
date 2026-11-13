@@ -27,3 +27,9 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - The build reads only `content/`, so `drafts/` is not published on the site. It is readable on GitHub, instructor and speaker notes included.
    - To sync, run `node tools/sync.mjs drafts`.
    - When the drafts were moved, the Week 1 lessons matched `content/` exactly and the Week 1 slides differed only in blank lines. `drafts/Draft Outline/03 - Supplementary Resources.md` has since been updated to the item 3 order, so syncing no longer undoes it.
+
+5. **Removed the surface and capability codes.** (2026-11-13)
+   - The codes S1 to S8 (surfaces) and C1 to C14 (capabilities) are gone from the drafts and from the published Week 1 lessons and slides. Surfaces and capabilities are now referred to by name only.
+   - The surface tables lost their code column. Asides such as "(surface **S4**)" and "(capability **C6**)" were deleted.
+   - Session labels such as `W01-S1` (week 1, session 1) are unchanged.
+   - The Evidence master list in `Claude Access/`, outside this repo, still uses the codes.

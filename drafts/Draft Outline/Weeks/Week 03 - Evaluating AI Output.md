@@ -1,6 +1,6 @@
 # Week 3: Evaluating AI Output
 
-**Surfaces:** S1 [E] · **Capabilities:** C5 Model selection and effort levels [S] · **4D:** Discernment
+**Surfaces:** Chat assistant [E] · **Capabilities:** Model selection and effort levels [S] · **4D:** Discernment
 
 ## Goals
 Students will be able to:
@@ -19,7 +19,7 @@ Students will be able to:
 - 25 min: Practice. Students get five AI answers, some subtly wrong, and find the problems.
 
 ## Session 2 (75 min)
-- 15 min: Does a bigger model or more thinking help? Effort levels and reasoning models (C5) on problems where the fast model fails.
+- 15 min: Does a bigger model or more thinking help? Effort levels and reasoning models on problems where the fast model fails.
 - 50 min: Lab. Students try to make an AI fail in their own field, then document how they detected it.
 - 10 min: Share-out. Build a class "failure gallery".
 

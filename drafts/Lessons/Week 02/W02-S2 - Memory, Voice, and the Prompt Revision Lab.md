@@ -1,6 +1,6 @@
 # Week 2, Session 2: Memory, Voice, and the Prompt Revision Lab
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · Capabilities: C14 Memory and custom instructions, C9 Voice · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · Capabilities: Memory and custom instructions, Voice · 4D focus: Description
 
 > **Instructor note: preparation.** Have your own Claude memory and preferences settings ready to show (review them first for anything you'd rather not project). Prepare a quick voice-mode demo. Timing: 15 min memory and instructions, 10 min voice, 40 min lab, 10 min share-out.
 
@@ -17,7 +17,7 @@ On Tuesday you saw that everything in the context shapes the response. Two featu
 - **Custom instructions** (sometimes called preferences): something you write once about who you are and how you want responses. For example: "I'm a nursing student. Use plain language. Prefer short answers with a summary first."
 - **Memory**: facts the tool saves about you from past conversations and brings into new ones.
 
-Both are capability **C14**. Both enter the context of every chat quietly, which is their strength and their risk.
+Both enter the context of every chat quietly, which is their strength and their risk.
 
 ### What belongs there, and what doesn't
 
@@ -31,7 +31,7 @@ Open your memory settings and read what's there. You can edit or delete items, a
 
 ## 2. Voice
 
-Voice mode (capability **C9**) lets you talk instead of type. It's good for thinking out loud, practicing an explanation, being quizzed, or working when your hands are busy. It's weaker for precise instructions and long, structured prompts, where typed text is easier to control and review.
+Voice mode lets you talk instead of type. It's good for thinking out loud, practicing an explanation, being quizzed, or working when your hands are busy. It's weaker for precise instructions and long, structured prompts, where typed text is easier to control and review.
 
 > **Instructor note: demo.** Ask Claude by voice to quiz you on this week's terms. Keep it to two or three minutes.
 

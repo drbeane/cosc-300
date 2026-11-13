@@ -1,6 +1,6 @@
 # Week 1: How AI Systems Work and How They Are Delivered
 
-**Surfaces:** S1 Chat assistant [E]; map of S1–S8 · **Capabilities:** C5 Model selection and effort levels [S] · **4D:** Delegation
+**Surfaces:** Chat assistant [E]; map of all eight surfaces · **Capabilities:** Model selection and effort levels [S] · **4D:** Delegation
 
 ## Goals
 Students will be able to:
@@ -15,11 +15,11 @@ Students will be able to:
 ## Session 1 (75 min)
 - 10 min: Course overview, the AI-use and disclosure policy, the AI use journal.
 - 35 min: How an LLM works. Next-token prediction, sampling, training in brief, why answers vary. Live demo: same prompt run three times.
-- 20 min: The surfaces map. A tour of S1–S8 with a 2-minute demo of each that is available, showing where the course will go.
+- 20 min: The surfaces map. A tour of all eight surfaces with a 2-minute demo of each that is available, showing where the course will go.
 - 10 min: The 4D framework. Delegation as the first decision: what should you hand to AI at all?
 
 ## Session 2 (75 min)
-- 15 min: Vendors and models. Anthropic, OpenAI, Google, Microsoft, Meta, open-weight models. Model tiers and effort or "thinking" settings (C5).
+- 15 min: Vendors and models. Anthropic, OpenAI, Google, Microsoft, Meta, open-weight models. Model tiers and effort or "thinking" settings.
 - 40 min: Lab. One realistic task run on three vendors' chat tools (Claude, Copilot Chat, one free tool) and on two Claude models or effort levels.
 - 10 min: Privacy settings walk-through: training opt-outs, memory, chat history, what not to paste.
 - 10 min: Share-out. Where did the tools differ, and why?

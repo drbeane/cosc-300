@@ -26,16 +26,16 @@ paginate: true
 
 ## Back to week 1: the surfaces map
 
-| # | Surface | Where we used it |
-|---|---|---|
-| S1 | Chat | Weeks 1–5 |
-| S2 | Embedded copilot | Weeks 5, 14 |
-| S3 | Coding assistant | Weeks 9–10 |
-| S4 | Local agent | Weeks 6–9 |
-| S5 | Cloud / scheduled | Weeks 8, 13 |
-| S6 | Browser agent | Week 8 |
-| S7 | Always-on | Week 13 |
-| S8 | API | Weeks 11–12 |
+| Surface | Where we used it |
+|---|---|
+| Chat | Weeks 1–5 |
+| Embedded copilot | Weeks 5, 14 |
+| Coding assistant | Weeks 9–10 |
+| Local agent | Weeks 6–9 |
+| Cloud / scheduled | Weeks 8, 13 |
+| Browser agent | Week 8 |
+| Always-on | Week 13 |
+| API | Weeks 11–12 |
 
 ---
 

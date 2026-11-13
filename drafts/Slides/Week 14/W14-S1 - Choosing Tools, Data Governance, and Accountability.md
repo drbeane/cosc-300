@@ -48,7 +48,7 @@ Now: **how does an organization choose?**
 
 ---
 
-## Copilot in Microsoft 365 (S2)
+## Copilot in Microsoft 365
 
 - How most graduates will **first** meet AI at work
 - Strong where the work already lives: email, documents, meetings

@@ -41,7 +41,7 @@ The thinking is still yours.
 
 ---
 
-## Projects (C3)
+## Projects
 
 A **project** is a persistent workspace:
 

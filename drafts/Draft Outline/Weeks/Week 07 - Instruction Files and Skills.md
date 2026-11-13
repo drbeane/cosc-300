@@ -1,6 +1,6 @@
 # Week 7: Instruction Files and Skills
 
-**Surfaces:** S4 [E] · **Capabilities:** C2 Instruction files and skills [E], C3 Projects and project memory [E] · **4D:** Description
+**Surfaces:** Local agent [E] · **Capabilities:** Instruction files and skills [E], Projects and project memory [E] · **4D:** Description
 
 ## Goals
 Students will be able to:

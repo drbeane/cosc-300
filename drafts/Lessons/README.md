@@ -3,7 +3,7 @@
 Full lesson text for each class session (two per week, 30 in all). Each file matches the slide deck of the same name in `../Slides/`, and both are built from `../Draft Outline/`.
 
 ## How each lesson is organized
-- A header line with the surfaces (S IDs), capabilities (C IDs), and 4D focus.
+- A header line with the surfaces, capabilities, and 4D focus, all by name.
 - "What you will be able to do after this session."
 - Numbered sections in the order they are taught, written as prose students can read.
 - In Session 2 of each week, the assignment in full, followed by "Before next week."

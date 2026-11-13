@@ -1,6 +1,6 @@
 # Week 8: Connectors, Browser Agents, Background Tasks, and Agent Security
 
-**Surfaces:** S4 [E], S5 Cloud and background agents [S], S6 Browser and computer-use agents [S] · **Capabilities:** C6 MCP connectors [S], C1 [E] · **4D:** Diligence
+**Surfaces:** Local agent [E], Cloud and background agents [S], Browser and computer-use agents [S] · **Capabilities:** MCP connectors [S], Plan mode and autonomy controls [E] · **4D:** Diligence
 
 ## Goals
 Students will be able to:
@@ -14,9 +14,9 @@ Students will be able to:
 - Claude Academy: **Introduction to Claude Cowork**, lessons 9–11 (Claude in Chrome; Microsoft 365; working safely).
 
 ## Session 1 (75 min)
-- 20 min: Connectors (C6). What MCP is, as a user: connecting calendar, mail, storage, or a course tool. Read vs write permissions.
-- 15 min: Browser and computer-use agents (S6). Demo of a form-filling or research task; common failures.
-- 10 min: Background and scheduled tasks (S5). Handing off work, scheduling, reviewing results.
+- 20 min: Connectors. What MCP is, as a user: connecting calendar, mail, storage, or a course tool. Read vs write permissions.
+- 15 min: Browser and computer-use agents. Demo of a form-filling or research task; common failures.
+- 10 min: Background and scheduled tasks. Handing off work, scheduling, reviewing results.
 - 30 min: Midterm project workshop: plan and get approval.
 
 ## Session 2 (75 min)

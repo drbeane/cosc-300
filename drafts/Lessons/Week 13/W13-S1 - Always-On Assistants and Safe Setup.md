@@ -1,6 +1,6 @@
 # Week 13, Session 1: Always-On Assistants and Safe Setup
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S7 Always-on agent, S5 Cloud and background agents · Capabilities: C1 Autonomy controls, C6 Connectors · 4D focus: Diligence
+**COSC-300/500 Applied AI Essentials** · Surfaces: Always-on agent, Cloud and background agents · Capabilities: Autonomy controls, Connectors · 4D focus: Diligence
 
 > **Instructor note: preparation.** Everything about Muse in this lesson comes from news and third-party reports (launched 2026-09-08; US adults 18+; payment card at signup even for the free tier; training on interaction data on by default; free, $20, and $100 tiers). Verify each point on Meta's own pages before class and correct this text if anything has changed. Set up the instructor demo account with a throwaway identity, one low-risk connection, and approvals on, and start a multi-day task a few days early so you can show its history. Students who are under 18, outside the US, or unwilling to give a card will pair with the demo account; say this without making anyone explain why. Timing: 15 min landscape, 20 min demo, 10 min settings, 30 min guided setup.
 
@@ -15,7 +15,7 @@ At the start of the course you saw the plan: chat, then grounding in sources, th
 
 ## 2. What makes an agent "always-on"
 
-An **always-on agent** (surface **S7**) has a few defining features:
+An **always-on agent** has a few defining features:
 
 - It runs on its **own computer in the cloud**, usually with its own browser.
 - It **keeps working after you close the app**.

@@ -1,6 +1,6 @@
 # Week 14, Session 1: Choosing Tools, Data Governance, and Accountability
 
-**COSC-300/500 Applied AI Essentials** · Surface: S2 Embedded copilot; review of all surfaces · 4D focus: Diligence
+**COSC-300/500 Applied AI Essentials** · Surface: Embedded copilot; review of all surfaces · 4D focus: Diligence
 
 > **Instructor note: preparation.** Bring the failure gallery from week 3. Set up a small open model running locally on a laptop for the demo (any current small open-weight model run through a local runner). Prepare a one-page comparison of two or three tools on capability, cost, limits, and data terms as a worked example, dated, since prices and terms change. Timing: 20 min choosing tools, 15 min data governance, 10 min local model demo, 30 min bias and accountability.
 
@@ -29,7 +29,7 @@ Vendors publish benchmark scores, and leaderboards rank models. Treat them with 
 
 ### Copilot in Microsoft 365
 
-For most graduates, the first AI at work will be Copilot inside Microsoft 365 (surface **S2**). Its strength is that it lives where the work already is: email, documents, meetings. What it can do depends heavily on **which license** an organization buys. The free tier that many institutions provide is much more limited than the paid license. Knowing to ask which one you have is itself a useful skill.
+For most graduates, the first AI at work will be Copilot inside Microsoft 365. Its strength is that it lives where the work already is: email, documents, meetings. What it can do depends heavily on **which license** an organization buys. The free tier that many institutions provide is much more limited than the paid license. Knowing to ask which one you have is itself a useful skill.
 
 ## 2. Data governance
 

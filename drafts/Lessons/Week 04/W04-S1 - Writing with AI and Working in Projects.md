@@ -1,6 +1,6 @@
 # Week 4, Session 1: Writing with AI and Working in Projects
 
-**COSC-300/500 Applied AI Essentials** · Surface: S1 Chat assistant · Capability: C3 Projects and project memory · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: Chat assistant · Capability: Projects and project memory · 4D focus: Discernment
 
 > **Instructor note: preparation.** Build a demo project in advance for a course you teach or are taking (syllabus plus two readings) so you can show it working, then build one live from scratch to show the steps. Remind students to bring their 5–10 sources. Timing: 20 min writing with AI, 20 min projects, 35 min guided practice.
 
@@ -31,7 +31,7 @@ The risky column isn't forbidden; it's risky. "Add some citations" invites hallu
 
 ## 2. Projects
 
-A **project** (capability **C3**) is a persistent workspace around one body of work. It holds:
+A **project** is a persistent workspace around one body of work. It holds:
 
 - **Instructions** that apply to every chat in the project: your role, the audience, the format, the citation style.
 - **Reference files**: a knowledge base of documents the model can draw on.

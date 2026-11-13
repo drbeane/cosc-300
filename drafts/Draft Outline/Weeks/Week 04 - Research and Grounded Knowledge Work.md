@@ -1,6 +1,6 @@
 # Week 4: Research and Grounded Knowledge Work
 
-**Surfaces:** S1 [E] · **Capabilities:** C3 Projects and project memory [E], C4 Research agent [S], C7 Grounded notebook [S] · **4D:** Discernment
+**Surfaces:** Chat assistant [E] · **Capabilities:** Projects and project memory [E], Research agent [S], Grounded notebook [S] · **4D:** Discernment
 
 ## Goals
 Students will be able to:
@@ -15,12 +15,12 @@ Students will be able to:
 
 ## Session 1 (75 min)
 - 20 min: Writing and thinking with AI. Drafting, editing, AI as a thought partner, summarizing long documents.
-- 20 min: Projects (C3). Instructions, knowledge files, project memory. Demo: a project for a course you are taking.
+- 20 min: Projects. Instructions, knowledge files, project memory. Demo: a project for a course you are taking.
 - 35 min: Guided practice. Students build a project for their research topic.
 
 ## Session 2 (75 min)
-- 15 min: Research agents (C4). How a multi-step research run works; what the report includes; where it goes wrong.
-- 10 min: Grounded notebooks (C7). NotebookLM and Copilot Notebooks: closed-book answers from your sources. Compare with projects.
+- 15 min: Research agents. How a multi-step research run works; what the report includes; where it goes wrong.
+- 10 min: Grounded notebooks. NotebookLM and Copilot Notebooks: closed-book answers from your sources. Compare with projects.
 - 10 min: Concept: retrieval and grounding (no building yet; that comes in week 12).
 - 40 min: Lab. Run a research agent on your topic; start tracing its citations.
 

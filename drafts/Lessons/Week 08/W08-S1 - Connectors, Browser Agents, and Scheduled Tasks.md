@@ -1,6 +1,6 @@
 # Week 8, Session 1: Connectors, Browser Agents, and Scheduled Tasks
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S4 Local agent, S5 Cloud and background agents, S6 Browser and computer-use agents · Capabilities: C6 MCP connectors, C1 Autonomy controls · 4D focus: Diligence
+**COSC-300/500 Applied AI Essentials** · Surfaces: Local agent, Cloud and background agents, Browser and computer-use agents · Capabilities: MCP connectors, Autonomy controls · 4D focus: Diligence
 
 > **Instructor note: preparation.** Connect a test calendar or test storage account to Claude for the connector demo; don't demo with your real accounts. Prepare a browser-agent task on a site that is safe to automate (a test form, or a research task across public pages). Set up one scheduled task the day before so you can show its results. Print or post the midterm planning sheet. Timing: 20 min connectors, 15 min browser agents, 10 min scheduled tasks, 30 min midterm workshop.
 
@@ -13,7 +13,7 @@
 
 ## 1. Connectors
 
-So far your agent has worked on files in a folder. Much of your work, though, lives in other services: calendar, email, cloud storage, course tools, databases. A **connector** (capability **C6**) lets an agent reach one of those services.
+So far your agent has worked on files in a folder. Much of your work, though, lives in other services: calendar, email, cloud storage, course tools, databases. A **connector** lets an agent reach one of those services.
 
 Most connectors are built on the **Model Context Protocol (MCP)**, an open standard for connecting AI applications to tools and data. Because it's a standard, one connector can work across many AI applications. A connector exposes two kinds of things:
 
@@ -38,7 +38,7 @@ Grant the least access the task needs. A digest of your calendar needs read acce
 
 ## 2. Browser and computer-use agents
 
-A **browser agent** (surface **S6**) operates a web browser: it clicks, types, scrolls, and reads pages. Claude in Chrome is an example. Browser agents are useful for sites that have no connector, such as filling in a form or gathering information across several pages.
+A **browser agent** operates a web browser: it clicks, types, scrolls, and reads pages. Claude in Chrome is an example. Browser agents are useful for sites that have no connector, such as filling in a form or gathering information across several pages.
 
 They also fail in characteristic ways. They're slow and literal. Pop-ups, logins, and changing layouts confuse them. They can click the wrong thing. And every page they read is **untrusted input**, which matters a great deal on Thursday. Watch a browser agent the first few times you use it for a task.
 
@@ -46,7 +46,7 @@ They also fail in characteristic ways. They're slow and literal. Pop-ups, logins
 
 ## 3. Background and scheduled tasks
 
-Some work doesn't need you present (surface **S5**). You can **hand off** a task and close your laptop, or **schedule** one to run every morning or every week. When you return, you review what was done.
+Some work doesn't need you present. You can **hand off** a task and close your laptop, or **schedule** one to run every morning or every week. When you return, you review what was done.
 
 This changes what delegation means: you're now delegating across time. It also raises a new supervision question. When you weren't watching, how will you know whether a run went well?
 

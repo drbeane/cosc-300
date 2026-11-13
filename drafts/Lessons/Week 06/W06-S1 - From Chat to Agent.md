@@ -1,6 +1,6 @@
 # Week 6, Session 1: From Chat to Agent
 
-**COSC-300/500 Applied AI Essentials** · Surface: S4 Local agent · 4D focus: Delegation
+**COSC-300/500 Applied AI Essentials** · Surface: Local agent · 4D focus: Delegation
 
 > **Instructor note: preparation.** This is the start of the course's centerpiece. Build the demo folder: 8–12 documents about one subject with planted inconsistencies (different dates for the same event, conflicting figures, a document that contradicts a policy). Keep a clean copy so you can rerun the demo. Prepare a small practice folder for students without suitable material (a mix of downloads, notes, and PDFs to organize). Make sure every student has the Claude desktop app installed and signed in to Pro before class. Timing: 20 min chat to agent, 15 min demo, 10 min task briefs, 30 min guided practice.
 
@@ -46,7 +46,7 @@ This loop is what lets an agent check its own work: it can read the file it just
 
 ## 3. The local agent: Claude Cowork
 
-A **local agent** (surface **S4**) works directly on the files and folders on your computer. In this course it's **Claude Cowork**, which runs from the Claude desktop app. You choose a folder; Cowork can read, write, and organize files there and produce finished deliverables. It asks before taking actions that need your approval.
+A **local agent** works directly on the files and folders on your computer. In this course it's **Claude Cowork**, which runs from the Claude desktop app. You choose a folder; Cowork can read, write, and organize files there and produce finished deliverables. It asks before taking actions that need your approval.
 
 > **Instructor note: demo.** Point Cowork at the demo folder with this brief: "Reconcile these documents. Produce a report listing every conflict you find, which documents disagree, and which version seems correct and why. Save it as conflicts.md." Ask for a plan first and read it aloud. Edit one step of the plan, then approve. While it runs, narrate the tool calls. Afterward, check two of its reported conflicts against the documents. If it missed one you planted, even better: that's the review lesson.
 

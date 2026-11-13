@@ -33,7 +33,7 @@ You keep typing the same context:
 
 ---
 
-## Levels of standing instructions (C2)
+## Levels of standing instructions
 
 | Level | Applies to | Example |
 |---|---|---|

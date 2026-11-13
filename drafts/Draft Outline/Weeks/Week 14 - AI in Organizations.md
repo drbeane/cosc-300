@@ -1,6 +1,6 @@
 # Week 14: AI in Organizations
 
-**Surfaces:** S2 Embedded copilot [S]; review of all · **Capabilities:** review · **4D:** Diligence
+**Surfaces:** Embedded copilot [S]; review of all · **Capabilities:** review · **4D:** Diligence
 
 ## Goals
 Students will be able to:
@@ -16,7 +16,7 @@ Students will be able to:
 - Bring your capstone draft.
 
 ## Session 1 (75 min)
-- 20 min: Choosing tools for an organization. The landscape students have used all term; what an IT office weighs; Copilot in Microsoft 365 (S2) as the way most graduates will meet AI at work.
+- 20 min: Choosing tools for an organization. The landscape students have used all term; what an IT office weighs; Copilot in Microsoft 365 as the way most graduates will meet AI at work.
 - 15 min: Data governance. Enterprise vs consumer terms, retention, FERPA and HIPAA examples, admin controls.
 - 10 min: Local models demo: a small open model running on a laptop.
 - 30 min: Bias, reliability, and accountability, using the class failure gallery from week 3.

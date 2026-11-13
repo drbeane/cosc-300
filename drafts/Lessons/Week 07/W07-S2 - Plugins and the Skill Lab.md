@@ -1,6 +1,6 @@
 # Week 7, Session 2: Plugins and the Skill Lab
 
-**COSC-300/500 Applied AI Essentials** · Surface: S4 Local agent · Capability: C2 Instruction files and skills · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: Local agent · Capability: Instruction files and skills · 4D focus: Description
 
 > **Instructor note: preparation.** Set up a shared folder or Canvas page for the class skill library. Have one example plugin to show (installed or from a marketplace) and be ready to open its contents. Timing: 10 min plugins, 10 min skills in chat vs agent, 45 min lab, 10 min share-out.
 

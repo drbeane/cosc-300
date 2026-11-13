@@ -1,6 +1,6 @@
 # Week 10, Session 1: Specification-Driven Work and Code Review
 
-**COSC-300/500 Applied AI Essentials** · Surface: S3 Coding assistant · Capabilities: C1, C2 · 4D focus: Discernment
+**COSC-300/500 Applied AI Essentials** · Surface: Coding assistant · Capabilities: Plan mode and autonomy controls, Instruction files and skills · 4D focus: Discernment
 
 > **Instructor note: preparation.** Prepare a deliberately flawed change set (a diff, or a branch to review live) that contains: (1) a test edited to pass instead of the code being fixed, (2) a hard-coded value that makes one test pass, (3) an unrelated file changed for no reason. Prepare the reduced-scope specification and acceptance test suite based on the library lending coding test in the course Artifacts. Run the suite against your reference before class. Timing: 20 min spec-driven work, 20 min code review, 35 min lab.
 

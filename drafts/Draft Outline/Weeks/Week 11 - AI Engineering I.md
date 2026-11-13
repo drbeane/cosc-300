@@ -1,6 +1,6 @@
 # Week 11: AI Engineering I: Models as Components
 
-**Surfaces:** S8 API and agent platforms [D, raised to hands-on here] · **Capabilities:** C5 [S] · **4D:** Description
+**Surfaces:** API and agent platforms [D, raised to hands-on here] · **Capabilities:** Model selection and effort levels [S] · **4D:** Description
 
 An exploratory week. Students see how AI products are built by building a small one. They write little code themselves: Claude Code writes it while they specify, run, and inspect. The aim is understanding, not engineering fluency.
 
@@ -43,6 +43,6 @@ From `03 - Supplementary Resources` (links there):
 - Claude Cookbooks
 
 ## Instructor notes
-- API usage is not included in Claude Pro (Evidence 04, S8). Likely access: Bedrock plus local models; on hold. Building with the Claude API teaches the direct Anthropic API; the request format on Bedrock differs slightly, so provide a short adapter note or starter code.
+- API usage is not included in Claude Pro (Evidence 04). Likely access: Bedrock plus local models; on hold. Building with the Claude API teaches the direct Anthropic API; the request format on Bedrock differs slightly, so provide a short adapter note or starter code.
 - Book: From Chat to API (and selected AI Engineering lessons: structured output, tool use).
 - Academy **Claude with Amazon Bedrock** matches the likely access route; consider assigning its first section in place of the direct-API sections.

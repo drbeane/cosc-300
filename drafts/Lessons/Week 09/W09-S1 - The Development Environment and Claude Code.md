@@ -1,6 +1,6 @@
 # Week 9, Session 1: The Development Environment and Claude Code
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S3 Coding assistant, S4 Local agent · Capabilities: C1 Plan mode and autonomy controls, C2 Instruction files, C8 Usage and context commands · 4D focus: Delegation
+**COSC-300/500 Applied AI Essentials** · Surfaces: Coding assistant, Local agent · Capabilities: Plan mode and autonomy controls, Instruction files, Usage and context commands · 4D focus: Delegation
 
 > **Instructor note: preparation.** Setup takes longer than expected, especially for non-majors. Post a setup guide a week ahead and hold office hours before class. Prepare a small sample repository on GitHub that students can clone, with one obvious small improvement to make. Check the current Claude Code shortcuts and commands in the installed version (plan mode toggle, `/plan`, `/context`, `/usage`, `/compact`) since these change. Timing: 10 min chat limits, 20 min tour, 15 min Claude Code features, 30 min setup clinic.
 
@@ -28,7 +28,7 @@ Copying back and forth between a chat window and an editor becomes the bottlenec
 
 ## 3. The coding assistant in the development environment
 
-A **coding assistant** (surface **S3**) works inside the development environment. It has access to:
+A **coding assistant** works inside the development environment. It has access to:
 
 - **the repository**: every file in the project;
 - **the terminal**: it can install packages and run programs;

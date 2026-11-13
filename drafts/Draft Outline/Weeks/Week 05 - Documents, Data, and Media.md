@@ -1,6 +1,6 @@
 # Week 5: Documents, Data, and Media
 
-**Surfaces:** S1 [E], S2 Embedded copilot [S] · **Capabilities:** C11 Data analysis with code execution [S], C12 File and document creation [S], C13 Multimodal input [D], C10 Generative media [D] · **4D:** Description
+**Surfaces:** Chat assistant [E], Embedded copilot [S] · **Capabilities:** Data analysis with code execution [S], File and document creation [S], Multimodal input [D], Generative media [D] · **4D:** Description
 
 ## Goals
 Students will be able to:
@@ -17,13 +17,13 @@ Students will be able to:
 
 ## Session 1 (75 min)
 - 15 min: Structured files. Why Markdown, CSV, JSON, and Mermaid matter (they are also what skills and instruction files are written in, week 7).
-- 25 min: Data analysis with code execution (C11). Demo on a messy dataset; show how to read the code the AI ran and catch a wrong aggregation.
+- 25 min: Data analysis with code execution. Demo on a messy dataset; show how to read the code the AI ran and catch a wrong aggregation.
 - 35 min: Guided practice: the first half of the assignment.
 
 ## Session 2 (75 min)
-- 15 min: File creation (C12): reports, spreadsheets, slide decks, diagrams. Multimodal input (C13): screenshots, charts, scanned PDFs.
-- 10 min: Embedded copilot (S2): Copilot in Outlook on Maryville accounts. What it does well.
-- 15 min: Generative media (C10): image generation in brief (a tool other than Claude), provenance and labeling, deepfakes, copyright.
+- 15 min: File creation: reports, spreadsheets, slide decks, diagrams. Multimodal input: screenshots, charts, scanned PDFs.
+- 10 min: Embedded copilot: Copilot in Outlook on Maryville accounts. What it does well.
+- 15 min: Generative media: image generation in brief (a tool other than Claude), provenance and labeling, deepfakes, copyright.
 - 35 min: Lab: finish the package.
 
 ## Assignment: Data-to-deliverable package

@@ -1,6 +1,6 @@
 # Week 5, Session 2: Creating Files, Multimodal Input, and Generative Media
 
-**COSC-300/500 Applied AI Essentials** · Surfaces: S1 Chat assistant, S2 Embedded copilot · Capabilities: C12 File and document creation, C13 Multimodal input, C10 Generative media · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surfaces: Chat assistant, Embedded copilot · Capabilities: File and document creation, Multimodal input, Generative media · 4D focus: Description
 
 > **Instructor note: preparation.** Check which Copilot in Outlook features work on student accounts this term (summarize a thread, draft a reply, the chat button) and plan the demo around those. Pick an image generation tool other than Claude for the media segment and say up front that Claude does not generate raster images natively. Have a screenshot, a chart image, and a scanned page ready for the multimodal demo. Timing: 15 min files and multimodal, 10 min Outlook, 15 min generative media, 35 min lab.
 
@@ -13,13 +13,13 @@
 
 ## 1. File and document creation
 
-From a chat, you can now produce finished files (capability **C12**): Word or PDF reports, spreadsheets, slide decks, diagrams, and simple interactive web pages. The model writes the content and, often, the code that builds the file.
+From a chat, you can now produce finished files: Word or PDF reports, spreadsheets, slide decks, diagrams, and simple interactive web pages. The model writes the content and, often, the code that builds the file.
 
 Your job doesn't change. The file looks finished, which makes errors easier to miss. Check the content, the numbers, and the claims as carefully as you would in a plain-text answer.
 
 ## 2. Multimodal input
 
-Models can read more than text (capability **C13**):
+Models can read more than text:
 
 - **Screenshots**: "What does this error message mean?"
 - **Charts**: "What does this graph claim, and is the claim supported?"
@@ -32,7 +32,7 @@ They're good at this, but not perfect. Be especially careful with small text, nu
 
 ## 3. AI inside an application
 
-An **embedded copilot** (surface **S2**) is AI built into an application you already use. On Maryville accounts, the example is **Copilot in Outlook**: it can summarize a long email thread or help draft a reply, right where the email is.
+An **embedded copilot** is AI built into an application you already use. On Maryville accounts, the example is **Copilot in Outlook**: it can summarize a long email thread or help draft a reply, right where the email is.
 
 Embedded AI is convenient: there's no copying and pasting, and it works on what's in front of you. Its limit is the flip side: it mostly sees that one application's context.
 
@@ -48,7 +48,7 @@ For most graduates, an embedded copilot in Microsoft 365 will be the first AI th
 
 ## 4. Generative media
 
-Generative media (capability **C10**) means images, and increasingly video, produced by AI. Claude does **not** generate raster images natively; it can make diagrams, charts, and vector graphics as code. For today's assignment you'll use another tool for any generated image.
+Generative media means images, and increasingly video, produced by AI. Claude does **not** generate raster images natively; it can make diagrams, charts, and vector graphics as code. For today's assignment you'll use another tool for any generated image.
 
 Generated media raises real questions:
 

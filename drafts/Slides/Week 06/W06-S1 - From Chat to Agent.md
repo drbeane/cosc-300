@@ -61,7 +61,7 @@ This loop is what lets it **check its own work**.
 
 ---
 
-## Local agent (S4): Claude Cowork
+## Local agent: Claude Cowork
 
 - Runs from the **Claude desktop app**
 - Works on a **folder you choose** on your computer

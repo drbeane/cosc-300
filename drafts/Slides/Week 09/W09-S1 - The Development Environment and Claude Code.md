@@ -44,7 +44,7 @@ You **will** learn to:
 
 ---
 
-## A coding assistant in the environment (S3)
+## A coding assistant in the environment
 
 It has access to:
 

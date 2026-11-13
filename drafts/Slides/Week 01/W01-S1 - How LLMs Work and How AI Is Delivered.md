@@ -164,26 +164,26 @@ The surface often matters more than the model.
 
 ## Eight surfaces
 
-| # | Surface | Example |
-|---|---|---|
-| S1 | Chat assistant | Claude, ChatGPT, Copilot Chat |
-| S2 | Embedded copilot | Copilot in Outlook |
-| S3 | Coding assistant | Claude Code in VS Code |
-| S4 | Local agent | Claude Cowork on your files |
-| S5 | Cloud / background agent | Scheduled or handed-off tasks |
-| S6 | Browser / computer-use agent | Claude in Chrome |
-| S7 | Always-on agent | Meta Muse |
-| S8 | API and agent platforms | Building apps on a model |
+| Surface | Example |
+|---|---|
+| Chat assistant | Claude, ChatGPT, Copilot Chat |
+| Embedded copilot | Copilot in Outlook |
+| Coding assistant | Claude Code in VS Code |
+| Local agent | Claude Cowork on your files |
+| Cloud / background agent | Scheduled or handed-off tasks |
+| Browser / computer-use agent | Claude in Chrome |
+| Always-on agent | Meta Muse |
+| API and agent platforms | Building apps on a model |
 
 ---
 
 ## Where the course goes
 
-- **Weeks 1–5:** chat (S1, S2)
-- **Weeks 6–8:** local agents and beyond (S4, S5, S6)
-- **Weeks 9–10:** coding assistants (S3)
-- **Weeks 11–12:** building with APIs (S8)
-- **Week 13:** always-on agents (S7)
+- **Weeks 1–5:** chat assistants and embedded copilots
+- **Weeks 6–8:** local, background, and browser agents
+- **Weeks 9–10:** coding assistants
+- **Weeks 11–12:** building with APIs
+- **Week 13:** always-on agents
 - **Weeks 14–15:** organizations and the capstone
 
 <!-- 2-minute live demo of each surface that's available today. Keep it brisk. -->

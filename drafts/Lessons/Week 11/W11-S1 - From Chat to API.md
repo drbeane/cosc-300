@@ -1,6 +1,6 @@
 # Week 11, Session 1: From Chat to API
 
-**COSC-300/500 Applied AI Essentials** · Surface: S8 API and agent platforms · Capability: C5 Model selection · 4D focus: Description
+**COSC-300/500 Applied AI Essentials** · Surface: API and agent platforms · Capability: Model selection · 4D focus: Description
 
 > **Instructor note: preparation.** API access for weeks 11–12 is still an open decision: Claude Pro does not include API usage, and the likely route is the department's Bedrock account plus a local open model. Before this week, settle the route, provision credentials or a shared proxy with spend limits, and prepare starter code. The request examples below use the shape of Anthropic's Messages API; Bedrock's request format differs slightly, so adjust the examples and give students a short adapter note. Replace the placeholder model ID with the exact one for your route. Timing: 15 min chat to API, 20 min live build, 10 min cost, 30 min guided practice.
 
