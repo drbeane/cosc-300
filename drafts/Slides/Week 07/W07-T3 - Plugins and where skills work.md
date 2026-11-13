@@ -1,0 +1,30 @@
+---
+marp: true
+title: "Week 7: Plugins and where skills work"
+paginate: true
+---
+
+# Plugins and where skills work
+### Week 7
+COSC-300/500 Applied AI Essentials
+
+---
+
+## Plugins
+
+- A **bundle** of skills, connectors, and other pieces
+- Shared with a team as one unit
+- How organizations package "the way we do things"
+
+---
+
+## Skills in chat vs in an agent
+
+| In chat | In an agent with a folder |
+|---|---|
+| Works on **uploaded copies** | Works on **the real files** |
+| Instructions typed in settings | Instruction file **lives with the work** |
+| Can't run your tests or tools | Can run scripts, tests, local tools |
+| Results downloaded | Results saved in place |
+
+Skills run in chat, but they're **limited** there.

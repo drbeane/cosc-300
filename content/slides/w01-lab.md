@@ -1,4 +1,4 @@
-# Three-Vendor Comparison
+# Three-vendor comparison
 ### Week 1 · Lab and assignment
 COSC-300/500 Applied AI Essentials
 

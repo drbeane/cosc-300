@@ -1,4 +1,4 @@
-# COSC-300 / COSC-500 Applied AI Essentials: 15-Week Course Outline (draft)
+# COSC-300 / COSC-500 Applied AI Essentials: 15-week course outline (draft)
 
 _Drafted 2026-10-21 by Claude for review; sessions corrected to 75 minutes and resources added the same day. Built from the draft course outlines and module detail in Claude Access/Drafts, the Evidence master list, the course promo, the provost talking points, and the Claude Academy catalog (academy.claude.com/courses). 🔴 marks anything that needs a decision._
 

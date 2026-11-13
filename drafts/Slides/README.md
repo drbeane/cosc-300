@@ -1,4 +1,4 @@
-# COSC-300/500 Applied AI Essentials: Slide Decks
+# COSC-300/500 Applied AI Essentials: slide decks
 
 One Markdown deck per topic, plus one lab and assignment deck per week, built from `Draft Outline/`. Each deck has the same name as its lesson file in `../Lessons/`. Open whichever decks you need for a given class meeting.
 
@@ -13,18 +13,18 @@ Product details change quickly. Notes marked "verify" or "check" flag slides wit
 ## Decks
 | Week | Topics | Lab and assignment |
 |---|---|---|
-| 1 | About This Course; What a Large Language Model Is; The Surfaces Map; The 4D Framework; Vendors, Models, and Effort; Privacy Settings | Three-vendor comparison |
-| 2 | Writing Strong Prompts; Tokens and the Context Window; Memory, Custom Instructions, and Voice; Testing and Revising Prompts | Prompt revision log |
-| 3 | Why AI Output Is Wrong; Verification Habits; Effort, Models, and the Description–Discernment Loop | Fact-check and failure report |
-| 4 | AI as a Writing Partner; Projects; Research Agents; Grounded Notebooks and How Tools Find Sources | Research brief with citation audit |
-| 5 | Structured Files; Data Analysis with Code Execution; Creating Files, Multimodal Input, and Generative Media; AI Inside an Application | Data-to-deliverable package |
-| 6 | From Chat to Agent; The Task Brief; Autonomy Controls and Usage | Folder-scale delegation task |
-| 7 | Standing Instructions; Skills; Plugins and Where Skills Work | Write and test a skill |
-| 8 | Connectors; Browser Agents and Scheduled Tasks; Prompt Injection and Defenses | Midterm project: agent workflow |
-| 9 | From Chat Window to Coding Assistant; The Development Environment and Claude Code; Comparing Coding Assistants | First app from a spec |
-| 10 | Specifications and Tests; Reviewing AI-Written Code; Debugging, Changing Code, and Sub-Agents; The Capstone Project | Spec-driven build with tests |
-| 11 | From Chat to API; A First API Program and What It Costs; Tool Use; Workflows and Agents | First API program with tool use |
-| 12 | Retrieval-Augmented Generation; Evaluation; MCP from the Inside | Mini RAG app or MCP server with an eval |
-| 13 | Always-On Agents; Setting Up an Always-On Agent Safely; Always-On Risks and When It Is Worth It | Always-on agent field test |
-| 14 | Choosing Tools for an Organization; Data Governance and Local Models; Bias, Reliability, and Accountability; Workforce Effects and AI-Use Policy | Capstone draft and peer review |
-| 15 | Capstone Presentations; Course Synthesis | Capstone final |
+| 1 | About this course; What a large language model is; The surfaces map; The 4D framework; Vendors, models, and effort; Privacy settings | Three-vendor comparison |
+| 2 | Writing strong prompts; Tokens and the context window; Memory, custom instructions, and voice; Testing and revising prompts | Prompt revision log |
+| 3 | Why AI output is wrong; Verification habits; Effort, models, and the Description–Discernment loop | Fact-check and failure report |
+| 4 | AI as a writing partner; Projects; Research agents; Grounded notebooks and how tools find sources | Research brief with citation audit |
+| 5 | Structured files; Data analysis with code execution; Creating files, multimodal input, and generative media; AI inside an application | Data-to-deliverable package |
+| 6 | From chat to agent; The task brief; Autonomy controls and usage | Folder-scale delegation task |
+| 7 | Standing instructions; Skills; Plugins and where skills work | Write and test a skill |
+| 8 | Connectors; Browser agents and scheduled tasks; Prompt injection and defenses | Midterm project: agent workflow |
+| 9 | From chat window to coding assistant; The development environment and Claude Code; Comparing coding assistants | First app from a spec |
+| 10 | Specifications and tests; Reviewing AI-written code; Debugging, changing code, and sub-agents; The capstone project | Spec-driven build with tests |
+| 11 | From chat to API; A first API program and what it costs; Tool use; Workflows and agents | First API program with tool use |
+| 12 | Retrieval-augmented generation; Evaluation; MCP from the inside | Mini RAG app or MCP server with an eval |
+| 13 | Always-on agents; Setting up an always-on agent safely; Always-on risks and when it is worth it | Always-on agent field test |
+| 14 | Choosing tools for an organization; Data governance and local models; Bias, reliability, and accountability; Workforce effects and AI-use policy | Capstone draft and peer review |
+| 15 | Capstone presentations; Course synthesis | Capstone final |

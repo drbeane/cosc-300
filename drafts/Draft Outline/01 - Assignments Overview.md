@@ -1,4 +1,4 @@
-# Assignments Overview (draft)
+# Assignments overview (draft)
 
 _All assignments in one place. Details, including the COSC-500 extension for each, are in the weekly outlines. Times are rough estimates of out-of-class work for COSC-300._
 

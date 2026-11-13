@@ -1,4 +1,4 @@
-# Week 10: Coding with AI II: Building and Reviewing
+# Week 10: Coding with AI II: building and reviewing
 
 **Surfaces:** Coding assistant [E] · **Capabilities:** Plan mode and autonomy controls [E], Instruction files and skills [E] · **4D:** Discernment
 
@@ -16,10 +16,10 @@ Students will be able to:
 - Optional: **Introduction to subagents**.
 
 ## Topics
-1. Specifications and Tests
-2. Reviewing AI-Written Code
-3. Debugging, Changing Code, and Sub-Agents
-4. The Capstone Project
+1. Specifications and tests
+2. Reviewing AI-written code
+3. Debugging, changing code, and sub-agents
+4. The capstone project
 - Lab and assignment: Spec-driven build with tests
 
 ## Class time (two 75-minute meetings)

@@ -1,4 +1,4 @@
-# Week 1 Lab and Assignment: Three-Vendor Comparison
+# Week 1 lab and assignment: Three-vendor comparison
 
 **COSC-300/500 Applied AI Essentials** · 4D focus: Delegation
 

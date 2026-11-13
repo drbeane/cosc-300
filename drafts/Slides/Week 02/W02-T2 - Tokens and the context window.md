@@ -1,0 +1,48 @@
+---
+marp: true
+title: "Week 2: Tokens and the context window"
+paginate: true
+---
+
+# Tokens and the context window
+### Week 2
+COSC-300/500 Applied AI Essentials
+
+---
+
+## Tokens
+
+- Models read and write **tokens**, not words
+- Roughly ¾ of a word each in English
+- Everything costs tokens: your prompt, the files, the answer
+- Usage limits and prices are counted in tokens
+
+---
+
+## The context window
+
+The model's **working memory** for one conversation.
+
+Finite: when it's full, something has to go.
+
+---
+
+## What fills the context
+
+- **System prompt**: the vendor's instructions (before you type)
+- **Conversation history**
+- **Files** you attach
+- **Tool results**: search results, code output
+- **Memory and custom instructions**
+
+You control some of it, not all.
+
+---
+
+## Why long chats degrade
+
+- Early details get crowded out or summarized away
+- Old mistakes stay in context and get repeated
+- The model loses track of what you asked for
+
+**Fix:** start fresh with a clean summary of what matters.

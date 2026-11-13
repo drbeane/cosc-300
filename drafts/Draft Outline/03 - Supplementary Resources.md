@@ -1,4 +1,4 @@
-# Supplementary Resources (draft)
+# Supplementary resources (draft)
 
 _Compiled 2026-10-21. These are resources outside Claude Academy (see 02 for Academy) that support the course's learning outcomes. They are grouped by week, then listed in a course-long section. The "Top picks" in each weekly outline come from here._
 

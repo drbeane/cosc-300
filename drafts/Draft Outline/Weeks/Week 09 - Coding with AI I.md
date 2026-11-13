@@ -1,4 +1,4 @@
-# Week 9: Coding with AI I: The Development Environment
+# Week 9: Coding with AI I: the development environment
 
 **Surfaces:** Coding assistant in the development environment [E], Local agent [E] · **Capabilities:** Plan mode and autonomy controls [E], Instruction files and skills [E], Usage and context commands [D] · **4D:** Delegation
 
@@ -16,9 +16,9 @@ Students will be able to:
 - Install VS Code, Git, and Claude Code (setup guide provided). Claim GitHub Copilot Student if eligible.
 
 ## Topics
-1. From Chat Window to Coding Assistant
-2. The Development Environment and Claude Code
-3. Comparing Coding Assistants
+1. From chat window to coding assistant
+2. The development environment and Claude Code
+3. Comparing coding assistants
 - Lab and assignment: First app from a spec
 
 ## Class time (two 75-minute meetings)

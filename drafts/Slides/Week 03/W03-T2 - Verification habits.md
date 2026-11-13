@@ -1,0 +1,27 @@
+---
+marp: true
+title: "Week 3: Verification habits"
+paginate: true
+---
+
+# Verification habits
+### Week 3
+COSC-300/500 Applied AI Essentials
+
+---
+
+## Verification habits
+
+- **Trace sources**: open the link, find the claim
+- **Recompute**: redo the numbers yourself or in code
+- **Test**: run the code
+- **Cross-check**: ask a second model
+- **Ask for uncertainty**: "Which claims are you least sure of?"
+
+---
+
+## Self-critique: useful, but limited
+
+- Asking "check your answer" sometimes catches errors
+- It also invents new problems or confirms old ones
+- It is **not** a substitute for an outside check

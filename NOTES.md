@@ -58,3 +58,9 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - `tools/sync.mjs` takes week numbers, so `node tools/sync.mjs drafts 1` publishes only Week 1.
    - The old Week 1 addresses (`/lessons/w01-s1/` and so on) redirect to the Lessons and Slides pages.
    - Slide decks no longer break on a `---` line inside a code block.
+
+9. **Titles are in sentence case.** (2026-11-13)
+   - Topic titles now read like "What a large language model is" where they used to read "What a Large Language Model Is". This matches the week names, assignment names and section headings, which were already in sentence case.
+   - The change covers `content/course.json`, the draft file names, each lesson's first heading, each deck's title slide, and the weekly outline titles and file names.
+   - Proper names keep their capitals: AI, API, MCP, 4D, Claude Code, Meta Muse, and the 4D skill names such as Description and Discernment.
+   - Page addresses on the site are unchanged.

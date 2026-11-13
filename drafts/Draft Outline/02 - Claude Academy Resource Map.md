@@ -1,4 +1,4 @@
-# Claude Academy Resource Map (draft)
+# Claude Academy resource map (draft)
 
 _Source: Anthropic's Claude Academy catalog, https://academy.claude.com/courses, read 2026-10-21. Lesson counts and lengths are as listed in the catalog. Lesson-level detail was read only for AI Fluency: Framework and foundations, Introduction to Claude Cowork, and Building with the Claude API; other mappings are based on course titles. 🔴 Confirm that students can earn badges on free Academy accounts._
 

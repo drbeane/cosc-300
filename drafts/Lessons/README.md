@@ -1,4 +1,4 @@
-# COSC-300/500 Applied AI Essentials: Lesson Texts
+# COSC-300/500 Applied AI Essentials: lesson texts
 
 Full lesson text, organized by topic within each week. A week has three to six topic files (`WNN-TN - Title.md`) and one lab and assignment file (`WNN-Lab - Title.md`). Topics are not tied to a class meeting: cover as many in a day as fit. Each file matches the slide deck of the same name in `../Slides/`, and both are built from `../Draft Outline/`.
 

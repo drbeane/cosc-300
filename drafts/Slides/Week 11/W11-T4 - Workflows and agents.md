@@ -1,0 +1,31 @@
+---
+marp: true
+title: "Week 11: Workflows and agents"
+paginate: true
+---
+
+# Workflows and agents
+### Week 11
+COSC-300/500 Applied AI Essentials
+
+---
+
+## This is what agents are
+
+Weeks 6–8, from the inside:
+
+- Cowork reading a file = a tool call
+- A connector = a set of tools over MCP
+- The agent loop = this round trip, repeated
+
+---
+
+## Workflows vs agents
+
+| Workflow | Agent |
+|---|---|
+| **You** fix the steps in code | **The model** decides the steps |
+| Predictable | Flexible |
+| Easier to test | Harder to test |
+
+Common workflow patterns: **chaining**, **routing**, **parallelization**.
