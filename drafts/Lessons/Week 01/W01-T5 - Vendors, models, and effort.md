@@ -2,7 +2,7 @@
 
 **COSC-300/500 Applied AI Essentials** · 4D focus: Delegation
 
-> **Instructor note: preparation.** Recheck the model pickers in Claude, Copilot Chat, and one free tool this week; they change often. The Claude menu steps and model names below were checked against Anthropic's help center on 2026-11-13. On 2026-10-03 the Maryville Copilot account showed only GPT 5.6 Sol with Quick response, Think deeper, and Auto; a student account may differ. Have the privacy settings pages for Claude and Copilot ready to show. Timing: 15 min vendors and models, 40 min lab, 10 min privacy, 10 min share-out.
+> **Instructor note: preparation.** Recheck the model pickers in Claude, Copilot Chat, and one free tool this week; they change often. The Claude menu steps and model names below were checked against Anthropic's help center on 2026-11-13, and the OpenAI model names against OpenAI's developer models page the same day. Recheck the tiers table before class. On 2026-10-03 the Maryville Copilot account showed only GPT 5.6 Sol with Quick response, Think deeper, and Auto; a student account may differ. Have the privacy settings pages for Claude and Copilot ready to show. Timing: 15 min vendors and models, 40 min lab, 10 min privacy, 10 min share-out.
 
 ## What you will be able to do
 
@@ -45,15 +45,18 @@ This matters because the same task can go very differently on different vendors'
 
 ## Model tiers
 
-Most vendors offer a family of models at different sizes. Claude's family is a useful example:
+Most vendors offer a family of models at different sizes. Anthropic's and OpenAI's families each have four:
 
-| Tier | Trade-off | Claude example |
-|---|---|---|
-| Large | Most capable; slowest and most expensive | Opus |
-| Middle | A balance of capability, speed, and cost | Sonnet |
-| Small | Fast and cheap | Haiku |
+| Tier | Trade-off | Claude (Anthropic) | GPT (OpenAI) |
+|---|---|---|---|
+| Top | Most capable; slowest and most expensive | Fable | Astra |
+| Large | Close to the top tier at a lower cost | Opus | Sol |
+| Middle | A balance of capability, speed, and cost | Sonnet | Terra |
+| Small | Fast and cheap | Haiku | Luna |
 
-Families change. Vendors release new versions several times a year, and Anthropic now also has a tier above Opus, called Fable. The names will be different by the time you graduate. The pattern of large, middle, and small has held for years.
+The two columns are matched by where each model sits in its own family. A model is not equal to the one beside it, and on a given task either vendor's model may do better. Each name also carries a version number, such as Sonnet 5.5 or GPT-6.1 Sol, which rises with each release.
+
+Families change. Vendors release new versions several times a year, and they add and rename tiers. These names were current in November 2026 and will be different by the time you graduate. The pattern of a few sizes, from most capable to fastest, has held for years.
 
 Bigger is not always better. For a quick rewrite or a simple classification, a small model is faster and uses less of your allowance. For a hard analytical problem or a long chain of reasoning, the larger model may get it right where the small one doesn't. Choosing a model is a judgment about the task.
 

@@ -42,15 +42,16 @@ COSC-300/500 Applied AI Essentials
 
 Most vendors offer a family:
 
-| Tier | Trade-off | Claude example |
-|---|---|---|
-| Large | Most capable, slowest, most costly | Opus |
-| Middle | Balanced | Sonnet |
-| Small | Fast and cheap | Haiku |
+| Tier | Trade-off | Claude | GPT (OpenAI) |
+|---|---|---|---|
+| Top | Most capable, slowest, most costly | Fable | Astra |
+| Large | Close to the top, lower cost | Opus | Sol |
+| Middle | Balanced | Sonnet | Terra |
+| Small | Fast and cheap | Haiku | Luna |
 
 Bigger isn't always better: pick for the task.
 
-<!-- Anthropic now also has a tier above Opus, called Fable. Names change; the large, middle, small pattern holds. -->
+<!-- Matched by position in each family, not by test results. Names checked 2026-11-13; recheck before class. -->
 
 ---
 
