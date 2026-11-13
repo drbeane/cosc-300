@@ -92,3 +92,6 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - All four Week 2 topics and their decks were rewritten longer, with worked examples, tables and more key terms. "Testing and revising prompts" went from 174 words to a full lesson. The lab page got small additions.
    - Product details in "Memory, custom instructions, and voice" are written generally (no menu paths), with an instructor note to check them the week it is taught.
    - `tools/publish.sh` runs sync, build and the Dropbox step, and commits and pushes when given a message.
+
+16. **Lesson review: Week 3 expanded.** (2026-11-13)
+   - The three Week 3 topics and their decks were rewritten longer. "Verification habits" went from 172 words to a full lesson with a section for each habit. The lab page was left as it was.

@@ -22,10 +22,10 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W02-T3 Memory, custom instructions, and voice | expanded | Added an example of instructions, two kinds of memory, costs of memory, voice table |
 | W02-T4 Testing and revising prompts | expanded | Was 174 words. Added test set design, checks, the revision loop, a worked log, when to stop |
 | W02-Lab Prompt revision log | expanded | Small additions: the three weak prompts, test set guidance, reflection questions. Deck unchanged |
-| W03-T1 Why AI output is wrong | to do | |
-| W03-T2 Verification habits | to do | |
-| W03-T3 Effort, models, and the Description–Discernment loop | to do | |
-| W03-Lab Fact-check and failure report | to do | |
+| W03-T1 Why AI output is wrong | expanded | Added an example per error type, why fluent is not correct, when hallucination is likely, leading and neutral questions |
+| W03-T2 Verification habits | expanded | Was 172 words. Added how much to check, a section per habit, check-to-error table, what to do when you can't verify |
+| W03-T3 Effort, models, and the Description–Discernment loop | expanded | Added fix-to-error table, a worked pass through the loop, feedback examples, when to stop |
+| W03-Lab Fact-check and failure report | fine | |
 | W04-T1 AI as a writing partner | to do | |
 | W04-T2 Projects | to do | |
 | W04-T3 Research agents | to do | |
