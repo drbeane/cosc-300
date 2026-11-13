@@ -25,12 +25,51 @@ COSC-300/500 Applied AI Essentials
 
 ---
 
+## Seven stages
+
+1. Chat with an AI
+2. Ground it in sources and files
+3. Let it act on your computer
+4. Have it build software
+5. Build with it directly
+6. Agents that work while you're away
+7. Put it all together
+
+Each stage: **more autonomy** for the tool, **more oversight** from you.
+
+---
+
+## One mechanism underneath
+
+- A **model** that predicts text
+- A **context window**
+- **Tools**, and a **harness** that runs them
+- **Instructions** that persist
+- **Retrieval**
+
+Every product is an arrangement of these five.
+
+---
+
 ## The 4D framework, revisited
 
 - **Delegation**: you learned what to hand off, and what not to
 - **Description**: prompts → briefs → instruction files → skills → specs
 - **Discernment**: fact-checks → citation audits → code review → evaluation sets
 - **Diligence**: privacy → permissions → injection → policy
+
+None of the early forms was replaced.
+
+---
+
+## Habits that ran through every week
+
+- One fluent answer proves nothing
+- Check where the risk is
+- Plan before acting, and read the plan
+- Small steps you can undo
+- The least access the task needs
+- You're responsible for what goes out under your name
 
 ---
 
@@ -50,3 +89,29 @@ COSC-300/500 Applied AI Essentials
 - Keep a **test set** for the work you care about; rerun it on new tools
 - Read vendor changelogs, not just headlines
 - Keep the habits: **brief, review, verify, limit access**
+
+---
+
+## A tool you've never seen
+
+1. What kind of **surface**?
+2. What can it **see**?
+3. What can it **do**? Can it be undone?
+4. What **persists** between uses?
+5. Where does my **data** go?
+6. How will I know when it's **wrong**?
+7. What does it **cost**?
+
+Then run your own test set.
+
+---
+
+## What stays yours
+
+What the tools **can** do keeps growing.
+
+What you **want** them to do is still your decision.
+
+That's Delegation: the first skill in the course, and the one you'll use most.
+
+<!-- Lead into the final journal entry: what will you never delegate, and why? -->

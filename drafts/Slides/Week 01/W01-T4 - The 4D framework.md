@@ -23,6 +23,16 @@ Each week emphasizes one.
 
 ---
 
+## A sequence, and a loop
+
+Decide → describe → judge → answer for it
+
+What you find when you judge usually sends you back to describe it better.
+
+Each skill returns all term, applied to more capable tools.
+
+---
+
 ## This week: Delegation
 
 Before you open a chat, ask:
@@ -31,3 +41,47 @@ Before you open a chat, ask:
 - What would a wrong answer cost?
 - Can I check the result?
 - Should anyone else's data be involved?
+
+Costly **and** uncheckable: think hard.
+
+---
+
+## Try the questions
+
+| Task | Decision |
+|---|---|
+| Brainstorm names for a study group | Delegate freely |
+| Explain a concept from lecture | Delegate, then confirm |
+| Summarize a classmate's paper for peer review | Read it yourself |
+| Work out a medication dose | Ask a pharmacist |
+| Write this course's reflection essay | Don't delegate |
+
+<!-- Ask the class for the reasoning behind each before showing the decision. -->
+
+---
+
+## What is the task for?
+
+If its purpose is for you to **learn**, **practice**, or give **your own judgment**,
+
+a tool that does it for you has removed the purpose.
+
+---
+
+## Delegation comes in degrees
+
+- You do it; AI **reviews**
+- You and AI work **together**
+- AI **drafts**; you revise
+- AI does it; you **check**
+- AI does it **alone**
+
+More handed over means more checking.
+
+---
+
+## Why a framework
+
+The tools will have new names by the time you graduate.
+
+The four questions still work on a tool you've never seen.

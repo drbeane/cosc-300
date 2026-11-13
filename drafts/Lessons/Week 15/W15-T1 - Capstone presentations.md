@@ -9,6 +9,7 @@
 ## What you will be able to do
 
 - Present an AI-supported workflow, its evaluation, and its risks to a mixed audience.
+- Plan an 8-minute talk that shows evidence as well as a demo.
 - Critique others' designs constructively.
 
 ## The presentations
@@ -24,6 +25,40 @@ Each presentation is **8 minutes**, followed by **3 minutes** of questions. Ever
 
 Showing the prototype is more convincing than describing it. If a live demo is risky, record a short video as a backup.
 
+### Planning your eight minutes
+
+Eight minutes is short. A plan that fits:
+
+| Minutes | Part | What to show |
+|---|---|---|
+| 1 | The task and its users | Who does this now, how often, and what it costs them |
+| 1 | Tools and surfaces | What you chose, and one alternative you rejected and why |
+| 2 | The prototype | One real run, start to finish |
+| 2 | Evaluation | Your test set, the score, and one failure |
+| 1 | Risk and governance | What it can touch, the main risk, and where a person checks |
+| 1 | Delegated and kept | What the AI does, and what you decided to keep for yourself |
+
+Advice that applies to most talks:
+
+- **Lead with the problem.** The audience can't judge a solution until they understand what it's for.
+- **Show one failure.** A talk in which everything worked is less convincing than one that shows a case the system got wrong and what you did about it. Week 12's point holds: an honest evaluation reports its failures.
+- **Give numbers with their base.** "17 of 20" tells the audience more than "85%", and both tell more than "it works well".
+- **Say what you'd do next** with another month.
+- **Speak to a mixed audience.** Your classmates come from different majors. Define the terms of your field in a sentence.
+- **Rehearse with a timer.** Most first run-throughs are several minutes over.
+
+### Demos
+
+A live demo of an AI system has a risk that other demos don't: the output varies, so the run that worked last night may not work today. Three precautions:
+
+- **Record a backup video** of a successful run.
+- **Prepare the starting state.** Have the folder, the file, or the project open and ready, so that no time goes to setup.
+- **If it fails live, say what happened** and switch to the recording. How you explain a failure shows the audience that you understand the system, which is part of what's being assessed.
+
+### Answering questions
+
+Expect the questions a manager would ask: how you know it works, what happens when it fails, who checks it, and what it costs. You've answered each of these in your report. If you don't know an answer, say so and say how you'd find out. That is a better answer than a guess, for the reasons Week 3 gave.
+
 ## As an audience member
 
 For each presentation, complete the feedback form:
@@ -33,6 +68,17 @@ For each presentation, complete the feedback form:
 - one risk the presenter might have missed.
 
 Ask your question aloud if there's time. Good questions are the kind a manager or client would ask: How do you know it works? What happens when it fails? Who checks it?
+
+Listen to each talk with the four Ds in mind:
+
+| Skill | What to listen for |
+|---|---|
+| **Delegation** | Was this a good task to hand to AI? What did the presenter keep? |
+| **Description** | Can you tell what the system was told to do: the brief, the skill, the instructions? |
+| **Discernment** | Is there a test set? Would it catch a real failure? |
+| **Diligence** | What can the system touch, and who answers for its output? |
+
+Feedback that helps is specific. "Good job" gives the presenter nothing. "Your test set had no case where the notes were empty, and I'd want to know what happens then" gives them something to act on before the final report.
 
 > **Instructor note.** Keep strict time; give a one-minute warning. Collect feedback forms after each talk and pass them to the presenter after class.
 

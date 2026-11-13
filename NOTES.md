@@ -130,3 +130,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 26. **Lesson review: Week 14 expanded.** (2026-11-13)
    - All four Week 14 topics and their decks were expanded: a factor table and pilot plan for choosing tools, data sensitivity levels and shadow AI, full sections on bias, reliability and accountability, and sample wording for each section of an AI-use policy. The lab page was left as it was.
    - The workforce section says plainly that the size and speed of the effects are uncertain. It cites no statistics.
+
+27. **Lesson review: Week 15 and the 4D framework expanded.** (2026-11-13)
+   - Week 15: "Capstone presentations" gained a plan for the eight minutes and advice on demos and questions. "Course synthesis" gained the seven stages, the ideas shared by every surface, a table of how each 4D skill developed, and questions to ask of a new tool.
+   - Week 1: "The 4D framework" went from 172 words to a full lesson with worked delegation decisions.

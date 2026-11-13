@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 14 are done and pushed. **Resume at W15-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
+Last updated 2026-11-13. Weeks 2 to 15 and W01-T4 are done and pushed. **Remaining: check the other Week 1 sessions** (T1, T2, T3, T5, T6 and the lab), which were expanded before this review. The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -78,13 +78,13 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W14-T3 Bias, reliability, and accountability | expanded | Was 253 words. Added sections on bias, reliability at scale, accountability, oversight arrangements, automation bias |
 | W14-T4 Workforce effects and AI-use policy | expanded | Added tasks vs jobs table, advice for early career, sample policy wording, testing a draft |
 | W14-Lab Capstone draft and peer review | fine |  |
-| W15-T1 Capstone presentations | to do | |
-| W15-T2 Course synthesis | to do | |
-| W15-Lab Capstone final | to do | |
+| W15-T1 Capstone presentations | expanded | Added a plan for the eight minutes, demo precautions, answering questions, listening with the four Ds |
+| W15-T2 Course synthesis | expanded | Added the seven stages, the shared mechanism, a 4D progression table, questions for a new tool, a closing section |
+| W15-Lab Capstone final | fine |  |
 | W01-T1 About this course | to do | Expanded earlier; check only |
 | W01-T2 What a large language model is | to do | Check only |
 | W01-T3 The surfaces map | to do | Check only |
-| W01-T4 The 4D framework | to do | Short (172 words) |
+| W01-T4 The 4D framework | expanded | Was 172 words. Added a skills table, worked delegation decisions, degrees of delegation, why a framework |
 | W01-T5 Vendors, models, and effort | to do | Expanded earlier; check only |
 | W01-T6 Privacy settings | to do | Expanded earlier; check only |
 | W01-Lab Three-vendor comparison | to do | Check only |
