@@ -4,20 +4,20 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 ## Open
 
-1. **Home page: play down the autonomy theme.**
-   - The line "The course is ordered by autonomy. Each stage hands the AI more to do on its own, and asks more supervision from you." is too prominent as the first thing students see. Autonomy is fine as a theme and worth mentioning somewhere, but not front and center.
-   - Remove the staircase layout. Robbie finds it clever but not well designed. Drop the staggered indentation and the "You do the work" to "The AI does the work" axis.
-   - Keep the stage groupings (Chat with an AI, Ground it in sources and files, Let it act on your computer, and so on), laid out plainly with no stagger.
-
-2. **Replace the main font, Bricolage Grotesque.**
-   - Robbie finds it goofy and cartoony. It is used for headings, navigation, tables, and everywhere in the slides.
-   - Claude picks the replacement. Keep a casual, approachable feel, but drop the quirky letterforms. Avoid anything too similar to Bricolage.
-   - Do not use Bricolage or anything like it in the content. The slides in particular should not use the same font as the rest of the site.
-
-3. **Resources: reorder the course-long references.**
-   - The first entry should be the Claude documentation and Claude support center. It is already in the list, so it moves to the top.
-   - The second entry should be Claude Academy. It is not in the course-long list yet, so it needs adding.
+(none)
 
 ## Done
 
-(none yet)
+1. **Home page: play down the autonomy theme.** (2026-11-12)
+   - The autonomy tagline is gone from the top of the page. The hero now has a plain one-line course description, and a small note above the week list says the weeks are grouped by how much the AI does on its own.
+   - The staircase layout and the "You do the work" to "The AI does the work" axis are removed.
+   - The stage groupings stay, laid out plainly with no stagger.
+
+2. **Replace the main font, Bricolage Grotesque.** (2026-11-12)
+   - The site (headings, navigation, tables) now uses Figtree. Lesson body text stays in Source Serif 4.
+   - The slide decks use a different font, Source Sans 3, and load it separately.
+
+3. **Resources: reorder the course-long references.** (2026-11-12)
+   - Claude documentation and Claude support center is first.
+   - Claude Academy is added as the second entry.
+   - This edit was made by hand in `content/resources.md`. Running `tools/sync.mjs` again overwrites it unless the draft in the course folder is changed to match.

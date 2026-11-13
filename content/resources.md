@@ -1,10 +1,11 @@
 ## Course-long references
 | Resource | Type | Notes |
 |---|---|---|
+| [Claude documentation](https://docs.claude.com/) and [Claude support center](https://support.claude.com/) | Vendor docs | Reference for Cowork, Claude Code, skills, and connectors |
+| [Claude Academy](https://academy.claude.com/courses) | Courses | Anthropic's free courses, including the AI Fluency lessons assigned in this course |
 | [One Useful Thing](https://www.oneusefulthing.org/) (Ethan Mollick) | Newsletter | The most readable running commentary on practical AI use; periodic "which AI to use" guides help with tool choice |
 | *Co-Intelligence* (Mollick, 2024) and [*Co-Existence*](https://www.penguinrandomhouse.com/books/813026/co-existence-by-ethan-mollick/) (Mollick, 2026) | Books (paid) | Candidate optional text; *Co-Existence* is the newer follow-up |
 | [Simon Willison's Weblog](https://simonwillison.net/) | Blog | Hands-on notes on new tools, prompt injection, and building with LLMs |
-| [Claude documentation](https://docs.claude.com/) and [Claude support center](https://support.claude.com/) | Vendor docs | Reference for Cowork, Claude Code, skills, and connectors |
 | [OpenAI Academy](https://academy.openai.com/) | Videos and courses | ChatGPT-focused; good for the vendor-plural comparisons |
 | [Explore Microsoft 365 Copilot Chat](https://learn.microsoft.com/en-us/training/paths/explore-microsoft-365-copilot-business-chat) (Microsoft Learn) | Learning path | Matches what students have through Maryville |
 | [Google Prompting Essentials](https://www.coursera.org/specializations/prompting-essentials-google) (Coursera) | Short course (free to audit; certificate paid) | Google's equivalent of a prompting course |
