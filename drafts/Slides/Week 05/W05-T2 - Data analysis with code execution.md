@@ -14,7 +14,47 @@ COSC-300/500 Applied AI Essentials
 
 - The AI **writes and runs code** on your uploaded data
 - It can clean, summarize, chart, and model
-- The code is visible: **read it**
+- The computer does the arithmetic, so it's reliable
+- The program reads the whole file; only results go into the context
+
+---
+
+## The code ran. Is the analysis right?
+
+The model still decides:
+
+- which rows to drop
+- how to treat duplicates
+- how to group categories
+- how to read a column
+- which calculation to run
+
+Any of these can be wrong, and the chart looks just as convincing.
+
+---
+
+## The code is visible: read it
+
+Or ask:
+
+> List every step your code took, in order, in plain language. Include any rows you removed or changed, and how many.
+
+---
+
+## A workflow that holds up
+
+1. **Look first**: rows, columns, missing values, problems
+2. **Cleaning plan**: approve or change it
+3. **Specific questions**: over time, between groups, what's unusual
+4. **Table and chart**, with row counts
+
+---
+
+## Ask for a cleaning plan
+
+> Propose a cleaning plan as a numbered list. For each step, say what you'd change, how many rows it affects, and why. Wait for my approval.
+
+You know things the model doesn't: a blank discount means no discount.
 
 ---
 
@@ -25,7 +65,7 @@ COSC-300/500 Applied AI Essentials
 3. Run the analysis and chart
 4. Open the code and catch a wrong aggregation
 
-<!-- Plant a duplicate-ID or mixed-unit issue that produces a wrong average. -->
+<!-- Plant a duplicate-ID or mixed-unit issue that produces a wrong average. Ask: would you have caught this from the chart alone? -->
 
 ---
 
@@ -34,8 +74,20 @@ COSC-300/500 Applied AI Essentials
 - Row counts before and after cleaning
 - What was dropped, and why?
 - Units and categories
+- Is the total a plausible **size**?
 - **Recompute** three numbers yourself
 - Does the chart match the table?
+
+---
+
+## The verification log
+
+| Number | AI's value | How I checked | My value | Match? |
+|---|---|---|---|---|
+| Rows after cleaning | 4,812 | Counted in Excel | 4,812 | Yes |
+| Avg order, Midwest | $52.10 | Filter + AVERAGE | $47.85 | **No** |
+
+The mismatch is the valuable row. Follow it up.
 
 ---
 
@@ -45,6 +97,9 @@ What may you upload?
 
 - **FERPA**: student records
 - **Client and employer data**
-- **Confidential information**
+- **Health and financial records**
+- **Other people's personal information**
 
 If you wouldn't email it to a stranger, don't upload it.
+
+Remove columns the analysis doesn't need.

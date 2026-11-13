@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 4 and W05-T1 are done and pushed. **Resume at W05-T2.** The Week 5 topics T2, T3 and T4 were read and all need expanding (T4 is 223 words). The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
+Last updated 2026-11-13. Weeks 2 to 5 are done and pushed. **Resume at W06-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -35,10 +35,10 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W04-T4 Grounded notebooks and how tools find sources | expanded | Added grounding, what a notebook gives you, embeddings, retrieval failures and fixes |
 | W04-Lab Research brief with citation audit | fine |  |
 | W05-T1 Structured files | expanded | Added a section per format with examples, common CSV problems, choosing a format |
-| W05-T2 Data analysis with code execution | to do | |
-| W05-T3 Creating files, multimodal input, and generative media | to do | |
-| W05-T4 AI inside an application | to do | |
-| W05-Lab Data-to-deliverable package | to do | |
+| W05-T2 Data analysis with code execution | expanded | Added how code execution works, a table of hidden decisions, a four-step workflow, a sample verification log |
+| W05-T3 Creating files, multimodal input, and generative media | expanded | Added describing a file, where image reading slips, describing an image, deepfakes and bias |
+| W05-T4 AI inside an application | expanded | Was 223 words. Added tasks by app, what it can't see, choice examples, checking before sending |
+| W05-Lab Data-to-deliverable package | fine |  |
 | W06-T1 From chat to agent | to do | |
 | W06-T2 The task brief | to do | |
 | W06-T3 Autonomy controls and usage | to do | |
