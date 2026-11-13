@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 10 are done and pushed. **Resume at W11-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
+Last updated 2026-11-13. Weeks 2 to 11 are done and pushed. **Resume at W12-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -60,11 +60,11 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W10-T3 Debugging, changing code, and sub-agents | expanded | Added symptom vs cause, a good bug report, changing requirements, sub-agent trade-offs |
 | W10-T4 The capstone project | expanded | Added choosing and sizing a task, measurable success, a short example proposal |
 | W10-Lab Spec-driven build with tests | fine |  |
-| W11-T1 From chat to API | to do | |
-| W11-T2 A first API program and what it costs | to do | |
-| W11-T3 Tool use | to do | |
-| W11-T4 Workflows and agents | to do | |
-| W11-Lab First API program with tool use | to do | |
+| W11-T1 From chat to API | expanded | Added what an API is, chat app vs API, the parts of a response |
+| W11-T2 A first API program and what it costs | expanded | Added a readable first program, system prompt examples, the conversation loop, a worked cost example, key safety |
+| W11-T3 Tool use | expanded | Added a message-by-message trace, program control and tool errors, good and bad tool descriptions |
+| W11-T4 Workflows and agents | expanded | Was 223 words. Added what agents are from the inside, a pattern per section, choosing the simplest design |
+| W11-Lab First API program with tool use | fine |  |
 | W12-T1 Retrieval-augmented generation | to do | |
 | W12-T2 Evaluation | to do | |
 | W12-T3 MCP from the inside | to do | |

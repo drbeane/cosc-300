@@ -114,3 +114,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 22. **Lesson review: Week 10 expanded.** (2026-11-13)
    - All four Week 10 topics and their decks were expanded: a readable example test and its output, a diff showing a silent test edit, symptom versus cause in debugging, and guidance on choosing and sizing a capstone task. The lab page was left as it was.
+
+23. **Lesson review: Week 11 expanded.** (2026-11-13)
+   - All four Week 11 topics and their decks were expanded: what an API is and what a response contains, a readable first program, a worked cost example, a message-by-message trace of tool use, and a section for each workflow pattern.
+   - The sample program uses Anthropic's Python library and the cost example uses illustrative rates ($3 and $15 per million tokens). Both carry an instructor note to replace them once the API access route is settled.

@@ -31,6 +31,19 @@ Companies build products on that loop.
 
 ---
 
+## Chat app vs API
+
+| | Chat app | API |
+|---|---|---|
+| Used by | A person | A program |
+| System prompt | The vendor's, hidden | **Yours** |
+| Memory, projects | Built in | Only if you build them |
+| Payment | Subscription | Per token |
+
+Same model. The app is a product built on the API.
+
+---
+
 ## Anatomy of an API call
 
 ```json
@@ -58,6 +71,22 @@ Companies build products on that loop.
 | **messages** | The conversation so far |
 | **max_tokens** | Cap on response length |
 | **temperature** | How much randomness (week 1's sampling) |
+
+---
+
+## What comes back
+
+```json
+{
+  "content": [{"type": "text", "text": "Recursion is..."}],
+  "stop_reason": "end_turn",
+  "usage": {"input_tokens": 31, "output_tokens": 74}
+}
+```
+
+- **content**: the reply
+- **stop_reason**: finished, hit the limit, or wants a tool
+- **usage**: what you're billed for
 
 ---
 
