@@ -7,7 +7,9 @@
 ## What you will be able to do
 
 - Explain how an MCP server exposes tools and resources to an agent.
+- Read a small server and say what each tool does and when it would be called.
 - Test a server and connect it to an agent.
+- Apply least privilege to a server you build.
 
 In week 8 you **used** connectors. Now you'll see how one is built. An MCP server is a small program that tells an agent what it offers:
 
@@ -15,6 +17,20 @@ In week 8 you **used** connectors. Now you'll see how one is built. An MCP serve
 - **Resources**: data the agent can read, such as a course schedule or a dataset.
 
 The agent sees each tool's name and description, exactly as it saw skill descriptions in week 7 and tool definitions last week, and decides when to use them.
+
+### How it connects to last week
+
+Last week you defined a tool inside your own program. That tool worked only in that program. MCP moves the tool into a separate program, the server, which any MCP-capable application can use.
+
+| | A tool in your program (Week 11) | A tool in an MCP server |
+|---|---|---|
+| Where it's defined | Inside one program | In a server, separate from any application |
+| Who can use it | That program | Claude Code, Cowork, and other applications that speak MCP |
+| Who runs the loop | Your code | The application's harness |
+
+Three programs are involved. The **host** is the application you use, such as Claude Code. Inside it, a **client** manages the connection. The **server** is your program. When the agent starts, the client asks the server what it offers, and the server replies with its list of tools and their descriptions. Those go into the model's context. When the model asks for one, the client passes the request to the server, the server runs the function, and the result comes back. It is the round trip from Week 11, with the tool living in another program.
+
+A server can run in two places. A **local** server runs on your own computer and is started by the application. A **remote** server runs on the internet, and many users connect to it, which is how the connectors you added in Week 8 work.
 
 ## A tiny server, in outline
 
@@ -25,7 +41,38 @@ def next_class(course: str) -> str:
     return schedule[course]
 ```
 
-The docstring, the text in triple quotes, becomes the tool's **description**. It is what the agent reads to decide when to call the tool, so write it with care.
+The docstring, the text in triple quotes, becomes the tool's **description**. It is what the agent reads to decide when to call the tool, so write it with care. The inputs and their types (`course: str`) become the input schema you wrote by hand last week.
+
+A slightly fuller server, for a course schedule:
+
+```python
+@server.tool()
+def next_class(course: str) -> str:
+    """Return the date and time of the next meeting for a course code, e.g. COSC-300."""
+    return schedule[course]
+
+@server.tool()
+def assignments_due(days: int) -> list:
+    """List assignments due within the next `days` days, across all courses.
+    Use for questions about upcoming deadlines."""
+    return [a for a in assignments if a.due_within(days)]
+
+@server.resource("schedule://syllabus/{course}")
+def syllabus(course: str) -> str:
+    """The full syllabus text for a course."""
+    return read_file(f"syllabi/{course}.md")
+```
+
+Asked "What's due this week?", an agent would call `assignments_due` with `days` set to 7. Asked "When does COSC-300 meet next?", it would call `next_class`. Both tools only read. Neither can change the schedule, which is a deliberate choice.
+
+### Designing a server
+
+- **Few tools, each with one clear job.** Ten overlapping tools give the model ten chances to choose wrongly, and every description uses context.
+- **Descriptions that say when to use the tool**, as with skills and tool definitions.
+- **Useful error messages.** "Unknown course code PSYC-999. Known codes: COSC-300, BIOL-210" lets the agent recover. A crash doesn't.
+- **Read-only unless the task needs more.** This is least privilege from Week 8, and now you're the one deciding what a connector can do.
+- **Check the inputs.** They were written by a model that may have read untrusted content. A tool that takes a file name should refuse one that points outside its folder.
+- **Return only what's needed.** A tool that returns a whole database fills the context and exposes more than the question required.
 
 ## Test, then connect
 
@@ -34,8 +81,12 @@ The docstring, the text in triple quotes, becomes the tool's **description**. It
 3. Ask a question that should use it.
 4. Check: did the agent call the right tool, with the right inputs?
 
+Testing in the Inspector first separates two kinds of problem. If a tool returns the wrong thing in the Inspector, the bug is in your code. If it works there and the agent doesn't use it, or uses it at the wrong time, the problem is the description. That is the same split as retrieval failure and generation failure earlier this week: find out which half failed before you fix anything.
+
+Then evaluate it. Write a handful of questions that should trigger each tool and some that should trigger none, run them, and record what the agent did. That is this week's test set, applied to a server.
+
 > **Instructor note: demo.** Show your server in the Inspector, then connect it to Claude Code and ask a question that triggers it. Then ask a question that shouldn't, and show the agent leaving it alone.
 
 ## Key terms
 
-**MCP server**: a program that exposes tools and resources to AI applications over the Model Context Protocol. **Inspector**: a tool for testing an MCP server by hand.
+**MCP server**: a program that exposes tools and resources to AI applications over the Model Context Protocol. **Inspector**: a tool for testing an MCP server by hand. **Host**: the application that connects to MCP servers on the user's behalf. **Local server**: an MCP server that runs on your own computer. **Remote server**: an MCP server reached over the internet.

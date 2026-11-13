@@ -21,6 +21,30 @@ Week 4's projects and notebooks, from the inside:
 
 ---
 
+## Two phases
+
+| Phase | When | What happens |
+|---|---|---|
+| **Indexing** | Once | Chunk, embed, store |
+| **Answering** | Every question | Embed the question, find the closest chunks, generate |
+
+---
+
+## One question, start to finish
+
+"Can I get a refund if I withdraw in the third week?"
+
+1. Embed the question
+2. Closest chunks: sections 6.1, 6.3, 4.2
+3. Prompt: "Answer using **only** these passages. Cite the section. Say so if they don't contain the answer."
+4. "Yes: 50% (6.1), within 30 days (6.3)."
+
+The model never saw the rest of the handbook.
+
+<!-- Open the Retrieval and evaluation explorer demo here if there's time. -->
+
+---
+
 ## Chunking
 
 - Documents are too long to send whole
@@ -50,3 +74,27 @@ Many systems use both.
 - The answer needs facts from several places
 
 A grounded answer can still be **wrong**.
+
+---
+
+## Two places to fail
+
+| | Retrieval failure | Generation failure |
+|---|---|---|
+| What happened | The passage never reached the model | It was there, and the answer was still wrong |
+| Fix | Chunking, search | The prompt, the model |
+
+**Print the retrieved chunks.** Otherwise you can't tell which half failed.
+
+---
+
+## Do you need RAG?
+
+| Situation | Approach |
+|---|---|
+| A few documents that fit | Put them all in the prompt |
+| Hundreds, or changing often | RAG |
+| Questions about the whole collection | Summarize in stages |
+| Must be current | A tool |
+
+**Agentic search**: an agent with a search tool, searching more than once.
