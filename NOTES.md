@@ -80,3 +80,6 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - The files in `content/demos/` are fragments (a `<style>`, markup and a `<script>`), not full pages. `build.mjs` places each one inside the site page (`demoPage`). Their styles are scoped under `.dx`, so they don't affect the site and the site's styles don't affect them.
    - Demos use the site's colors, Figtree, and the stage color for buttons, highlights and the panel edge. The dark-mode styles from the artifacts were removed, since the site has none.
    - To change a demo, edit its file in `content/demos/`. Keep new class names from matching site classes such as `.step`, `.foot`, `.top` and `.head`.
+
+13. **Week 1 intro wording.** (2026-11-13)
+   - In "About this course" (W01-T1), "Some weeks involve software" now reads "Some weeks involve developing software". Changed in the draft and in `content/lessons/w01-t1.md`.
