@@ -27,7 +27,9 @@ const sessions = course.weeks.flatMap((wk) =>
   })
 );
 
-const FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">';
+const fontLink = (families) => `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?${families}&display=swap" rel="stylesheet">`;
+const FONTS = fontLink('family=Figtree:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700');
+const DECK_FONTS = fontLink('family=Source+Sans+3:ital,wght@0,400..800;1,400..800');
 const NAV = [['lessons', 'Lessons'], ['slides', 'Slides'], ['demos', 'Demos'], ['resources', 'Resources']];
 
 function page({ title, section, body }) {
@@ -78,16 +80,16 @@ function home() {
     const weeks = course.weeks.filter((w) => w.stage === st.n).map((w) =>
       `<li><a href="/lessons/#w${pad(w.n)}"><span class="wk">Week ${w.n}</span><span class="tp">${esc(w.topic)}</span><span class="as">${esc(w.assignment)}</span></a></li>`
     ).join('');
-    return `<section class="step s${st.n}" style="--n:${st.n === 7 ? 0 : st.n - 1}"><h2>${esc(st.name)}</h2><ol>${weeks}</ol></section>`;
+    return `<section class="step s${st.n}"><h2>${esc(st.name)}</h2><ol>${weeks}</ol></section>`;
   }).join('\n');
   return page({
     body: `<div class="hero">
   <h1>${esc(course.title)}</h1>
   <p class="where">${esc(course.code)} at ${esc(course.school)}, ${esc(course.term)}. ${esc(course.meets)}.</p>
-  <p class="lede">The course is ordered by autonomy. Each stage hands the AI more to do on its own, and asks more supervision from you.</p>
+  <p class="lede">Learn to use modern AI tools for real work: research, writing, analysis, coding, and automation.</p>
 </div>
-<div class="stairs">
-  <div class="axis" aria-hidden="true"><span>You do the work</span><i></i><span>The AI does the work</span></div>
+<div class="stages">
+  <p class="note">The weeks are grouped by how much the AI does on its own, from chat to agents that work while you are away.</p>
 ${steps}
 </div>`,
   });
@@ -162,7 +164,7 @@ function deck(s) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(`Slides: ${s.title} | ${course.title}`)}</title>
-${FONTS}
+${DECK_FONTS}
 <link rel="stylesheet" href="/assets/deck.css">
 </head>
 <body class="s${s.wk.stage}">
