@@ -6,35 +6,95 @@
 
 ## What you will be able to do
 
-- Explain why a coding assistant with access to the repository, terminal, and tests beats copying code from a chat window.
+- Describe what a software project is made of, in plain terms.
+- Explain why copying code from a chat window breaks down as a project grows.
+- Explain why a coding assistant with access to the repository, terminal, and tests does better.
+- Describe your role when an assistant writes the code.
 
 ## No coding experience assumed
 
-The next two weeks are about software, but you won't be graded on writing code. You'll learn to **specify** software work, **supervise** an assistant while it does the work, and **check** the result. Those are the same skills you've been building with agents since week 6, applied to code.
+The next two weeks are about software, but you won't be graded on writing code. You'll learn to **specify** software work, **supervise** an assistant while it does the work, and **check** the result. Those are the same skills you've been building with agents since Week 6, applied to code.
+
+Why include this in a course for all majors? Small, useful software is now within reach of people who don't program: a budget tracker shaped to your own categories, a page that turns a spreadsheet into a schedule, a script that renames a semester's worth of files. The term **vibe coding** describes building something by describing what you want and accepting what the assistant produces. That works for a quick personal tool. It stops working when the thing has to be correct, has to keep working, or has to be trusted by someone else. These two weeks are about the difference.
+
+## What a software project is
+
+A few terms, so that the rest of the week makes sense:
+
+| Term | Plain meaning |
+|---|---|
+| **Source code** | The instructions a program is made of, written as text files |
+| **Project** | A folder of source files and other files that together make one program |
+| **Repository** (or repo) | A project folder whose full history of changes is tracked |
+| **Dependency** (or package) | Code written by someone else that the project uses |
+| **Run** | Start the program and see what it does |
+| **Test** | A small program that checks whether part of the main program works |
+| **Bug** | A mistake that makes the program do the wrong thing |
+| **Error message** | What the computer prints when something fails. It usually says where. |
+
+Two points about code matter for everything that follows.
+
+**Code is exact.** A document with a clumsy sentence still communicates. A program with one wrong character may not start at all, or may start and quietly compute the wrong number.
+
+**Code can be checked by running it.** This is the great advantage of software over the writing and research tasks from earlier weeks. You don't have to judge whether the code looks right. You can run it and see what it does.
 
 ## Coding in a chat window, and its limits
 
-You can ask a chat assistant for code, paste it into a file, and run it. For one small script, that works. It breaks down when:
+You can ask a chat assistant for code, paste it into a file, and run it. For one small script, that works. Suppose you ask for a script that totals a column in a CSV file. The model writes twenty lines, you save them, you run them, and you have your total.
 
-- the project has many files that need to change together;
-- you need to run the code to see whether it works;
-- you need to run tests;
-- you need to undo a change that broke something.
+Now suppose the project grows into a budget tracker with a page for entering expenses, a file where they're saved, and a summary chart. The chat approach breaks down:
+
+- **The project has many files that need to change together.** Adding a "category" field touches the entry form, the saved data, and the chart. The chat sees only what you paste, so you paste three files, receive three back, and put each in the right place by hand.
+- **The model can't run the code.** It writes what should work. You run it, get an error, copy the error back, get a fix, paste it in, and run it again. You're the messenger in every round.
+- **The model can't see the real project.** It guesses at file names, what's already installed, and how the rest of the code is written. Its guesses are plausible and sometimes wrong.
+- **There's no undo.** When a pasted change breaks something that worked an hour ago, you have no record of what the working version looked like.
+- **The context fills.** Pasting whole files back and forth uses the context window quickly, and the long conversation degrades as you saw in Week 2.
 
 Copying back and forth between a chat window and an editor becomes the bottleneck, and errors creep in at every copy.
 
 ## The coding assistant in the development environment
 
-A **coding assistant** works inside the development environment. It has access to:
+A **coding assistant** works inside the development environment, on the project itself. It has access to:
 
-- **the repository**: every file in the project;
-- **the terminal**: it can install packages and run programs;
-- **the tests**: it can check whether the code actually works.
+- **The repository**: every file in the project. It can search them, read the ones that matter, and edit several in one step.
+- **The terminal**: it can install packages and run programs.
+- **The tests**: it can check whether the code works.
 
-Because it can run things, it can try a change, see the error, and fix it, in the same tool-use loop you met in week 6.
+You've seen this arrangement before. It is the agent from Week 6, with a project folder as its working folder and with tools for running code. Because it can run things, it can try a change, read the error, and fix it, in the same tool-use loop:
+
+| Step | What the assistant does |
+|---|---|
+| 1 | Reads the files related to your request |
+| 2 | Edits the entry form, the data file, and the chart code |
+| 3 | Runs the program |
+| 4 | Reads the error: the chart expects a field that the old saved data doesn't have |
+| 5 | Fixes the chart code to handle old entries |
+| 6 | Runs the tests, sees them pass, and reports what it changed |
+
+In a chat window, steps 3 to 5 would have been three round trips through you.
+
+| | Chat window | Coding assistant |
+|---|---|---|
+| Sees | What you paste | The whole project |
+| Changes files | You paste them in | It edits them in place |
+| Runs the code | You do, and report back | It does, and reads the result |
+| Checks its work | It can't | It runs the program and the tests |
+| Undo | None | The project's history (next topic) |
+
+## Your role
+
+When an assistant writes the code, your work is the work of the previous three weeks:
+
+- **Specify.** Say what the program should do, for whom, and how you'll know it works. This is the task brief. Next week treats specifications in detail.
+- **Supervise.** Read the plan. Build in small steps. Stop the assistant when it heads the wrong way.
+- **Check.** Run the program yourself and try to break it. Read the summary of what changed. Ask the assistant to explain anything you don't follow.
+
+You don't need to be able to write the code. You do need to know what the program is supposed to do, well enough to tell when it doesn't. And you remain responsible for what you ship: if your budget tracker adds wrongly, "the assistant wrote it" won't help the person relying on the total.
+
+A caution that the lab reflection asks you about: it's easy to accept code you don't understand because it appears to work. Each time you do, you own something you can't fix. Asking "explain what this file does, in plain language" costs one message.
 
 ## Key terms
 
-**Repository**: a project's files plus their history, tracked by Git. **Terminal**: a text interface for running commands.
+**Source code**: the text files of instructions that make up a program. **Repository**: a project's files plus their history, tracked by Git. **Terminal**: a text interface for running commands. **Dependency**: code from someone else that a project relies on. **Coding assistant**: an agent that works in a software project, with access to its files, the terminal, and the tests. **Vibe coding**: building software by describing what you want and accepting the result without reviewing the code.
 
 > **Instructor note: book links.** Coding in a Chat Window; Coding Assistants in the Editor.

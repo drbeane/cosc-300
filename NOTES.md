@@ -108,3 +108,6 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 20. **Lesson review: Week 8 expanded.** (2026-11-13)
    - "Connectors" and "Browser agents and scheduled tasks" and their decks were rewritten longer. "Prompt injection and defenses" gained sections on where injected instructions hide and a worked check of a workflow for the dangerous combination. The midterm lab page was left as it was.
+
+21. **Lesson review: Week 9 expanded.** (2026-11-13)
+   - The three Week 9 topics and their decks were expanded for students with no coding background: plain definitions of project terms, how to read a diff, an example instruction file for a project, and how to compare two coding assistants fairly. The lab page was left as it was.

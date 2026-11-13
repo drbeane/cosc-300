@@ -21,6 +21,38 @@ You **will** learn to:
 
 ---
 
+## Why this is in the course
+
+Small, useful software is within reach of people who don't program.
+
+**Vibe coding**: describe it, accept what comes back.
+
+Fine for a quick personal tool. Not when it has to be correct, keep working, or be trusted by someone else.
+
+---
+
+## A few terms
+
+| Term | Plain meaning |
+|---|---|
+| **Source code** | A program's instructions, as text files |
+| **Repository** | A project folder with its history |
+| **Dependency** | Someone else's code the project uses |
+| **Test** | A small program that checks the main one |
+| **Bug** | A mistake that makes it do the wrong thing |
+
+---
+
+## Two facts about code
+
+**Code is exact.**
+One wrong character and it may not start, or may quietly compute the wrong number.
+
+**Code can be checked by running it.**
+You don't have to judge whether it looks right.
+
+---
+
 ## Coding in a chat window
 
 - Paste code in, copy code out
@@ -30,6 +62,8 @@ You **will** learn to:
   - you need to run it
   - you need to test it
   - you need to undo a change
+
+You become the messenger in every round.
 
 ---
 
@@ -42,3 +76,30 @@ It has access to:
 - **The tests**: did it actually work?
 
 It can try, fail, read the error, and fix.
+
+The week 6 agent, with a project as its folder.
+
+---
+
+## The loop, in a project
+
+1. Reads the related files
+2. Edits three of them
+3. Runs the program
+4. Reads the error
+5. Fixes it
+6. Runs the tests and reports
+
+In a chat, steps 3 to 5 are three round trips through you.
+
+---
+
+## Your role
+
+- **Specify**: what it should do, and how you'll know
+- **Supervise**: read the plan, build in small steps
+- **Check**: run it, try to break it, ask for explanations
+
+You're responsible for what you ship.
+
+<!-- The lab reflection asks what they accepted without understanding. Raise it now. -->

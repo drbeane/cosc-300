@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 8 are done and pushed. **Resume at W09-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
+Last updated 2026-11-13. Weeks 2 to 9 are done and pushed. **Resume at W10-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -51,10 +51,10 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W08-T2 Browser agents and scheduled tasks | expanded | Added how a browser agent works, connector vs browser table, supervising, briefs for unattended runs, silent failures |
 | W08-T3 Prompt injection and defenses | expanded | Added where injections hide, jailbreak vs injection, a worked workflow check, signs of trouble |
 | W08-Lab Midterm project: agent workflow | fine |  |
-| W09-T1 From chat window to coding assistant | to do | |
-| W09-T2 The development environment and Claude Code | to do | |
-| W09-T3 Comparing coding assistants | to do | |
-| W09-Lab First app from a spec | to do | |
+| W09-T1 From chat window to coding assistant | expanded | Added plain definitions of project terms, why chat coding breaks down, the loop in a project, your role |
+| W09-T2 The development environment and Claude Code | expanded | Added reading a diff, small commits table, a project instruction file, a working rhythm |
+| W09-T3 Comparing coding assistants | expanded | Added forms of coding assistant, quality vs cost, how to compare fairly, why comparisons date |
+| W09-Lab First app from a spec | fine |  |
 | W10-T1 Specifications and tests | to do | |
 | W10-T2 Reviewing AI-written code | to do | |
 | W10-T3 Debugging, changing code, and sub-agents | to do | |
