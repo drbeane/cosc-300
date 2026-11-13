@@ -83,3 +83,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 13. **Week 1 intro wording.** (2026-11-13)
    - In "About this course" (W01-T1), "Some weeks involve software" now reads "Some weeks involve developing software". Changed in the draft and in `content/lessons/w01-t1.md`.
+
+14. **All 15 weeks are posted.** (2026-11-13)
+   - Ran `node tools/sync.mjs drafts` with no week numbers, so every lesson and deck for Weeks 2 to 15 is now in `content/`. The site builds 68 lessons and 68 decks.
+   - A review of each topic is under way to expand the thin ones. Its status is tracked in `drafts/Review progress.md`.
