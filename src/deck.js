@@ -29,10 +29,13 @@
     history.replaceState(null, '', '#' + (at + 1));
   }
 
+  // Leaving full screen with F or the button stays in the deck. Leaving it with Esc exits the deck.
+  var staying = false;
   function full() {
-    if (document.fullscreenElement) document.exitFullscreen();
+    if (document.fullscreenElement) { staying = true; document.exitFullscreen(); }
     else document.documentElement.requestFullscreen();
   }
+  function exit() { location.href = document.querySelector('.bar a').href; }
 
   document.getElementById('prev').onclick = function () { show(at - 1); };
   document.getElementById('next').onclick = function () { show(at + 1); };
@@ -45,11 +48,14 @@
     else if (k === 'Home') show(0);
     else if (k === 'End') show(slides.length - 1);
     else if (k === 'f' || k === 'F') full();
-    // In full screen the browser uses Esc to leave full screen, so this runs only outside it.
-    else if (k === 'Escape' && !document.fullscreenElement) location.href = document.querySelector('.bar a').href;
+    else if (k === 'Escape') exit();
   });
   window.addEventListener('resize', fit);
-  document.addEventListener('fullscreenchange', fit);
+  // In full screen the browser handles Esc itself and sends no key press, so watch for full screen ending.
+  document.addEventListener('fullscreenchange', function () {
+    if (document.fullscreenElement) return fit();
+    if (staying) { staying = false; fit(); } else exit();
+  });
 
   fit();
   show((parseInt(location.hash.slice(1), 10) || 1) - 1);
