@@ -2,9 +2,21 @@
 
 **COSC-300/500 Applied AI Essentials** · 4D focus: Delegation
 
+> **Instructor note: preparation.** The steps and setting names below were checked against Anthropic's and OpenAI's help pages on 2026-11-13. Both companies rename and move these settings, so recheck the two pages linked in this lesson the week you teach, and walk through the settings live on the projector. Don't recite retention periods from memory; show the vendor's page.
+
 ## What you will be able to do
 
 - Find and set the privacy controls in the tools you use.
+- Turn off model training in Claude and ChatGPT, and say what that does and does not cover.
+- Decide what should never go into an AI tool.
+
+## Why the settings matter
+
+When you type into a chat assistant, your words go to the company that runs it. The company stores them, and on a personal account it may also use them to train later models. Text that has been used in training can't be pulled back out, so the time to set this up is before you use a tool for real work.
+
+The defaults are set by the company, and they favor sharing. On personal Claude and ChatGPT accounts, you have to turn training off yourself.
+
+## Four things to check
 
 Before you use these tools for real work, check four settings in each:
 
@@ -12,6 +24,71 @@ Before you use these tools for real work, check four settings in each:
 - **Memory.** Some tools remember facts about you across chats. Look at what's been saved and learn how to delete it.
 - **Chat history.** How long conversations are kept, and how to delete them.
 - **Consumer versus institutional accounts.** Your personal account and your Maryville account can have different terms. Know which one you're using.
+
+## Turn off training in Claude
+
+This applies to personal accounts: Claude Free, Pro, and Max, including Claude Code when you use it with one of those accounts.
+
+1. Select your name to open the menu.
+2. Select **Settings**.
+3. Select **Privacy**.
+4. Turn off **Help Improve our AI models**.
+
+The steps are the same in the browser, the desktop app, and the mobile app. The setting belongs to your account, so you only change it once.
+
+With the setting off, Anthropic says it won't use your past or new chats and coding sessions to train future models. Anthropic's instructions are on its page [How do I change my model improvement privacy settings?](https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings)
+
+## Turn off training in ChatGPT
+
+This applies to personal accounts: ChatGPT Free, Plus, and Pro, where sharing is on by default.
+
+In a browser:
+
+1. Open your account menu.
+2. Select **Settings**.
+3. Select **Data controls**.
+4. Select **Improve the model for everyone**, turn it off, and select **Done**.
+
+On a phone:
+
+1. Open the sidebar.
+2. Select your profile icon to open Settings.
+3. Select **Data controls**.
+4. Turn off **Improve the model for everyone**.
+
+When you're signed in, the setting applies to your account on every device. If you use ChatGPT without signing in, the choice is saved only in that browser, so you have to set it again in each browser you use.
+
+Two parts of ChatGPT have their own training controls that this setting does not change: voice mode and the Codex coding agent. OpenAI's instructions are on its page [Data controls in ChatGPT](https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt).
+
+## What opting out does not do
+
+Turning training off is worth doing, but it is a narrow setting. In both tools:
+
+- **Your chats are still stored.** They stay in your history and on the company's servers until you delete them. Opting out of training does not delete anything.
+- **Past training is not undone.** Chats that were already used to train a model stay in that model.
+- **Feedback can opt a chat back in.** If you select thumbs up or thumbs down on a response, the company may use that whole conversation for training, even with the setting off.
+- **Safety review still happens.** Conversations flagged by safety systems may be kept longer and used to improve those systems.
+
+So the setting changes what a company does with your text later. It does not make the text private. The rule in "What never to paste" below still applies with training turned off.
+
+## Chats that leave no history
+
+Both tools offer a mode for a single conversation you don't want kept:
+
+- **Claude: Incognito chat.** It is not saved to your history and is not used for training, whatever your training setting is.
+- **ChatGPT: Temporary chat.** It does not appear in your history, does not create memories, and is not used for training. OpenAI may keep it for up to 30 days for safety purposes. If you save a temporary chat, it becomes a regular chat and follows your account settings.
+
+These modes are useful for a one-off question. They don't suit work you need to come back to, since the conversation is gone afterward.
+
+## Delete what you don't need
+
+Deleting a chat removes it from your history right away. Both companies say they then remove it from their own storage within about 30 days, with exceptions for legal and safety reasons. Clearing out old chats that contain personal details is a reasonable habit, and both tools let you export your data first if you want a copy.
+
+## Personal versus institutional accounts
+
+The settings above are for personal accounts. Accounts provided by an employer or a university work differently. On business, enterprise, and education plans, both Anthropic and OpenAI say they don't train on your content by default, and the organization, not you, controls how long data is kept and who can see it. That is usually better for confidentiality, and it also means an administrator may be able to review what you do.
+
+Before you paste anything, know which account you're signed in to. A personal account and a Maryville account can sit side by side in the same browser.
 
 ## What never to paste
 
@@ -22,4 +99,8 @@ Before you use these tools for real work, check four settings in each:
 
 When in doubt, leave it out.
 
-> **Instructor note.** Walk through the settings live on the projector. Don't overstate the rules for any vendor; point students to each vendor's current settings page rather than reciting retention periods that may change.
+> **Instructor note.** Have students change the two training settings on their own accounts during class, then show their neighbor the setting turned off. Students who use ChatGPT signed out need to see that the choice does not follow them between browsers. Don't overstate the rules for any vendor; point students to each vendor's current settings page rather than reciting retention periods that may change.
+
+## Key terms
+
+**Model training**: using stored conversations to improve a later version of a model. **Opt out**: to turn off a setting that is on by default, such as training on your chats. **Incognito chat / temporary chat**: a conversation that is not saved to your history and is not used for training.
