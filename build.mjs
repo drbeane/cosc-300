@@ -243,6 +243,21 @@ ${items}
   });
 }
 
+// A demo is a fragment (its own style, markup and script) placed inside the site page, under the
+// demo's name. Its styles are scoped to ".dx", and it takes the color of its first week's stage.
+function demoPage(d, fragment) {
+  const wk = course.weeks.find((w) => w.n === d.weeks[0]);
+  const weeks = `Week${d.weeks.length > 1 ? 's' : ''} ${d.weeks.join(' and ')}`;
+  return page({
+    title: d.name,
+    section: 'demos',
+    body: `<div class="head dhead s${wk.stage}"><p class="wk"><a href="/demos/">Demos</a> / ${weeks}</p><h1>${esc(d.name)}</h1></div>
+<div class="dx s${wk.stage}">
+${fragment}
+</div>`,
+  });
+}
+
 // ---------- Resources ----------
 function resources() {
   const { html, toc } = render(read('content/resources.md'));
@@ -308,7 +323,7 @@ for (const s of items) {
 }
 for (const d of course.demos) {
   const src = `content/demos/${d.slug}.html`;
-  if (has(src)) write(`demos/${d.slug}/index.html`, read(src));
+  if (has(src)) write(`demos/${d.slug}/index.html`, demoPage(d, read(src)));
 }
 write('404.html', page({ title: 'Page not found', body: '<div class="head"><h1>Page not found</h1><p>That page is not on this site. Start again from the <a href="/">course map</a>.</p></div>' }));
 console.log(`Built ${items.filter((s) => s.lesson).length} lessons and ${items.filter((s) => s.slides).length} decks.`);

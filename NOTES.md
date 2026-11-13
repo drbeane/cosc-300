@@ -74,3 +74,9 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 11. **Five demos are posted.** (2026-11-13)
    - Added `content/demos/` with Next-token sampler, Context window budget, Prompt injection sandbox, Tool-use tracer, and Retrieval and evaluation explorer. They were already listed in `content/course.json`, so the Demos page now links to each one.
    - Each demo is one self-contained HTML file, copied from the Claude artifacts of the same names. The page font was changed from Bricolage Grotesque and IBM Plex Sans to Figtree to match the site. Code text still uses IBM Plex Mono.
+
+12. **Demos run inside the site.** (2026-11-13)
+   - Each demo page now has the top navigation, a "Demos / Week N" line, and the demo's name as the page heading, in the color of its first week's stage.
+   - The files in `content/demos/` are fragments (a `<style>`, markup and a `<script>`), not full pages. `build.mjs` places each one inside the site page (`demoPage`). Their styles are scoped under `.dx`, so they don't affect the site and the site's styles don't affect them.
+   - Demos use the site's colors, Figtree, and the stage color for buttons, highlights and the panel edge. The dark-mode styles from the artifacts were removed, since the site has none.
+   - To change a demo, edit its file in `content/demos/`. Keep new class names from matching site classes such as `.step`, `.foot`, `.top` and `.head`.

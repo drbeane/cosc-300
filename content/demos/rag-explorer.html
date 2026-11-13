@@ -1,97 +1,92 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>RAG Retrieval Lab</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;750&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: retrieval settings and question on the left, ranked chunks and the model's prompt on the right, then the chunked corpus and a live evaluation with a settings heatmap. */
-:root{
-  --bg:#f3f5f8; --panel:#ffffff; --ink:#14202e; --muted:#5a6878; --line:#d8dee6; --code:#f6f8fb;
-  --accent:#2747d6; --accent-soft:#e3e8fc; --mark:#fff0b3; --chunkA:#e8edf9; --chunkB:#f6efe0;
+.dx{
+  --code:#f6f8fb;
+  --mark:#fff0b3; --chunkA:#e8edf9; --chunkB:#f6efe0;
   --ok:#17804a; --ok-soft:#e1f3e8; --est:#a86400; --est-soft:#fbefd9; --bad:#c22f2f; --bad-soft:#fbe2e2;
-  --f-display:"Figtree","Segoe UI",system-ui,sans-serif; --f-body:"Figtree","Segoe UI",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --f-display:var(--display); --f-body:var(--display); --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544; --code:#121820;
-  --accent:#7d97ff; --accent-soft:#232f57; --mark:#5a4a12; --chunkA:#1e2840; --chunkB:#30281a;
-  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f141b; --panel:#171e28; --ink:#e6ebf2; --muted:#94a1b2; --line:#2b3544; --code:#121820;
-  --accent:#7d97ff; --accent-soft:#232f57; --mark:#5a4a12; --chunkA:#1e2840; --chunkB:#30281a;
-  --ok:#5fd394; --ok-soft:#16352a; --est:#f0b45a; --est-soft:#3a2c14; --bad:#ff7d7d; --bad-soft:#3d1c1f; color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
-.wrap{max-width:1180px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
-header{display:grid;gap:6px}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-h1{font-family:var(--f-display);font-weight:750;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;text-wrap:balance}
-h2{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0;text-wrap:balance}
-h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
-.lede{margin:0;max-width:70ch;color:var(--muted)}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0;align-content:start}
-.grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:20px;align-items:start}
-@media (max-width:860px){.grid{grid-template-columns:1fr}}
-.group{display:grid;gap:6px}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-button,select,input{font:inherit;font-size:14px}
-button{font-weight:500;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;cursor:pointer}
-button:hover{border-color:var(--accent)}
-button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
-.seg button{border:0;border-radius:0;border-right:1px solid var(--line)}
-.seg button:last-child{border-right:0}
-.seg button[aria-pressed=true]{background:var(--accent-soft);color:var(--accent);font-weight:600}
-.ctl label{display:flex;justify-content:space-between;font-weight:600;font-size:14px}
-.ctl output{font-family:var(--f-mono);color:var(--accent)}
-.ctl small{color:var(--muted);font-size:12.5px}
-input[type=range]{width:100%;accent-color:var(--accent)}
-select,input[type=text]{border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);padding:7px 9px;width:100%}
-.verdict{border-radius:9px;padding:11px 14px;font-size:14px}
-.verdict b{display:block;font-family:var(--f-display);font-size:18px}
-.verdict.ok{background:var(--ok-soft);color:var(--ok)}.verdict.bad{background:var(--bad-soft);color:var(--bad)}.verdict.info{background:var(--accent-soft);color:var(--accent)}
-.hits{display:grid;gap:8px}
-.hit{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:6px}
-.hit.gold{border-color:var(--ok);box-shadow:inset 3px 0 0 var(--ok)}
-.hit .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-.hit .top b{color:var(--ink);font-family:var(--f-mono);font-weight:500}
-.hit p{margin:0;font-size:14px}
-.scorebar{height:5px;background:var(--bg);border-radius:3px;overflow:hidden}
-.scorebar i{display:block;height:100%;background:var(--accent)}
-mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
-.pill{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:1px 9px;white-space:nowrap}
-.pill.ok{background:var(--ok-soft);color:var(--ok)}.pill.bad{background:var(--bad-soft);color:var(--bad)}
-pre{margin:0;font-family:var(--f-mono);font-size:12.5px;line-height:1.55;background:var(--code);border:1px solid var(--line);border-radius:7px;padding:10px 12px;overflow-x:auto;white-space:pre-wrap}
-.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
-.doc{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:6px;font-size:13.5px}
-.doc b{font-family:var(--f-mono);font-size:12.5px;font-weight:500}
-.ch{border-radius:3px;padding:1px 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.ch.a{background:var(--chunkA)}.ch.b{background:var(--chunkB)}
-.ch.ret{outline:2px solid var(--accent)}
-.stats{display:flex;flex-wrap:wrap;gap:28px;align-items:end}
-.stat b{display:block;font-family:var(--f-display);font-size:30px;font-weight:750;font-variant-numeric:tabular-nums}
-.stat span{color:var(--muted);font-size:13px}
-.tablewrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:14px}
-th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
-td.c{text-align:center}
-tr.sel td{background:var(--accent-soft)}
-tbody tr{cursor:pointer}
-.heat{border-collapse:separate;border-spacing:3px;width:auto}
-.heat td,.heat th{border:0;text-align:center;padding:0}
-.heat th{padding:2px 6px;font-size:11.5px}
-.heat td{width:56px;height:34px;border-radius:5px;font-family:var(--f-mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
-.heat td.cur{outline:2px solid var(--ink)}
-.notice ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:78ch}
-.foot{font-size:12.5px;color:var(--muted);max-width:80ch;margin:0}
-.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
-@media (max-width:860px){.two{grid-template-columns:1fr}}
-</style>
+.dx{color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.dx .wrap{display:grid;gap:20px}
+.dx header{display:grid;gap:6px}
+.dx .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dx h1{font-family:var(--f-display);font-weight:750;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+.dx h2{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0;text-wrap:balance}
+.dx h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
+.dx .lede{margin:0;max-width:70ch;color:var(--muted)}
+.dx .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0;align-content:start}
+.dx .grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media (max-width:860px){.dx .grid{grid-template-columns:1fr}
+}
+.dx .group{display:grid;gap:6px}
+.dx .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dx button,.dx select,.dx input{font:inherit;font-size:14px}
+.dx button{font-weight:500;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;cursor:pointer}
+.dx button:hover{border-color:var(--accent)}
+.dx button:focus-visible,.dx input:focus-visible,.dx select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dx .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.dx .seg button{border:0;border-radius:0;border-right:1px solid var(--line)}
+.dx .seg button:last-child{border-right:0}
+.dx .seg button[aria-pressed=true]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.dx .ctl label{display:flex;justify-content:space-between;font-weight:600;font-size:14px}
+.dx .ctl output{font-family:var(--f-mono);color:var(--accent)}
+.dx .ctl small{color:var(--muted);font-size:12.5px}
+.dx input[type=range]{width:100%;accent-color:var(--accent)}
+.dx select,.dx input[type=text]{border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);padding:7px 9px;width:100%}
+.dx .verdict{border-radius:9px;padding:11px 14px;font-size:14px}
+.dx .verdict b{display:block;font-family:var(--f-display);font-size:18px}
+.dx .verdict.ok{background:var(--ok-soft);color:var(--ok)}
+.dx .verdict.bad{background:var(--bad-soft);color:var(--bad)}
+.dx .verdict.info{background:var(--accent-soft);color:var(--accent)}
+.dx .hits{display:grid;gap:8px}
+.dx .hit{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:6px}
+.dx .hit.gold{border-color:var(--ok);box-shadow:inset 3px 0 0 var(--ok)}
+.dx .hit .hd{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.dx .hit .hd b{color:var(--ink);font-family:var(--f-mono);font-weight:500}
+.dx .hit p{margin:0;font-size:14px}
+.dx .scorebar{height:5px;background:var(--bg);border-radius:3px;overflow:hidden}
+.dx .scorebar i{display:block;height:100%;background:var(--accent)}
+.dx mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
+.dx .pill{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:1px 9px;white-space:nowrap}
+.dx .pill.ok{background:var(--ok-soft);color:var(--ok)}
+.dx .pill.bad{background:var(--bad-soft);color:var(--bad)}
+.dx pre{margin:0;font-family:var(--f-mono);font-size:12.5px;line-height:1.55;background:var(--code);border:1px solid var(--line);border-radius:7px;padding:10px 12px;overflow-x:auto;white-space:pre-wrap}
+.dx .docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.dx .doc{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:6px;font-size:13.5px}
+.dx .doc b{font-family:var(--f-mono);font-size:12.5px;font-weight:500}
+.dx .ch{border-radius:3px;padding:1px 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dx .ch.a{background:var(--chunkA)}
+.dx .ch.b{background:var(--chunkB)}
+.dx .ch.ret{outline:2px solid var(--accent)}
+.dx .stats{display:flex;flex-wrap:wrap;gap:28px;align-items:end}
+.dx .stat b{display:block;font-family:var(--f-display);font-size:30px;font-weight:750;font-variant-numeric:tabular-nums}
+.dx .stat span{color:var(--muted);font-size:13px}
+.dx .tablewrap{overflow-x:auto}
+.dx table{border-collapse:collapse;width:100%;font-size:14px}
+.dx th,.dx td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.dx th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.dx td.c{text-align:center}
+.dx tr.sel td{background:var(--accent-soft)}
+.dx tbody tr{cursor:pointer}
+.dx .heat{border-collapse:separate;border-spacing:3px;width:auto}
+.dx .heat td,.dx .heat th{border:0;text-align:center;padding:0}
+.dx .heat th{padding:2px 6px;font-size:11.5px}
+.dx .heat td{width:56px;height:34px;border-radius:5px;font-family:var(--f-mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.dx .heat td.cur{outline:2px solid var(--ink)}
+.dx .notice ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:78ch}
+.dx .fine{font-size:12.5px;color:var(--muted);max-width:80ch;margin:0}
+.dx .two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.dx .two{grid-template-columns:1fr}
+}
 
+.dx{--bg:var(--wash);--line:var(--rule);--panel:var(--paper);--accent:var(--c);--accent-soft:color-mix(in srgb,var(--c) 11%,#fff)}
+.dx [hidden]{display:none!important}
+.dx .panel{border-radius:6px;border-left:4px solid var(--c)}
+.dx .lede{font:400 1.15rem/1.5 var(--text);color:var(--ink);max-width:52rem}
+.dx header{margin-bottom:0.5rem}
+</style>
 <div class="wrap">
   <header>
-    <div class="eyebrow">COSC-300/500 · Week 12 · Retrieval and evaluation</div>
-    <h1>RAG Retrieval Lab</h1>
     <p class="lede">A RAG system splits documents into chunks, finds the chunks that best match the question, and gives only those to the model. If the right chunk isn't retrieved, even a good model can't answer correctly. Change the settings and see which questions get the right material.</p>
   </header>
 
@@ -114,7 +109,7 @@ tbody tr{cursor:pointer}
       <div class="group">
         <h3>Search</h3>
         <div class="seg" id="segMode"><button data-v="kw">Keyword</button><button data-v="syn">Keyword + meaning</button></div>
-        <small class="foot">"Keyword + meaning" adds related words (miss → absence, ChatGPT → AI). It stands in for embedding search, which matches meaning rather than exact words.</small>
+        <small class="fine">"Keyword + meaning" adds related words (miss → absence, ChatGPT → AI). It stands in for embedding search, which matches meaning rather than exact words.</small>
       </div>
       <div class="group">
         <h3>Question</h3>
@@ -136,7 +131,7 @@ tbody tr{cursor:pointer}
 
   <section class="panel" aria-labelledby="h-corpus">
     <h2 id="h-corpus">The documents, split into chunks</h2>
-    <p class="foot">Shading alternates between chunks. Outlined chunks were retrieved for the current question. With overlap on, boundaries are shown for the non-overlapping part.</p>
+    <p class="fine">Shading alternates between chunks. Outlined chunks were retrieved for the current question. With overlap on, boundaries are shown for the non-overlapping part.</p>
     <div class="docs" id="docs"></div>
   </section>
 
@@ -148,10 +143,10 @@ tbody tr{cursor:pointer}
       <div class="group">
         <h3>Hit rate across settings</h3>
         <div class="tablewrap"><table class="heat" id="heat"></table></div>
-        <p class="foot">Rows are chunk size, columns are top-k, for the current search mode and overlap. The outlined cell is your current setting. Bigger chunks and more of them raise the hit rate, but they also send the model more text to read.</p>
+        <p class="fine">Rows are chunk size, columns are top-k, for the current search mode and overlap. The outlined cell is your current setting. Bigger chunks and more of them raise the hit rate, but they also send the model more text to read.</p>
       </div>
     </div>
-    <p class="foot">This is code-based grading: a question passes when every expected phrase appears in the retrieved text. It checks retrieval only. It can't tell whether the model's final answer is good; that needs a human or a model grader.</p>
+    <p class="fine">This is code-based grading: a question passes when every expected phrase appears in the retrieved text. It checks retrieval only. It can't tell whether the model's final answer is good; that needs a human or a model grader.</p>
   </section>
 
   <section class="panel notice" aria-labelledby="h-notice">
@@ -162,10 +157,9 @@ tbody tr{cursor:pointer}
       <li>The question about the capstone's weight and final presentation needs two chunks. Small top-k fails questions that need facts from several places.</li>
       <li>Write the test set first, then tune. A setting that fixes your favorite question may lower the overall hit rate.</li>
     </ol>
-    <p class="foot">The documents are a made-up sample course handbook, not real Maryville policy. Search is a simple TF-IDF score computed in your browser.</p>
+    <p class="fine">The documents are a made-up sample course handbook, not real Maryville policy. Search is a simple TF-IDF score computed in your browser.</p>
   </section>
 </div>
-
 <script>
 const DOCS = [
   {name:"late-work.md", text:"Assignments are due at 11:59 pm Central on the listed date. Late submissions lose 10 percent per day. After three days, late submissions receive a zero. The lowest weekly assignment score is dropped. Extensions require an email to the instructor before the deadline."},
@@ -262,7 +256,7 @@ function render(){
 
   $("hits").innerHTML = hits.map((h,r) => {
     const gold = expect && expect.some(e => h.c.text.toLowerCase().includes(e.toLowerCase()));
-    return `<div class="hit ${gold?"gold":""}"><div class="top"><span><b>[${r+1}] ${h.c.doc}</b> · sentences ${h.c.start+1}–${h.c.start + sentences(h.c.text).length}</span><span>score ${h.score.toFixed(2)}${gold?' · <span class="pill ok">has the answer</span>':""}</span></div>
+    return `<div class="hit ${gold?"gold":""}"><div class="hd"><span><b>[${r+1}] ${h.c.doc}</b> · sentences ${h.c.start+1}–${h.c.start + sentences(h.c.text).length}</span><span>score ${h.score.toFixed(2)}${gold?' · <span class="pill ok">has the answer</span>':""}</span></div>
       <div class="scorebar"><i style="width:${(h.score/max*100).toFixed(0)}%"></i></div><p>${highlight(h.c.text, qt)}</p></div>`;
   }).join("");
 
@@ -309,5 +303,3 @@ $("segOverlap").querySelectorAll("button").forEach(b => b.onclick = () => { S.ov
 $("segMode").querySelectorAll("button").forEach(b => b.onclick = () => { S.mode = b.dataset.v; render(); });
 render();
 </script>
-
-</body></html>
