@@ -1,4 +1,4 @@
-// Slide deck controls: arrow keys, buttons, F for full screen, and a #n link to each slide.
+// Slide deck controls: arrow keys, buttons, F for full screen, Esc to go back to the slides list, and a #n link to each slide.
 (function () {
   var stage = document.getElementById('stage');
   var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
@@ -45,6 +45,8 @@
     else if (k === 'Home') show(0);
     else if (k === 'End') show(slides.length - 1);
     else if (k === 'f' || k === 'F') full();
+    // In full screen the browser uses Esc to leave full screen, so this runs only outside it.
+    else if (k === 'Escape' && !document.fullscreenElement) location.href = document.querySelector('.bar a').href;
   });
   window.addEventListener('resize', fit);
   document.addEventListener('fullscreenchange', fit);

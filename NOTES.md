@@ -40,3 +40,8 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - Terms are listed alphabetically, and each links to the lesson that introduces it. A term that appears in more than one lesson keeps its first definition and links to each lesson.
    - The glossary grows as lessons are posted. With Week 1 posted it has 10 terms.
    - The top navigation now wraps on narrow screens so five items fit.
+
+7. **Esc exits a slide deck.** (2026-11-13)
+   - Pressing Esc while viewing a deck returns to the Slides page, at that deck's week.
+   - In full screen, the browser uses Esc to leave full screen, so the first press leaves full screen and the second leaves the deck.
+   - The intro text on the Slides page mentions the key.

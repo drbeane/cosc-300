@@ -116,7 +116,7 @@ function index(kind) {
     body: `<div class="head"><h1>${isLessons ? 'Lessons' : 'Slides'}</h1>
 <p>${isLessons
       ? 'The full text for each class session, two per week. Read it before class or use it to review afterward.'
-      : 'The decks presented in class, one per session. Use the arrow keys to move through a deck and press F for full screen.'}</p></div>
+      : 'The decks presented in class, one per session. Use the arrow keys to move through a deck press F for full screen, and press Esc to come back to this page.'}</p></div>
 <div class="weeks">
 ${blocks}
 </div>`,
