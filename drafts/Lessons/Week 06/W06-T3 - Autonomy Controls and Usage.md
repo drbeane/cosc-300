@@ -1,0 +1,54 @@
+# Week 6: Autonomy Controls and Usage
+
+**COSC-300/500 Applied AI Essentials** · 4D focus: Delegation
+
+> **Instructor note: preparation.** Before class, check which permission and approval options the current Cowork interface exposes, and how to see a task's usage (Settings > Usage, or the "Explain usage" skill if available). Have the standard practice folders for each assignment option ready to distribute. Timing: 15 min autonomy controls and usage, 50 min lab, 10 min share-out.
+
+## What you will be able to do
+
+- Review an agent's plan before it runs, and change it.
+- Set what an agent may do without asking, and recognize irreversible actions.
+- Interrupt and redirect an agent, and recover from a wrong turn.
+- Read what a task cost in usage.
+
+## Autonomy controls
+
+Supervising an agent comes down to one question: **how much may it do without asking you?** Agent tools offer a range of answers:
+
+- **Plan first.** The agent researches and proposes a plan. Nothing changes until you approve it.
+- **Ask each time.** You approve every action as it comes up.
+- **Auto-accept edits.** The agent makes changes without asking; you review afterward.
+- **More autonomy.** Fewer checks still, for trusted tasks in safe settings.
+
+There's no single right setting. A new kind of task on important files deserves a plan and frequent approvals. A routine task on a scratch folder can run with more autonomy. As your trust in a particular task grows, you can loosen the controls.
+
+### Plan before acting
+
+Read an agent's plan the way a manager reads a proposal. Is the goal right? Are the inputs right? Is the order sensible? Is anything missing, or anything included that shouldn't be? **Edit the plan** before approving. This is the cheapest moment to catch a mistake: before anything has changed.
+
+### Irreversible actions
+
+Pause before approving anything that is hard to undo:
+
+- deleting or overwriting files;
+- sending messages or email;
+- spending money;
+- acting outside the folder you gave it.
+
+Keep backups and work on copies. An agent that makes a mistake on a copy has cost you a few minutes.
+
+### Interrupt and redirect
+
+You can stop an agent mid-task. When it heads the wrong way, stop it, say what's wrong and what to do instead, and let it continue. Recovering well is a skill; starting over every time something goes wrong wastes the work that was right.
+
+## Usage and context
+
+Every task uses part of your plan's **usage allowance**. On Claude Pro, usage is measured over a rolling five-hour session and over a week. Large folders and long tasks also fill the agent's **context window**, the same working memory you learned about in week 2.
+
+After a task runs, check what it cost. Over time you'll develop a sense of which tasks are cheap and which are expensive, and how the way you write a brief affects the cost.
+
+> **Instructor note: demo.** Show where usage appears in Cowork, and run "Explain usage" or the equivalent on the earlier demo task. In week 9, students will see the `/context` and `/usage` commands in Claude Code, which show more detail.
+
+## Key terms
+
+**Plan mode**: an agent proposes a plan and makes no changes until it's approved. **Approval**: your permission for a specific action. **Irreversible action**: one that can't easily be undone. **Usage allowance**: how much work your plan allows in a period.

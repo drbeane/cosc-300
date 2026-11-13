@@ -15,13 +15,18 @@ Students will be able to:
 - Claude Academy: one field course by interest: **AI Fluency for small businesses**, **for nonprofits**, **for educators**, or **for creative work**.
 - Bring your capstone draft.
 
-## Session 1 (75 min)
+## Topics
+1. Choosing Tools for an Organization
+2. Data Governance and Local Models
+3. Bias, Reliability, and Accountability
+4. Workforce Effects and AI-Use Policy
+- Lab and assignment: Capstone draft and peer review
+
+## Class time (two 75-minute meetings)
 - 20 min: Choosing tools for an organization. The landscape students have used all term; what an IT office weighs; Copilot in Microsoft 365 as the way most graduates will meet AI at work.
 - 15 min: Data governance. Enterprise vs consumer terms, retention, FERPA and HIPAA examples, admin controls.
 - 10 min: Local models demo: a small open model running on a laptop.
 - 30 min: Bias, reliability, and accountability, using the class failure gallery from week 3.
-
-## Session 2 (75 min)
 - 15 min: Workforce effects and organizational AI policy: what good policies contain.
 - 50 min: Capstone peer review in groups of three, with a structured rubric.
 - 10 min: Presentation logistics.

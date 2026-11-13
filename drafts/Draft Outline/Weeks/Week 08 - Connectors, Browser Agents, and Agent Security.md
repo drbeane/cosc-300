@@ -13,13 +13,17 @@ Students will be able to:
 - Claude Academy: **Introduction to Model Context Protocol** (concept lessons; the build lessons return in week 12).
 - Claude Academy: **Introduction to Claude Cowork**, lessons 9–11 (Claude in Chrome; Microsoft 365; working safely).
 
-## Session 1 (75 min)
+## Topics
+1. Connectors
+2. Browser Agents and Scheduled Tasks
+3. Prompt Injection and Defenses
+- Lab and assignment: Midterm project: agent workflow
+
+## Class time (two 75-minute meetings)
 - 20 min: Connectors. What MCP is, as a user: connecting calendar, mail, storage, or a course tool. Read vs write permissions.
 - 15 min: Browser and computer-use agents. Demo of a form-filling or research task; common failures.
 - 10 min: Background and scheduled tasks. Handing off work, scheduling, reviewing results.
 - 30 min: Midterm project workshop: plan and get approval.
-
-## Session 2 (75 min)
 - 30 min: Agent security. Prompt injection with a live (safe) demo: a web page or document with hidden instructions. Untrusted input, tool permissions, least privilege, and why the plan review from week 6 matters.
 - 35 min: Midterm project lab.
 - 10 min: Checklist for the risk note.

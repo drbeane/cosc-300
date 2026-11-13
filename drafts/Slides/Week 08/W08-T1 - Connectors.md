@@ -1,0 +1,42 @@
+---
+marp: true
+title: "Week 8: Connectors"
+paginate: true
+---
+
+# Connectors
+### Week 8
+COSC-300/500 Applied AI Essentials
+
+---
+
+## Connectors
+
+A **connector** lets an agent reach an outside service:
+
+- Calendar, email, cloud storage
+- Course tools, databases, project trackers
+
+Most are built on **MCP**, the Model Context Protocol.
+
+---
+
+## MCP, as a user
+
+- An **open standard** for connecting AI to tools and data
+- One connector works across many AI apps
+- A connector exposes **tools** (actions) and **resources** (data)
+
+We'll build one in week 12.
+
+---
+
+## Read vs write permissions
+
+| Read | Write |
+|---|---|
+| See your calendar | Create events |
+| Read email | **Send** email |
+| List files | Delete files |
+
+**Grant the least you need.**

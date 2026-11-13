@@ -15,12 +15,17 @@ Students will be able to:
 - Claude Academy: **The AI-native SDLC playbook**.
 - Optional: **Introduction to subagents**.
 
-## Session 1 (75 min)
+## Topics
+1. Specifications and Tests
+2. Reviewing AI-Written Code
+3. Debugging, Changing Code, and Sub-Agents
+4. The Capstone Project
+- Lab and assignment: Spec-driven build with tests
+
+## Class time (two 75-minute meetings)
 - 20 min: Specification-driven work. Writing a spec, splitting it into steps, acceptance tests.
 - 20 min: Reviewing AI-written code. Live review of a deliberately flawed change set.
 - 35 min: Lab: start the spec-driven build (the coding test in the Artifacts folder is the model).
-
-## Session 2 (75 min)
 - 10 min: Debugging with an assistant; changing code you did not write.
 - 10 min: Capstone proposal briefing: expectations and examples.
 - 45 min: Lab: continue the build.

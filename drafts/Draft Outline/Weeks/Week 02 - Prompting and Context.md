@@ -13,12 +13,17 @@ Students will be able to:
 - Claude Academy: **AI Fluency: Framework and foundations**, lessons 8–9 (Description; effective prompting techniques).
 - Optional: **AI Fluency for students**.
 
-## Session 1 (75 min)
+## Topics
+1. Writing Strong Prompts
+2. Tokens and the Context Window
+3. Memory, Custom Instructions, and Voice
+4. Testing and Revising Prompts
+- Lab and assignment: Prompt revision log
+
+## Class time (two 75-minute meetings)
 - 25 min: Anatomy of a strong prompt. Clear and direct, specific, structured (headings or XML tags), examples, role and audience. Before-and-after demos.
 - 25 min: Context. Tokens, context windows, what context contains, why long chats degrade, starting fresh.
 - 25 min: Guided practice. Pairs rewrite three weak prompts, then swap and critique.
-
-## Session 2 (75 min)
 - 15 min: Standing context at the account level: memory and custom instructions. What to put there and what not to.
 - 10 min: Voice mode demo: when talking is better than typing.
 - 40 min: Lab. Build a small test set (5 inputs) for a recurring task and run a prompt through three documented revisions.

@@ -1,0 +1,32 @@
+# Week 5: Data Analysis with Code Execution
+
+**COSC-300/500 Applied AI Essentials** · 4D focus: Description
+
+## What you will be able to do
+
+- Have an AI analyze a dataset by running code, and check the analysis as well as the chart.
+
+## Data analysis with code execution
+
+Many chat tools can now **write and run code** on data you upload. You upload a spreadsheet or CSV and ask a question; the model writes a short program, runs it, and reports the result, often with a chart. This is far more reliable than asking a model to do arithmetic in its head, because the computer does the calculation.
+
+But "the code ran" doesn't mean "the analysis is right." The model chose how to clean the data, which rows to drop, how to group categories, and which calculation to run. Any of those choices can be wrong, and the chart will look just as convincing.
+
+The code is visible. **Read it**, or at least ask the model to explain each step in plain language.
+
+> **Instructor note: demo.** Upload your messy dataset. First, ask for a cleaning plan before any analysis, and show students how to approve or change it. Then run the analysis and produce a chart. Then open the code and find the wrong aggregation together. Ask the class: would you have caught this from the chart alone?
+
+### Check the analysis, not just the chart
+
+- Compare **row counts** before and after cleaning. What was dropped, and why?
+- Check **units and categories**. Are "NY" and "New York" being counted separately?
+- **Recompute three numbers yourself**, in a spreadsheet or by hand.
+- Make sure the chart matches the underlying table.
+
+## Responsible use: what may you upload?
+
+Before uploading data, think about whose data it is. Student records are protected by **FERPA**. Data from an employer or client is usually confidential. Personal information about other people deserves the same care. A useful test: if you wouldn't email it to a stranger, don't upload it to a consumer AI tool.
+
+## Key terms
+
+**Code execution**: the model writes and runs a program to answer a question.

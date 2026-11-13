@@ -12,13 +12,20 @@ Students will be able to:
 - Claude Academy: **AI Fluency: Framework and foundations**, lessons 1–5 (introduction, the 4D framework, generative AI fundamentals, capabilities and limitations).
 - Set up accounts: Claude Pro, Maryville Copilot Chat, a free NotebookLM account. Install the Claude desktop app.
 
-## Session 1 (75 min)
+## Topics
+1. About This Course
+2. What a Large Language Model Is
+3. The Surfaces Map
+4. The 4D Framework
+5. Vendors, Models, and Effort
+6. Privacy Settings
+- Lab and assignment: Three-vendor comparison
+
+## Class time (two 75-minute meetings)
 - 10 min: Course overview, the AI-use and disclosure policy, the AI use journal.
 - 35 min: How an LLM works. Next-token prediction, sampling, training in brief, why answers vary. Live demo: same prompt run three times.
 - 20 min: The surfaces map. A tour of all eight surfaces with a 2-minute demo of each that is available, showing where the course will go.
 - 10 min: The 4D framework. Delegation as the first decision: what should you hand to AI at all?
-
-## Session 2 (75 min)
 - 15 min: Vendors and models. Anthropic, OpenAI, Google, Microsoft, Meta, open-weight models. Model tiers and effort or "thinking" settings.
 - 40 min: Lab. One realistic task run on three vendors' chat tools (Claude, Copilot Chat, one free tool) and on two Claude models or effort levels.
 - 10 min: Privacy settings walk-through: training opt-outs, memory, chat history, what not to paste.
@@ -34,7 +41,7 @@ Course AI-use policy; consumer vs institutional accounts; never upload other peo
 
 ## Other resources
 From `03 - Supplementary Resources` (links there):
-- 3Blue1Brown, *Large Language Models explained briefly* (8-min video), before session 1
+- 3Blue1Brown, *Large Language Models explained briefly* (8-min video), before the first class of the week
 - Karpathy, *Intro to Large Language Models* (1-hr video)
 - 500: Karpathy, *Deep Dive into LLMs like ChatGPT*
 

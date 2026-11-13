@@ -1,0 +1,30 @@
+# Week 1: The Surfaces Map
+
+**COSC-300/500 Applied AI Essentials** · 4D focus: Delegation
+
+## What you will be able to do
+
+- Name the eight surfaces through which AI is delivered and give an example of each.
+
+The same model can behave very differently depending on how you reach it. A **surface** is the way you interact with an AI and, just as important, what it can see and change. A model in a chat window can only see what you paste in. The same model working as an agent on your computer can read every file in a folder, run code, and save its work. The surface often matters more than which model is underneath.
+
+This course uses eight surfaces:
+
+| Surface | What it is | Example |
+|---|---|---|
+| Chat assistant | A conversation in a browser or app | Claude, ChatGPT, Copilot Chat |
+| Embedded copilot | AI inside an application you already use | Copilot in Outlook |
+| Coding assistant | AI inside a development environment, with access to code, terminal, and tests | Claude Code in VS Code |
+| Local agent | AI that works directly on the files and folders on your computer | Claude Cowork |
+| Cloud or background agent | Work you hand off or schedule; it runs while you're away | Scheduled tasks |
+| Browser or computer-use agent | AI that operates a browser: clicks, types, reads pages | Claude in Chrome |
+| Always-on agent | An agent with its own cloud computer that keeps working and checks in | Meta Muse |
+| API and agent platforms | Building your own programs on top of a model | The Claude API |
+
+The course walks this map in order. Weeks 1–5 are mostly chat. Weeks 6–8 cover local agents and the surfaces that build on them. Weeks 9–10 are coding assistants. Weeks 11–12 build small programs on an API. Week 13 is always-on agents. Weeks 14–15 look at organizations and bring everything together in your capstone.
+
+> **Instructor note.** Keep the tour to about two minutes per surface: the goal is a mental map, not instruction. If a surface isn't available to demo, describe it and say which week it arrives. Students often haven't seen a local agent at all; a 30-second glimpse of an agent saving files into a folder makes the rest of the term concrete.
+
+## Key terms
+
+**Surface**: how you reach an AI and what it can see and change.

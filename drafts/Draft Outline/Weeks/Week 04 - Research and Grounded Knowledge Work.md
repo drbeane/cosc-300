@@ -13,12 +13,17 @@ Students will be able to:
 - Claude Academy: **Claude 101** (the lessons on projects and research).
 - Bring 5–10 sources (PDFs, articles) on a topic for your research brief.
 
-## Session 1 (75 min)
+## Topics
+1. AI as a Writing Partner
+2. Projects
+3. Research Agents
+4. Grounded Notebooks and How Tools Find Sources
+- Lab and assignment: Research brief with citation audit
+
+## Class time (two 75-minute meetings)
 - 20 min: Writing and thinking with AI. Drafting, editing, AI as a thought partner, summarizing long documents.
 - 20 min: Projects. Instructions, knowledge files, project memory. Demo: a project for a course you are taking.
 - 35 min: Guided practice. Students build a project for their research topic.
-
-## Session 2 (75 min)
 - 15 min: Research agents. How a multi-step research run works; what the report includes; where it goes wrong.
 - 10 min: Grounded notebooks. NotebookLM and Copilot Notebooks: closed-book answers from your sources. Compare with projects.
 - 10 min: Concept: retrieval and grounding (no building yet; that comes in week 12).

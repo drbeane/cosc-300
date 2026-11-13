@@ -11,10 +11,13 @@ Students will be able to:
 ## Before class
 - Final capstone materials ready; all assigned Claude Academy badges submitted.
 
-## Session 1 (75 min)
-- Capstone presentations: 8 minutes plus 3 for questions. Audience completes a short feedback form for each.
+## Topics
+1. Capstone Presentations
+2. Course Synthesis
+- Lab and assignment: Capstone final
 
-## Session 2 (75 min)
+## Class time (two 75-minute meetings)
+- Capstone presentations: 8 minutes plus 3 for questions. Audience completes a short feedback form for each.
 - 50 min: Remaining presentations.
 - 15 min: Synthesis. Revisit the surfaces map and the 4D framework from week 1. What changed in the tools during the term? How do you keep up?
 - 10 min: Course evaluation.

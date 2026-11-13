@@ -1,5 +1,15 @@
 {
   "framework": null,
   "buildCommand": "node build.mjs",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/lessons/w01-s1", "destination": "/lessons/", "permanent": false },
+    { "source": "/lessons/w01-s1/", "destination": "/lessons/", "permanent": false },
+    { "source": "/lessons/w01-s2", "destination": "/lessons/", "permanent": false },
+    { "source": "/lessons/w01-s2/", "destination": "/lessons/", "permanent": false },
+    { "source": "/slides/w01-s1", "destination": "/slides/", "permanent": false },
+    { "source": "/slides/w01-s1/", "destination": "/slides/", "permanent": false },
+    { "source": "/slides/w01-s2", "destination": "/slides/", "permanent": false },
+    { "source": "/slides/w01-s2/", "destination": "/slides/", "permanent": false }
+  ]
 }

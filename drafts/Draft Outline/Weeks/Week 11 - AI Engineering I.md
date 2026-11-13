@@ -16,13 +16,18 @@ Students will be able to:
 - Claude Academy: **Building with the Claude API**, sections "Accessing Claude with the API" and "Tool use with Claude" (watch; code-along optional).
 - API access through the department's Bedrock account and a local open model (details on hold; see Open decisions in the Course Outline).
 
-## Session 1 (75 min)
+## Topics
+1. From Chat to API
+2. A First API Program and What It Costs
+3. Tool Use
+4. Workflows and Agents
+- Lab and assignment: First API program with tool use
+
+## Class time (two 75-minute meetings)
 - 15 min: From chat to API. What the apps are doing behind the scenes; why companies build on APIs.
 - 20 min: Live build. A first call, a system prompt, temperature, a multi-turn loop, structured JSON output.
 - 10 min: Cost and tokens. Reading usage from a response; estimating a monthly bill.
 - 30 min: Guided practice: each student gets a working first program.
-
-## Session 2 (75 min)
 - 20 min: Tool use. Demo: a model that calls a weather or calculator function; trace the message blocks.
 - 10 min: Workflows vs agents: chaining, routing, parallelization (concept).
 - 35 min: Lab: add a tool to the first program.

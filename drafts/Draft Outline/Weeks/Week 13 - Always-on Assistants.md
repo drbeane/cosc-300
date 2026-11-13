@@ -17,13 +17,17 @@ Students will be able to:
 - Optional: **Introduction to Claude Tag** (a team-based proactive agent, for comparison).
 - Optional: **AI Fluency: Framework and foundations**, lesson 12 (Diligence).
 
-## Session 1 (75 min)
+## Topics
+1. Always-On Agents
+2. Setting Up an Always-On Agent Safely
+3. Always-On Risks and When It Is Worth It
+- Lab and assignment: Always-on agent field test
+
+## Class time (two 75-minute meetings)
 - 15 min: The always-on landscape. Meta Muse (free tier), OpenAI dots (on $100+ plans), OpenClaw (open source, self-hosted), and Claude's scheduled and handed-off tasks for comparison.
 - 20 min: Demo. Muse set up with a throwaway account, one connection, approvals on; a task that runs over several days.
 - 10 min: Settings walk-through: training opt-out, permissions (read vs send), purchase approvals.
 - 30 min: Guided setup (or paired with an instructor account for students who cannot sign up).
-
-## Session 2 (75 min)
 - 20 min: Risks. Prompt injection on an agent that reads your email and the web; vendor data access; mistakes that happen while you are not watching. Meta itself says injection is unresolved.
 - 10 min: When is an always-on agent worth it? Compare with a scheduled Cowork task for the same job.
 - 35 min: Lab: launch the field-test task.

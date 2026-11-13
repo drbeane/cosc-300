@@ -1,0 +1,44 @@
+---
+marp: true
+title: "Week 14: Choosing Tools for an Organization"
+paginate: true
+---
+
+# Choosing Tools for an Organization
+### Week 14
+COSC-300/500 Applied AI Essentials
+
+---
+
+## You've used the whole landscape
+
+Chat · embedded copilots · local agents · scheduled and browser agents · coding assistants · APIs · always-on agents
+
+Now: **how does an organization choose?**
+
+---
+
+## What an IT office weighs
+
+- **Capability**: what surfaces and features
+- **Cost**: per seat, per task, per token
+- **Usage limits**: will people run out?
+- **Data terms**: training, retention, location
+- **Support and admin**: SSO, controls, audit logs
+
+---
+
+## The limits of benchmarks
+
+- Benchmarks measure **someone else's** task
+- Scores change monthly
+- Vendors pick the benchmarks they win
+- **Your own test set** (week 12) beats a leaderboard
+
+---
+
+## Copilot in Microsoft 365
+
+- How most graduates will **first** meet AI at work
+- Strong where the work already lives: email, documents, meetings
+- What it can do depends heavily on **which license** the organization buys

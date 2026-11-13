@@ -1,21 +1,24 @@
 // Copies course drafts into content/, removing anything meant only for the instructor.
-// Usage: node tools/sync.mjs "<path to COSC-300-500 folder>"
+// Usage: node tools/sync.mjs drafts [week numbers]
+// With week numbers (for example: node tools/sync.mjs drafts 1 2), only those weeks' lessons and slides are copied.
 import fs from 'node:fs';
 import path from 'node:path';
 
 const src = process.argv[2];
 if (!src) { console.error('Give the path to the course folder.'); process.exit(1); }
 const out = path.join(import.meta.dirname, '..', 'content');
+const only = process.argv.slice(3).map(Number);
 
-function sessionFiles(dir) {
+// Topic files are named WNN-TN. Each week's lab and assignment page is WNN-Lab.
+function pageFiles(dir) {
   const found = [];
   if (!fs.existsSync(dir)) return found;
   for (const week of fs.readdirSync(dir)) {
     const wdir = path.join(dir, week);
     if (!fs.statSync(wdir).isDirectory()) continue;
     for (const f of fs.readdirSync(wdir)) {
-      const m = f.match(/^W(\d\d)-S(\d)\b.*\.md$/);
-      if (m) found.push({ id: `w${m[1]}-s${m[2]}`, file: path.join(wdir, f) });
+      const m = f.match(/^W(\d\d)-(T\d+|Lab)\b.*\.md$/);
+      if (m && (!only.length || only.includes(+m[1]))) found.push({ id: `w${m[1]}-${m[2].toLowerCase()}`, file: path.join(wdir, f) });
     }
   }
   return found;
@@ -61,9 +64,9 @@ function cleanResources(md) {
 
 fs.mkdirSync(path.join(out, 'lessons'), { recursive: true });
 fs.mkdirSync(path.join(out, 'slides'), { recursive: true });
-for (const s of sessionFiles(path.join(src, 'Lessons')))
+for (const s of pageFiles(path.join(src, 'Lessons')))
   fs.writeFileSync(path.join(out, 'lessons', s.id + '.md'), stripInstructorNotes(fs.readFileSync(s.file, 'utf8')));
-for (const s of sessionFiles(path.join(src, 'Slides')))
+for (const s of pageFiles(path.join(src, 'Slides')))
   fs.writeFileSync(path.join(out, 'slides', s.id + '.md'), cleanSlides(fs.readFileSync(s.file, 'utf8')));
 const res = path.join(src, 'Draft Outline', '03 - Supplementary Resources.md');
 if (fs.existsSync(res)) fs.writeFileSync(path.join(out, 'resources.md'), cleanResources(fs.readFileSync(res, 'utf8')));

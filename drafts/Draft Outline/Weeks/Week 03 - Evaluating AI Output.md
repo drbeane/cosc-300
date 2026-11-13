@@ -13,12 +13,16 @@ Students will be able to:
 - Claude Academy: **AI Fluency: Framework and foundations**, lessons 10–11 (Discernment; the Description–Discernment loop).
 - Claude Academy: **AI capabilities and limitations** (begin; finish by week 5).
 
-## Session 1 (75 min)
+## Topics
+1. Why AI Output Is Wrong
+2. Verification Habits
+3. Effort, Models, and the Description–Discernment Loop
+- Lab and assignment: Fact-check and failure report
+
+## Class time (two 75-minute meetings)
 - 25 min: Why outputs are wrong. Hallucination, outdated knowledge, arithmetic, reasoning slips, misread instructions, sycophancy. Live examples.
 - 25 min: Verification habits. Source tracing, recomputation, cross-checking with a second model, asking the model to critique itself (and the limits of that).
 - 25 min: Practice. Students get five AI answers, some subtly wrong, and find the problems.
-
-## Session 2 (75 min)
 - 15 min: Does a bigger model or more thinking help? Effort levels and reasoning models on problems where the fast model fails.
 - 50 min: Lab. Students try to make an AI fail in their own field, then document how they detected it.
 - 10 min: Share-out. Build a class "failure gallery".

@@ -17,13 +17,17 @@ Students will be able to:
 - Claude Academy: **AI Fluency: Framework and foundations**, lessons 6–7 (Delegation; project planning and delegation).
 - Make a backup copy of the practice folder you will use.
 
-## Session 1 (75 min)
+## Topics
+1. From Chat to Agent
+2. The Task Brief
+3. Autonomy Controls and Usage
+- Lab and assignment: Folder-scale delegation task
+
+## Class time (two 75-minute meetings)
 - 20 min: From chat to agent. Why an agent can do what chat cannot: it reads, writes, runs, and checks its own work.
 - 15 min: Demo. A messy folder of documents reconciled into a report, with the plan reviewed first.
 - 10 min: Delegation skills. Task briefs, acceptance criteria, how much to specify, when not to delegate.
 - 30 min: Guided practice: each student delegates a small folder task (organize and index a set of files by rules they write).
-
-## Session 2 (75 min)
 - 15 min: Autonomy controls. Plan review, approvals, what the agent may do unasked, irreversible actions. Usage and context: what a task cost.
 - 50 min: Lab: the folder-scale assignment.
 - 10 min: Share-out. Where did the agent go wrong, and how did you notice?

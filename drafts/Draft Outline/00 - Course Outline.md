@@ -28,7 +28,8 @@ Two ideas give the course its shape.
 
 ## Format
 - 15 weeks, two 75-minute sessions a week (TTh 8:00–9:15), 2.5 contact hours a week.
-- Typical week: Session 1 is concept and demonstration, then guided practice. Session 2 is a lab on the week's assignment, then share-out and discussion.
+- Content is organized by topic, not by class meeting: three to six topics a week, plus one lab and assignment page. A meeting covers as many topics as fit.
+- Typical week: concepts and demonstrations with guided practice first, then a lab on the week's assignment, a share-out, and discussion.
 - Every student has the required premium subscription (Claude Pro preferred). Other tools are used where they are the right fit (Copilot Chat, NotebookLM, GitHub Copilot Student, an image generator, Meta Muse).
 
 ## Schedule at a glance

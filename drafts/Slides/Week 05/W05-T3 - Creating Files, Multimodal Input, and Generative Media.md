@@ -1,0 +1,53 @@
+---
+marp: true
+title: "Week 5: Creating Files, Multimodal Input, and Generative Media"
+paginate: true
+---
+
+# Creating Files, Multimodal Input, and Generative Media
+### Week 5
+COSC-300/500 Applied AI Essentials
+
+---
+
+## File and document creation
+
+From chat, you can produce:
+
+- Reports (Word, PDF, Markdown)
+- Spreadsheets
+- Slide decks
+- Diagrams
+- Simple interactive pages
+
+Still your job: check content, numbers, and claims.
+
+---
+
+## Multimodal input
+
+The model can read:
+
+- **Screenshots**: "What's wrong with this error?"
+- **Charts**: "What does this graph claim?"
+- **Scanned PDFs and photos**
+- **Handwritten notes**
+
+Check its reading of numbers and small text.
+
+---
+
+## Generative media
+
+- Image generation, and video in brief
+- **Claude does not generate raster images natively**: this week we use another tool
+- Claude can make SVG, charts, and diagrams as code
+
+---
+
+## Provenance and labeling
+
+- Label AI-generated images as AI-generated
+- **Deepfakes**: realistic fakes of real people
+- **Copyright**: style, training data, ownership of outputs
+- Don't generate images of real people without consent

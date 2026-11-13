@@ -19,13 +19,15 @@ const pad = (n) => String(n).padStart(2, '0');
 const slug = (s) => s.replace(/<[^>]+>/g, '').toLowerCase().replace(/&[a-z]+;/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const stageOf = (wk) => course.stages.find((s) => s.n === wk.stage);
 
-// Every session in order, with what has been posted for it.
-const sessions = course.weeks.flatMap((wk) =>
-  wk.sessions.map((title, i) => {
-    const id = `w${pad(wk.n)}-s${i + 1}`;
-    return { id, wk, n: i + 1, title, lesson: has(`content/lessons/${id}.md`), slides: has(`content/slides/${id}.md`) };
-  })
-);
+// Every topic in order, then each week's lab and assignment page, with what has been posted for it.
+const items = course.weeks.flatMap((wk) => {
+  const make = (key, title, label) => {
+    const id = `w${pad(wk.n)}-${key}`;
+    return { id, wk, title, label, lesson: has(`content/lessons/${id}.md`), slides: has(`content/slides/${id}.md`) };
+  };
+  return [...wk.topics.map((title, i) => make(`t${i + 1}`, title, `Topic ${i + 1}`)), make('lab', wk.assignment, 'Lab')];
+});
+const kicker = (s) => `Week ${s.wk.n}, ${s.label === 'Lab' ? 'lab and assignment' : s.label}`;
 
 const fontLink = (families) => `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?${families}&display=swap" rel="stylesheet">`;
 const FONTS = fontLink('family=Figtree:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700');
@@ -72,7 +74,7 @@ function render(md) {
 }
 
 const tocNav = (toc) =>
-  `<nav class="toc" aria-label="On this page"><p>On this page</p><ol>${toc.map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>`;
+  `<nav class="toc" aria-label="On this page"><p>On this page</p><ol>${toc.map((t) => `<li><a href="#${t.id}">${t.text}</a></li>`).join('')}</ol></nav>`;
 
 // ---------- Home ----------
 function home() {
@@ -99,10 +101,10 @@ ${steps}
 function index(kind) {
   const isLessons = kind === 'lessons';
   const blocks = course.weeks.map((wk) => {
-    const rows = sessions.filter((s) => s.wk === wk).map((s) => {
+    const rows = items.filter((s) => s.wk === wk).map((s) => {
       const posted = isLessons ? s.lesson : s.slides;
       const name = posted ? `<a href="/${kind}/${s.id}/">${esc(s.title)}</a>` : `<span>${esc(s.title)}</span>`;
-      return `<li><span class="sn">Session ${s.n}</span>${name}${posted ? '' : '<span class="soon">Not posted yet</span>'}</li>`;
+      return `<li><span class="sn">${s.label}</span>${name}${posted ? '' : '<span class="soon">Not posted yet</span>'}</li>`;
     }).join('');
     return `<section class="week s${wk.stage}" id="w${pad(wk.n)}">
   <header><p class="wk">Week ${wk.n}</p><h2>${esc(wk.topic)}</h2></header>
@@ -115,8 +117,8 @@ function index(kind) {
     section: kind,
     body: `<div class="head"><h1>${isLessons ? 'Lessons' : 'Slides'}</h1>
 <p>${isLessons
-      ? 'The full text for each class session, two per week. Read it before class or use it to review afterward.'
-      : 'The decks presented in class, one per session. Use the arrow keys to move through a deck press F for full screen, and press Esc to come back to this page.'}</p></div>
+      ? 'The full text for each topic, grouped by week. Each week ends with its lab and assignment. Read a topic before class or use it to review afterward.'
+      : 'The decks presented in class, one per topic. Use the arrow keys to move through a deck press F for full screen, and press Esc to come back to this page.'}</p></div>
 <div class="weeks">
 ${blocks}
 </div>`,
@@ -129,7 +131,7 @@ function lesson(s) {
   let facts = [];
   md = md.replace(/^\*\*COSC-300\/500 Applied AI Essentials\*\* · (.*)\n/, (_, m) => { facts = m.split(' · '); return ''; });
   const { html, toc } = render(md);
-  const posted = sessions.filter((x) => x.lesson);
+  const posted = items.filter((x) => x.lesson);
   const at = posted.indexOf(s);
   const prev = posted[at - 1], next = posted[at + 1];
   const link = (x, label) => x ? `<a href="/lessons/${x.id}/"><span>${label}</span>${esc(x.title)}</a>` : '<span></span>';
@@ -138,7 +140,7 @@ function lesson(s) {
     section: 'lessons',
     body: `<article class="lesson s${s.wk.stage}">
   <header class="lhead">
-    <p class="wk">Week ${s.wk.n}, Session ${s.n}</p>
+    <p class="wk">${kicker(s)}</p>
     <h1>${esc(s.title)}</h1>
     <ul class="facts">${facts.map((f) => `<li>${marked.parseInline(f)}</li>`).join('')}</ul>
     ${s.slides ? `<p><a class="btn" href="/slides/${s.id}/">Open the slides</a></p>` : ''}
@@ -154,7 +156,15 @@ function lesson(s) {
 
 // ---------- One slide deck ----------
 function deck(s) {
-  const slides = read(`content/slides/${s.id}.md`).split(/\n---\n/).map((part) => {
+  // Split on slide breaks, but not on a --- line inside a code block.
+  const parts = [''];
+  let fence = false;
+  for (const line of read(`content/slides/${s.id}.md`).replace(/\r\n/g, '\n').split('\n')) {
+    if (/^```/.test(line)) fence = !fence;
+    if (line === '---' && !fence) parts.push('');
+    else parts[parts.length - 1] += line + '\n';
+  }
+  const slides = parts.map((part) => {
     const html = marked.parse(part.trim());
     return `<section class="slide${/^\s*<h1/.test(html) ? ' lead' : ''}">${html}</section>`;
   }).join('\n');
@@ -229,7 +239,7 @@ function resources() {
 // A term defined in more than one lesson keeps its first definition and links to each lesson.
 function glossaryTerms() {
   const terms = new Map();
-  for (const s of sessions.filter((x) => x.lesson)) {
+  for (const s of items.filter((x) => x.lesson)) {
     const block = read(`content/lessons/${s.id}.md`).replace(/\r\n/g, '\n').match(/^## Key terms\n([\s\S]*?)(?=^## |$(?![\s\S]))/m);
     if (!block) continue;
     for (const [, term, def] of block[1].matchAll(/\*\*(.+?)\*\*:\s*([\s\S]*?)(?=\s*\*\*[^*]+\*\*:|\s*$(?![\s\S]))/g)) {
@@ -244,7 +254,7 @@ function glossaryTerms() {
 function glossary() {
   const terms = glossaryTerms();
   const items = terms.map((t) => {
-    const from = t.from.map((s) => `<a href="/lessons/${s.id}/">Week ${s.wk.n}, Session ${s.n}</a>`).join(', ');
+    const from = t.from.map((s) => `<a href="/lessons/${s.id}/">Week ${s.wk.n}: ${esc(s.title)}</a>`).join(', ');
     const def = marked.parseInline(t.def.replace(/^[a-z]/, (c) => c.toUpperCase()));
     return `<div class="term" id="${slug(t.term)}"><dt>${marked.parseInline(t.term)}</dt><dd>${def} <span class="from">${from}</span></dd></div>`;
   }).join('\n');
@@ -268,7 +278,7 @@ write('slides/index.html', index('slides'));
 write('demos/index.html', demos());
 if (has('content/resources.md')) write('resources/index.html', resources());
 write('glossary/index.html', glossary());
-for (const s of sessions) {
+for (const s of items) {
   if (s.lesson) write(`lessons/${s.id}/index.html`, lesson(s));
   if (s.slides) write(`slides/${s.id}/index.html`, deck(s));
 }
@@ -277,4 +287,4 @@ for (const d of course.demos) {
   if (has(src)) write(`demos/${d.slug}/index.html`, read(src));
 }
 write('404.html', page({ title: 'Page not found', body: '<div class="head"><h1>Page not found</h1><p>That page is not on this site. Start again from the <a href="/">course map</a>.</p></div>' }));
-console.log(`Built ${sessions.filter((s) => s.lesson).length} lessons and ${sessions.filter((s) => s.slides).length} decks.`);
+console.log(`Built ${items.filter((s) => s.lesson).length} lessons and ${items.filter((s) => s.slides).length} decks.`);

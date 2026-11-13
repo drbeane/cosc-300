@@ -15,12 +15,17 @@ Students will be able to:
 - Claude Academy: **Claude 101** (lessons on files and creating content); finish **AI capabilities and limitations**.
 - Optional: **AI Fluency for creative work**.
 
-## Session 1 (75 min)
+## Topics
+1. Structured Files
+2. Data Analysis with Code Execution
+3. Creating Files, Multimodal Input, and Generative Media
+4. AI Inside an Application
+- Lab and assignment: Data-to-deliverable package
+
+## Class time (two 75-minute meetings)
 - 15 min: Structured files. Why Markdown, CSV, JSON, and Mermaid matter (they are also what skills and instruction files are written in, week 7).
 - 25 min: Data analysis with code execution. Demo on a messy dataset; show how to read the code the AI ran and catch a wrong aggregation.
 - 35 min: Guided practice: the first half of the assignment.
-
-## Session 2 (75 min)
 - 15 min: File creation: reports, spreadsheets, slide decks, diagrams. Multimodal input: screenshots, charts, scanned PDFs.
 - 10 min: Embedded copilot: Copilot in Outlook on Maryville accounts. What it does well.
 - 15 min: Generative media: image generation in brief (a tool other than Claude), provenance and labeling, deepfakes, copyright.

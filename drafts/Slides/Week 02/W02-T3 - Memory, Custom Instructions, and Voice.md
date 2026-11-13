@@ -1,0 +1,54 @@
+---
+marp: true
+title: "Week 2: Memory, Custom Instructions, and Voice"
+paginate: true
+---
+
+# Memory, Custom Instructions, and Voice
+### Week 2
+COSC-300/500 Applied AI Essentials
+
+---
+
+## Standing context
+
+Two ways to give the model context **every time**:
+
+- **Custom instructions / preferences**: what you write once about how you want answers
+- **Memory**: what the tool saves about you from past chats
+
+Both quietly enter the context of every chat.
+
+---
+
+## What belongs there
+
+**Good**
+- Your role and field
+- Format preferences ("be brief", "use tables")
+- Recurring constraints
+
+**Not good**
+- One-off task details
+- Anything sensitive you wouldn't want resurfacing
+
+---
+
+## Demo: inspect your memory
+
+1. Open memory settings
+2. Read what's been saved
+3. Edit or delete an item
+4. Turn memory off for a chat
+
+**Responsible use:** know what's stored about you.
+
+---
+
+## Voice mode
+
+- Talk instead of type
+- Good for: thinking out loud, practicing explanations, hands-busy tasks
+- Weaker for: precise instructions, long structured prompts
+
+<!-- Quick live demo: ask Claude to quiz you on this week's terms by voice. -->

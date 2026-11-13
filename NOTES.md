@@ -45,3 +45,16 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - Pressing Esc while viewing a deck returns to the Slides page, at that deck's week.
    - In full screen, the browser uses Esc to leave full screen, so the first press leaves full screen and the second leaves the deck.
    - The intro text on the Slides page mentions the key.
+
+8. **Lessons and slides are organized by topic, not by session.** (2026-11-13)
+   - Each week now has three to six topic pages and one lab and assignment page, in place of two session pages. Week 15 has two topics. A class meeting covers as many topics as fit.
+   - Drafts are named `WNN-TN - Title.md` and `WNN-Lab - Title.md`. Published files are `wNN-tN.md` and `wNN-lab.md`. In `content/course.json`, each week lists `topics` where it used to list `sessions`.
+   - A topic's subtopics are its `##` sections. Topics that were short were combined.
+   - The lab and assignment page holds the week's guided practice, lab, share-out, responsible-use note, assignment, and "Before next week."
+   - Each topic has its own slide deck. The timed "Today" agenda slides, "Next session" slides, and "Part N" divider slides were removed.
+   - The lesson header line now shows only the 4D focus. The surfaces and capabilities for each week are still in the weekly outlines.
+   - "Coming up Thursday" sections were removed, and references to Tuesday, Thursday and Session 1 or 2 were reworded.
+   - Each weekly outline has a Topics list, and its two session plans are merged into one "Class time" list.
+   - `tools/sync.mjs` takes week numbers, so `node tools/sync.mjs drafts 1` publishes only Week 1.
+   - The old Week 1 addresses (`/lessons/w01-s1/` and so on) redirect to the Lessons and Slides pages.
+   - Slide decks no longer break on a `---` line inside a code block.

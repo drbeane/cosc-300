@@ -12,12 +12,16 @@ Students will be able to:
 - Claude Academy: **Building with the Claude API**, sections "Prompt evaluation", "RAG and agentic search", and "Model Context Protocol" (watch; code-along optional).
 - Optional: **Model Context Protocol: Advanced topics** (500).
 
-## Session 1 (75 min)
+## Topics
+1. Retrieval-Augmented Generation
+2. Evaluation
+3. MCP from the Inside
+- Lab and assignment: Mini RAG app or MCP server with an eval
+
+## Class time (two 75-minute meetings)
 - 20 min: RAG from the inside. Why it is used; chunking; search; how citations are attached; why retrieval fails.
 - 15 min: Evaluation. A typical eval workflow, test sets, code grading vs model grading; tie back to weeks 2 and 3.
 - 40 min: Lab: choose a track and start.
-
-## Session 2 (75 min)
 - 15 min: MCP from the inside. Defining a tool and a resource; testing with the inspector; adding it to Claude Code or Cowork.
 - 45 min: Lab.
 - 15 min: Capstone checkpoint: 3-minute status updates.

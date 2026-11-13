@@ -13,12 +13,16 @@ Students will be able to:
 - Claude Academy: **Introduction to agent skills**.
 - Claude Academy: **Introduction to Claude Cowork**, lessons 6–8 (standing context; skills; plugins).
 
-## Session 1 (75 min)
+## Topics
+1. Standing Instructions
+2. Skills
+3. Plugins and Where Skills Work
+- Lab and assignment: Write and test a skill
+
+## Class time (two 75-minute meetings)
 - 20 min: Standing context. Global and project instructions; AGENTS.md as a cross-vendor convention. What belongs in standing instructions vs a single prompt.
 - 20 min: Skills. Anatomy of a skill (description, instructions, supporting files); how an agent decides to use one. Demo: writing a skill live.
 - 35 min: Guided practice: write instructions for the student's working folder from week 6.
-
-## Session 2 (75 min)
 - 10 min: Plugins: bundling skills and connectors to share with a team.
 - 10 min: Skills in chat vs in an agent with a folder: what works, what does not.
 - 45 min: Lab: write a skill for a recurring task, test it on three inputs, revise.
