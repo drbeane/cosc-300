@@ -98,3 +98,6 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 17. **Lesson review: Week 4 expanded.** (2026-11-13)
    - The four Week 4 topics and their decks were rewritten longer. The lab page was left as it was.
+
+18. **Lesson review: Week 5, Structured files expanded.** (2026-11-13)
+   - "Structured files" and its deck were rewritten longer, with a section for each format. The review stopped here; the next topic to review is W05-T2. See `drafts/Review progress.md`.
