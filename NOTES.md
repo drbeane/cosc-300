@@ -21,3 +21,9 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
    - Claude documentation and Claude support center is first.
    - Claude Academy is added as the second entry.
    - This edit was made by hand in `content/resources.md`. Running `tools/sync.mjs` again overwrites it unless the draft in the course folder is changed to match.
+
+4. **Moved the course drafts into this repo.** (2026-11-13)
+   - `Draft Outline/`, `Lessons/` and `Slides/` now live in `drafts/`. Before this, they sat in the Dropbox course folder outside the repo. The repo is now the only copy, and the Dropbox folder holds the clone.
+   - The build reads only `content/`, so `drafts/` is not published on the site. It is readable on GitHub, instructor and speaker notes included.
+   - To sync, run `node tools/sync.mjs drafts`.
+   - When the drafts were moved, the Week 1 lessons matched `content/` exactly and the Week 1 slides differed only in blank lines. `drafts/Draft Outline/03 - Supplementary Resources.md` still has the old resource order from before item 3.

@@ -8,4 +8,5 @@ Course site for COSC 300/500 Applied AI Essentials. Live at https://applied-ai-m
 - `content/resources.md`: the Resources page.
 - `src/`: styles and the slide deck script.
 - `build.mjs`: builds everything into `dist/`. Vercel runs it on every push to `main`.
-- `tools/sync.mjs "<course folder>"`: copies drafts into `content/` and removes instructor notes and speaker notes.
+- `drafts/`: the working drafts (`Draft Outline/`, `Lessons/`, `Slides/`), with instructor notes and speaker notes. The build ignores this folder, so nothing here appears on the site.
+- `tools/sync.mjs drafts`: copies drafts into `content/` and removes instructor notes and speaker notes. It copies every session it finds, which posts all of them on the site, so delete the files you don't want posted before you commit.
