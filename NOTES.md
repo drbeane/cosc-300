@@ -101,3 +101,7 @@ Edits Robbie wants made to the site, in the order he gave them. Mark an item don
 
 18. **Lesson review: Week 5 expanded.** (2026-11-13)
    - The four Week 5 topics and their decks were rewritten longer. "AI inside an application" went from 223 words to a full lesson. The lab page was left as it was.
+
+19. **Lesson review: Weeks 6 and 7 expanded.** (2026-11-13)
+   - Week 6: "The task brief" went from 167 words to a full lesson. "From chat to agent" and "Autonomy controls and usage" gained sections (a trace of the tool-use loop, reviewing the result, approval fatigue).
+   - Week 7: all three topics and their decks were expanded, with a full example instruction file and a section on checking a skill before installing it. The lab pages for both weeks were left as they were, apart from one fixed reference.

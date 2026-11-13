@@ -30,6 +30,17 @@ How much the agent may do **without asking**:
 
 ---
 
+## What to look for in a plan
+
+- A step you **didn't ask for**
+- A **missing** step
+- A wrong **assumption**
+- The wrong **scope**
+
+Ask: what would make me refuse this plan?
+
+---
+
 ## Irreversible actions
 
 Pause and think before approving:
@@ -51,11 +62,34 @@ Pause and think before approving:
 
 ---
 
+## Approval fatigue
+
+Twenty requests in a row → you stop reading and select "yes".
+
+- Let low-risk actions (reading files) through
+- Then **read** the requests you do see
+
+---
+
+## Reviewing the result
+
+"Done" means ready for review.
+
+- Go through your **acceptance criteria**
+- Open the files; compare **counts**
+- Check a **sample** by hand
+- Ask: "What did you not do? What were you unsure about?"
+- Look for **side effects**
+
+---
+
 ## Usage and context
 
 - Every task consumes **usage** from your plan
 - Big folders and long tasks fill the **context window**
 - Check what a task cost after it runs
+- Cost drivers: how much it reads, how many steps, the model, rework
+- A clear brief is the cheapest way to cut usage
 
 > Pro limits reset on a 5-hour session and a weekly window.
 

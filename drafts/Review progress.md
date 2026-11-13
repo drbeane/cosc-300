@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 5 are done and pushed. **Resume at W06-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
+Last updated 2026-11-13. Weeks 2 to 7 are done and pushed. **Resume at W08-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -39,14 +39,14 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W05-T3 Creating files, multimodal input, and generative media | expanded | Added describing a file, where image reading slips, describing an image, deepfakes and bias |
 | W05-T4 AI inside an application | expanded | Was 223 words. Added tasks by app, what it can't see, choice examples, checking before sending |
 | W05-Lab Data-to-deliverable package | fine |  |
-| W06-T1 From chat to agent | to do | |
-| W06-T2 The task brief | to do | |
-| W06-T3 Autonomy controls and usage | to do | |
-| W06-Lab Folder-scale delegation task | to do | |
-| W07-T1 Standing instructions | to do | |
-| W07-T2 Skills | to do | |
-| W07-T3 Plugins and where skills work | to do | |
-| W07-Lab Write and test a skill | to do | |
+| W06-T1 From chat to agent | expanded | Added a step-by-step trace of the loop, how agent mistakes differ, the manager's role |
+| W06-T2 The task brief | expanded | Was 167 words. Added a section per part, checkable criteria, weak and strong briefs, when not to delegate |
+| W06-T3 Autonomy controls and usage | expanded | Added a settings table, what to look for in a plan, approval fatigue, reviewing the result, cost drivers |
+| W06-Lab Folder-scale delegation task | fine | Fixed one reference to the brief's four parts |
+| W07-T1 Standing instructions | expanded | Added a full example instruction file, how to write rules that get followed, testing and revising |
+| W07-T2 Skills | expanded | Added staged loading, good and bad descriptions, writing the steps, skill vs instruction file, testing |
+| W07-T3 Plugins and where skills work | expanded | Added plugin contents, why organizations use them, read before you install, where to run a skill |
+| W07-Lab Write and test a skill | fine |  |
 | W08-T1 Connectors | to do | |
 | W08-T2 Browser agents and scheduled tasks | to do | |
 | W08-T3 Prompt injection and defenses | to do | |

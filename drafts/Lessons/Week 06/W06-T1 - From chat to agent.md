@@ -7,6 +7,8 @@
 ## What you will be able to do
 
 - Explain the difference between a chat and an agent: the model, its tools, and the harness that runs them.
+- Follow an agent's work as a sequence of tool calls.
+- Describe how your role changes when you delegate.
 
 ## From chat to agent
 
@@ -42,11 +44,44 @@ An agent works in a loop:
 
 This loop is what lets an agent check its own work: it can read the file it just wrote, run the code it just changed, or compare its output against the brief. You'll see the loop from the inside in week 11.
 
+### What the loop looks like
+
+Suppose you ask an agent to find conflicting dates in a folder of event documents. Its work might go like this:
+
+| Step | What the model decides | Tool call | What comes back |
+|---|---|---|---|
+| 1 | "I need to see what's here." | List the folder | Nine file names |
+| 2 | "Start with the schedule." | Read `schedule.docx` | The text: the gala is on May 14 |
+| 3 | "Check the invitation against it." | Read `invitation.pdf` | The text: the gala is on May 15 |
+| 4 | "That's a conflict. Keep reading." | Read the next file | … |
+| 5 | "I've read all nine. Write the report." | Write `conflicts.md` | Confirmation that the file was saved |
+| 6 | "Check that the report is complete." | Read `conflicts.md` | The report's text |
+
+You didn't tell it which file to open first or that it should reread its report. The model chose each step from what it had learned so far. Most agent tools show you these steps as they happen, and reading them is the best way to understand what an agent did.
+
+The loop also explains two things you'll notice. Agent tasks **take longer** than chat answers, because each step is a separate round trip to the model. And they **use more of your allowance**, because every file the agent reads goes into its context, and the context is sent again at each step, as you learned in Week 2.
+
+### Agents make mistakes differently
+
+Everything from Week 3 still applies: an agent can misread an instruction or draw a wrong conclusion. Two things are new. A mistake early in the loop carries forward, since the agent builds later steps on it. And mistakes now have effects, because the agent changes files instead of only writing text. That is why the rest of this week is about briefs, plans, approvals, and review.
+
 ## The local agent: Claude Cowork
 
 A **local agent** works directly on the files and folders on your computer. In this course it's **Claude Cowork**, which runs from the Claude desktop app. You choose a folder; Cowork can read, write, and organize files there and produce finished deliverables. It asks before taking actions that need your approval.
 
 > **Instructor note: demo.** Point Cowork at the demo folder with this brief: "Reconcile these documents. Produce a report listing every conflict you find, which documents disagree, and which version seems correct and why. Save it as conflicts.md." Ask for a plan first and read it aloud. Edit one step of the plan, then approve. While it runs, narrate the tool calls. Afterward, check two of its reported conflicts against the documents. If it missed one you planted, even better: that's the review lesson.
+
+## Your new role
+
+When you delegate, the work you do changes from producing to managing:
+
+| Before the task | During | After |
+|---|---|---|
+| Decide whether to delegate | Read the plan | Review the result against your criteria |
+| Write the brief | Give or refuse approvals | Check a sample of the work yourself |
+| Choose the folder and make a backup | Interrupt if it goes wrong | Decide what to fix and what to accept |
+
+These are the four Ds in order. **Delegation** is deciding and briefing. **Description** is the brief. **Discernment** is the review. **Diligence** is taking responsibility for what the agent did, since it worked on your files and under your name.
 
 ## Key terms
 

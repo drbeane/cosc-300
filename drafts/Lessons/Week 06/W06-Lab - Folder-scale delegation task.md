@@ -10,7 +10,7 @@
 
 Delegate a small task on a folder of your own files, or the practice folder provided: organize and index a set of files according to rules you write. For example, "Sort these files into subfolders by course and type. Rename each as `YYYY-MM-DD - Course - Title`. Create an `index.md` listing every file with a one-line description."
 
-- Write the brief using the four parts above.
+- Write the brief using the four parts from "The task brief": goal, inputs, constraints, and acceptance criteria.
 - Ask for a plan, and read it before approving.
 - When it's done, check the index against the folder.
 

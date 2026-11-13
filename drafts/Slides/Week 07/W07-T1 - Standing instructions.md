@@ -31,6 +31,8 @@ You keep typing the same context:
 | Project | One project or folder | "This is my thesis. Cite in APA." |
 | Instruction file | One folder or repository | `AGENTS.md`, `CLAUDE.md` |
 
+All the levels that apply are loaded together. Put each rule at the narrowest level where it's always true.
+
 ---
 
 ## Instruction files
@@ -41,13 +43,60 @@ You keep typing the same context:
 - **AGENTS.md**: a cross-vendor convention read by many coding tools
 - **CLAUDE.md**: Claude Code's own file
 
+<!-- Check whether Cowork currently picks up a CLAUDE.md in the working folder. Don't promise it. -->
+
 ---
 
-## Standing instructions vs one prompt
+## What one looks like
 
-| Standing | One prompt |
+```markdown
+# Coursework folder
+
+## Layout
+- One subfolder per course
+- `inbox/` is where new downloads land
+
+## Conventions
+- File names: `YYYY-MM-DD - Course - Title`
+
+## Rules
+- Never delete a file. Move it to `archive/`.
+- If unsure which course, leave it in `inbox/`.
+```
+
+What this is · conventions · rules
+
+---
+
+## Writing instructions that get followed
+
+- Be **specific**
+- Say **why**, when it isn't obvious
+- Keep it **short**: it's read on every task
+- Leave out what the agent can see for itself
+- Don't shout
+- No secrets
+
+---
+
+## Standing instructions vs one brief
+
+| Standing | One brief |
 |---|---|
 | True every time | True for this task |
 | Folder layout, conventions | Today's goal |
 | Style and format rules | This deliverable's audience |
 | Things never to do | This task's constraints |
+
+Would you want it to apply next week too?
+
+---
+
+## Test and revise
+
+- Add one rule you can **see** working
+- Run a small task and compare
+- Corrected the same thing twice? **Add it to the file**
+- Prune rules that no longer apply
+
+Instructions make a rule likely, not certain. Keep approvals and backups.
