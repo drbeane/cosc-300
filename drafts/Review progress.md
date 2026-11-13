@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 7 are done and pushed. **Resume at W08-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
+Last updated 2026-11-13. Weeks 2 to 8 are done and pushed. **Resume at W09-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -47,10 +47,10 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W07-T2 Skills | expanded | Added staged loading, good and bad descriptions, writing the steps, skill vs instruction file, testing |
 | W07-T3 Plugins and where skills work | expanded | Added plugin contents, why organizations use them, read before you install, where to run a skill |
 | W07-Lab Write and test a skill | fine |  |
-| W08-T1 Connectors | to do | |
-| W08-T2 Browser agents and scheduled tasks | to do | |
-| W08-T3 Prompt injection and defenses | to do | |
-| W08-Lab Midterm project: agent workflow | to do | |
+| W08-T1 Connectors | expanded | Added what MCP standardizes, how tools are chosen, connecting steps, scope, tidying connections |
+| W08-T2 Browser agents and scheduled tasks | expanded | Added how a browser agent works, connector vs browser table, supervising, briefs for unattended runs, silent failures |
+| W08-T3 Prompt injection and defenses | expanded | Added where injections hide, jailbreak vs injection, a worked workflow check, signs of trouble |
+| W08-Lab Midterm project: agent workflow | fine |  |
 | W09-T1 From chat window to coding assistant | to do | |
 | W09-T2 The development environment and Claude Code | to do | |
 | W09-T3 Comparing coding assistants | to do | |
