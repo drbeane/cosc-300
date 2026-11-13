@@ -13,7 +13,7 @@ For each topic, in order:
 Week 1 was already expanded before this review, so it is checked last.
 
 ## Where it stands
-Last updated 2026-11-13. Weeks 2 to 11 are done and pushed. **Resume at W12-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
+Last updated 2026-11-13. Weeks 2 to 12 are done and pushed. **Resume at W13-T1.** The helper `tools/publish.sh "message"` syncs, builds, commits and pushes. Note: the site does not draw Mermaid diagrams, so use tables for flows.
 
 ## Status
 Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (reviewed, no change needed).
@@ -65,10 +65,10 @@ Statuses: **to do**, **expanded** (lesson and deck rewritten longer), **fine** (
 | W11-T3 Tool use | expanded | Added a message-by-message trace, program control and tool errors, good and bad tool descriptions |
 | W11-T4 Workflows and agents | expanded | Was 223 words. Added what agents are from the inside, a pattern per section, choosing the simplest design |
 | W11-Lab First API program with tool use | fine |  |
-| W12-T1 Retrieval-augmented generation | to do | |
-| W12-T2 Evaluation | to do | |
-| W12-T3 MCP from the inside | to do | |
-| W12-Lab Mini RAG app or MCP server with an eval | to do | |
+| W12-T1 Retrieval-augmented generation | expanded | Added indexing vs answering, one question traced end to end, retrieval vs generation failure, when RAG is needed |
+| W12-T2 Evaluation | expanded | Was 210 words. Added a sample test set, three grading methods, a grader rubric, reading failures, cautions |
+| W12-T3 MCP from the inside | expanded | Added host, client and server, a fuller example server, design guidance, which half failed |
+| W12-Lab Mini RAG app or MCP server with an eval | fine |  |
 | W13-T1 Always-on agents | to do | |
 | W13-T2 Setting up an always-on agent safely | to do | |
 | W13-T3 Always-on risks and when it is worth it | to do | |
