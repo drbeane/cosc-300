@@ -18,6 +18,19 @@ The surface often matters more than the model.
 
 ---
 
+## Surface vs interface
+
+- **Interface**: what you look at and operate (message box, buttons, microphone)
+- **Surface**: the interface *plus* what the AI can see and change behind it
+
+Similar interface, different surfaces: a chat and a Cowork task both start with a box you type into.
+
+Different interfaces, same surface: chat in a browser, on a phone, or by voice.
+
+<!-- Ask: which tells you more about how closely to supervise? The surface. -->
+
+---
+
 ## Eight surfaces
 
 | Surface | Example |
